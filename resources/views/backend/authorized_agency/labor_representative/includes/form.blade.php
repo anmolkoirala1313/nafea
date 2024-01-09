@@ -1,7 +1,7 @@
 @if($page_method == 'edit')
     {!! Form::model($data['row'], ['route' => [$base_route.'update',$data['row']->id ], 'method' => 'PUT','class'=>'submit_form','enctype'=>'multipart/form-data']) !!}
 @else
-    {!! Form::open(['route' => $base_route.'proprietor.store', 'method'=>'POST', 'class'=>'submit_form','enctype'=>'multipart/form-data']) !!}
+    {!! Form::open(['route' => $base_route.'labor_representative.store', 'method'=>'POST', 'class'=>'submit_form','enctype'=>'multipart/form-data']) !!}
 @endif
 
 <div class="row">

@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Backend\Agency\LaborRepresentativeController;
+use App\Http\Controllers\Backend\Agency\ProprietorController;
 use App\Http\Controllers\Backend\AlbumController;
-use App\Http\Controllers\Backend\AuthorizedAgencyController;
+use App\Http\Controllers\Backend\Agency\AuthorizedAgencyController;
 use App\Http\Controllers\Backend\Career\Basic_setup\JobCategoryController;
 use App\Http\Controllers\Backend\Career\CompanyCareerController;
 use App\Http\Controllers\Backend\Career\JobController;
@@ -25,7 +27,6 @@ use App\Http\Controllers\Backend\News\BlogCategoryController;
 use App\Http\Controllers\Backend\News\BlogController;
 use App\Http\Controllers\Backend\Page\PageController;
 use App\Http\Controllers\Backend\Page\PageSectionElementController;
-use App\Http\Controllers\Backend\ProprietorController;
 use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\TeamController;
@@ -261,6 +262,12 @@ Route::prefix('authorized-agency/')->name('authorized_agency.')->middleware(['au
     Route::post('/proprietor/trash/{id}/restore', [ProprietorController::class,'restore'])->name('proprietor.restore');
     Route::delete('/proprietor/trash/{id}/remove', [ProprietorController::class,'removeTrash'])->name('proprietor.remove-trash');
     Route::resource('proprietor', ProprietorController::class)->names('proprietor');
+
+   //labor representative
+    Route::get('/labor-representative/trash/{agency_id}', [LaborRepresentativeController::class,'trash'])->name('labor_representative.trash');
+    Route::post('/labor-representative/trash/{id}/restore', [LaborRepresentativeController::class,'restore'])->name('labor_representative.restore');
+    Route::delete('/labor-representative/trash/{id}/remove', [LaborRepresentativeController::class,'removeTrash'])->name('labor_representative.remove-trash');
+    Route::resource('labor-representative', LaborRepresentativeController::class)->names('labor_representative');
 
 
 });

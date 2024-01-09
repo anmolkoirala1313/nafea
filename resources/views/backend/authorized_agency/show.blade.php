@@ -122,29 +122,7 @@
                         </div>
 
                         <div class="tab-pane" id="labor-representative-info" role="tabpanel">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label class="form-label" for="meta-title-input">Meta title</label>
-                                        <input type="text" class="form-control" placeholder="Enter meta title" id="meta-title-input">
-                                    </div>
-                                </div>
-                                <!-- end col -->
-
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label class="form-label" for="meta-keywords-input">Meta Keywords</label>
-                                        <input type="text" class="form-control" placeholder="Enter meta keywords" id="meta-keywords-input">
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                            </div>
-                            <!-- end row -->
-
-                            <div>
-                                <label class="form-label" for="meta-description-input">Meta Description</label>
-                                <textarea class="form-control" id="meta-description-input" placeholder="Enter meta description" rows="3"></textarea>
-                            </div>
+                            @include($view_path.'labor_representative.index')
                         </div>
                         <!-- end tab pane -->
                     </div>
@@ -166,6 +144,17 @@
     @include($module.'includes/gallery')
     @include($view_path.'includes.script')
 
+    <script>
+        let selector =  $('#NormalDataTable2');
+        if(selector.length > 0){
+            dataTable = $(selector).DataTable({
+                paging: true,
+                searching: true,
+                ordering:  true,
+                lengthMenu: [[10, 25, 50, 100, -1], [ 10, 25, 50, 100, "All"]],
+            });
+        }
+    </script>
 
 
 

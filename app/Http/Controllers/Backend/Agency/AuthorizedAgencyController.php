@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\Backend\Agency;
 
+use App\Http\Controllers\Backend\BackendBaseController;
 use App\Http\Requests\Backend\AuthorizedAgencyRequest;
 use App\Models\Backend\AuthorizedAgency;
-use App\Models\Backend\Proprietor;
 use App\Traits\ControllerOps;
 use App\Traits\Order;
 use Illuminate\Contracts\Foundation\Application;

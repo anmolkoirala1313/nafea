@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\Backend\Agency;
 
+use App\Http\Controllers\Backend\BackendBaseController;
 use App\Http\Requests\Backend\ProprietorRequest;
+use App\Models\Backend\AuthorizedAgency;
 use App\Models\Backend\Proprietor;
 use App\Traits\ControllerOps;
 use Illuminate\Http\JsonResponse;
@@ -27,6 +29,14 @@ class ProprietorController extends BackendBaseController
     {
         $this->model            = new Proprietor();
     }
+
+    public function getData(): array
+    {
+        $data['agencies'] = AuthorizedAgency::active()->descending()->pluck('title','id');
+
+        return $data;
+    }
+
 
     /**
      * Store a newly created resource in storage.
