@@ -5,46 +5,41 @@
 @endsection
 @section('content')
 
-    <div class="banner__one swiper banner-slider">
-        <div class="swiper-wrapper">
+    <section class="main-slider">
+        <div class="main-slider__carousel owl-carousel owl-theme thm-owl__carousel"
+             data-owl-options='{"loop": true, "items": 1, "navText": ["<span class=\"icon-left-arrow\"></span>","<span class=\"icon-right-arrow\"></span>"], "margin": 0, "dots": true, "nav": false, "animateOut": "slideOutDown", "animateIn": "fadeIn", "active": true, "smartSpeed": 1000, "autoplay": true, "autoplayTimeout": 7000, "autoplayHoverPause": false}'>
+
             @foreach($data['sliders']  as $index=>$slider)
-                <div class="swiper-slide">
-                    <div class="banner__one-image dark-n" data-background="{{ asset(imagePath($slider->image)) }}"></div>
-                    <div class="banner__one-image light-n" data-background="{{ asset(imagePath($slider->image)) }}"></div>
+                <div class="item main-slider__slide-{{$index+1}}">
+                    <div class="main-slider__bg"
+                         style="background-image: url( {{ asset(imagePath($slider->image)) }});">
+                    </div><!-- /.slider-one__bg -->
+
+{{--                    <div class="main-slider__shape-1 rotate-me">--}}
+{{--                        <img src="{{ asset('assets/frontend/images/shapes/main-slider-shape-1.png') }}" alt="">--}}
+{{--                    </div>--}}
+                    <div class="main-slider__shape-2 float-bob-x">
+                        <img src="{{ asset('assets/frontend/images/shapes/main-slider-shape-2.png') }}" alt="">
+                    </div>
+
                     <div class="container">
-                        <div class="row">
-                            <div class="col-xl-12">
-                                <div class="banner__one-content">
-                                    <span data-animation="fadeInUp" data-delay=".3s">{{ $slider->subtitle ?? '' }}</span>
-                                    <h1 data-animation="fadeInUp" data-delay=".7s">{{ $slider->title ?? '' }}</h1>
-                                    @if($slider->link || $slider->video_link)
-                                        <div class="banner__one-content-button" data-animation="fadeInUp" data-delay="1s">
-                                            @if($slider->link)
-                                                <a class="btn-one" href="{{ $slider->link ?? '#' }}">{{ $slider->link ?? 'Discover More' }}</a>
-                                            @endif
-                                            @if($slider->video_link)
-                                                <div class="banner__one-content-button-video video-pulse">
-                                                    <a class="video-popup" href="{{ $slider->video_link }}"><i class="fas fa-play"></i></a>
-                                                </div>
-                                            @endif
-                                        </div>
-                                    @endif
-                                    <img class="banner__one-shape-four" src="{{ asset('assets/frontend/img/shape/banner-6.png') }}" alt="banner-shape">
+                        <div class="main-slider__content" style="    top: -60px;">
+                            <p class="main-slider__sub-title">{{ $slider->subtitle ?? '' }}</p>
+                            <h2 class="main-slider__title">{{ $slider->title ?? '' }}</h2>
+                            @if($slider->link)
+                                <div class="main-slider__btn-and-video-box">
+                                    <div class="main-slider__btn-box">
+                                        <a href="{{ $slider->link ?? '' }}" class="thm-btn main-slider__btn-{{ $loop->even ? '1':'2'}}">{{ $slider->link ?? 'View More' }}</a>
+                                    </div>
                                 </div>
-                                <img class="banner__one-shape-two" src="{{ asset('assets/frontend/img/shape/banner-5.png') }}"  data-animation="fadeInUpBig" data-delay="2s" alt="banner-shape">
-                                <img class="banner__one-shape-three" src="{{ asset('assets/frontend/img/shape/banner-1.png') }}" data-animation="fadeInRightBig" data-delay="1.5s" alt="banner-shape">
-                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
-        <div class="banner__one-arrow">
-            <div class="banner__one-arrow-prev swiper-button-prev"><i class="fal fa-long-arrow-left"></i></div>
-            <div class="banner__one-arrow-next swiper-button-next"><i class="fal fa-long-arrow-right"></i></div>
-        </div>
-        <img class="banner__one-shape-one lazy" data-src="{{asset('assets/frontend/img/shape/banner-7.png')}}" alt="">
-    </div>
+    </section>
+    <!--Main Sllider Start -->
 
     @if($data['homepage']->mission)
         <section class="feature-two">

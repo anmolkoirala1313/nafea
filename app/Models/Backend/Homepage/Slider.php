@@ -13,6 +13,6 @@ class Slider extends BackendBaseModel
     use HasFactory, SoftDeletes;
 
     protected $table    ='sliders';
-    protected $fillable = ['id','title','subtitle','button','link','image','status','created_by','updated_by'];
+    protected $fillable = ['id','title','subtitle','button','link','video_link','image','status','created_by','updated_by'];
 
 }
