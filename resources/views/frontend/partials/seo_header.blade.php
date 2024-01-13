@@ -8,45 +8,28 @@
 
     <meta name="description" content="{{ucwords(@$setting_data->meta_description ?? '')}}"/>
     <meta name="keywords" content=" {{@$setting_data->meta_tags ?? ''}}">
-    <link rel="canonical" href="https://s.com.np" />
+{{--    <link rel="canonical" href="https://s.com.np" />--}}
 
     @yield('seo')
-
     <link rel="shortcut icon" type="image/x-icon" href="{{ $setting_data->favicon ?  asset(imagePath($setting_data->favicon)) : ''}}">
 
-    <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com/">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/bootstrap.min.css') }}">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/all.css') }}">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/animate.css') }}">
+    <!-- Flaticon -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/font/flaticon.css') }}">
+    <!-- Swiper Bundle CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/swiper-bundle.min.css') }}">
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/magnific-popup.css') }}">
+    <!-- Mean Menu CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/meanmenu.min.css') }}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/frontend/sass/style.css') }}">
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
-        rel="stylesheet">
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="{{ asset('assets/frontend/vendors/bootstrap/css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/frontend/vendors/animate/animate.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/frontend/vendors/animate/custom-animate.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/frontend/vendors/fontawesome/css/all.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/frontend/vendors/jarallax/jarallax.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/frontend/vendors/jquery-magnific-popup/jquery.magnific-popup.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/frontend/vendors/odometer/odometer.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/frontend/vendors/swiper/swiper.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/frontend/vendors/bixola-icons/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/frontend/vendors/owl-carousel/owl.carousel.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/frontend/vendors/owl-carousel/owl.theme.default.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/frontend/vendors/bootstrap-select/css/bootstrap-select.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/frontend/vendors/jquery-ui/jquery-ui.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/frontend/vendors/timepicker/timePicker.css') }}" />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- template styles -->
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/bixola.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/frontend/css/bixola-responsive.css') }}" />
-    <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{@$setting_data->google_analytics}}"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -55,147 +38,258 @@
 
         gtag('config', '{{@$setting_data->google_analytics}}');
     </script>
-
     @yield('css')
     @stack('styles')
 </head>
-<body class="custom-cursor">
-
-<div class="custom-cursor__cursor"></div>
-<div class="custom-cursor__cursor-two"></div>
-
-{{--<div class="preloader">--}}
-{{--    <div class="preloader__image"></div>--}}
-{{--</div>--}}
-<!-- /.preloader -->
-
-
-<div class="page-wrapper">
-    <header class="main-header-three">
-        <div class="main-header-three__top">
-            <div class="container">
-                <div class="main-header-three__top-inner">
-                    <div class="main-header-three__top-left">
-                        <ul class="list-unstyled main-header-three__contact-list">
-                            <li>
-                                <div class="icon">
-                                    <i class="icon-phone"></i>
-                                </div>
-                                <div class="text">
-                                    <p><a href="tel:{{ $setting_data->phone ?? $setting_data->mobile }}">{{ $setting_data->phone ?? $setting_data->mobile }}</a></p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="icon">
-                                    <i class="icon-envelope"></i>
-                                </div>
-                                <div class="text">
-                                    <p><a href="mailto:{{ $setting_data->email ?? '' }}">{{ $setting_data->email ?? '' }}</a></p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="icon">
-                                    <i class="icon-location-1"></i>
-                                </div>
-                                <div class="text">
-                                    <p>{{ $setting_data->address ?? '' }}</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="main-header-three__top-text-and-social">
-                        {{--                        <div class="main-header-three__top-text">--}}
-                        {{--                            <p><span class="icon-three-o-clock-clock"></span> Monday - Friday / 8AM - 11PM</p>--}}
-                        {{--                        </div>--}}
-                        <div class="main-header-three__top-social">
+<body>
+<!-- Preloader Start -->
+<div class="theme-loader">
+    <div class="spinner">
+        <div class="spinner-bounce one"></div>
+        <div class="spinner-bounce two"></div>
+        <div class="spinner-bounce three"></div>
+    </div>
+</div>
+<!-- Preloader End -->
+<!-- Top Bar Area Start -->
+<div class="top__bar-two">
+    <div class="custom__container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="top__bar-two-left lg-t-center">
+                    <ul>
+                        <li><a href="mailto:{{ $setting_data->email ?? '' }}"><i class="fas fa-map-marker-alt"></i>Location : {{ $setting_data->address ?? '' }}</a></li>
+                        <li><a href="mailto:{{ $setting_data->email ?? '' }}"><i class="fas fa-envelope"></i>Email : {{ $setting_data->email ?? '' }}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="top__bar-two-right">
+                    <h6>Follow Us :</h6>
+                    <div class="top__bar-two-right-social">
+                        <ul>
                             @if(@$setting_data->facebook)
-                                <a href="{{$setting_data->facebook}}"><i class="fab fa-facebook"></i></a>
+                                <li><a href="{{$setting_data->facebook}}" target="_blank"><i class="fab fa-facebook-f"></i><span>Facebook</span></a></li>
                             @endif
                             @if(@$setting_data->instagram)
-                                <a href="{{$setting_data->instagram}}"><i class="fab fa-instagram"></i></a>
+                                <li><a href="{{$setting_data->instagram}}" target="_blank"><i class="fab fa-instagram"></i><span>Instagram</span></a></li>
                             @endif
                             @if(@$setting_data->youtube)
-                                <a href="{{$setting_data->youtube}}"><i class="fab fa-youtube"></i></a>
+                                <li><a href="{{$setting_data->youtube}}" target="_blank"><i class="fab fa-youtube"></i><span>Youtube</span></a></li>
                             @endif
                             @if(@$setting_data->linkedin)
-                                <a href="{{$setting_data->linkedin}}"><i class="fab fa-linkedin"></i></a>
+                                <li><a href="{{$setting_data->linkedin}}" target="_blank"><i class="fab fa-linkedin"></i><span>Linkedin</span></a></li>
+                            @endif
+                            @if(@$setting_data->linkedin)
+                                <li><a href="{{$setting_data->ticktock}}" target="_blank"><i class="fab fa-tiktok"></i><span>Tiktock</span></a></li>
+                            @endif
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Top Bar Area End -->
+<!-- Header Area Start -->
+<div class="header__area two header__sticky">
+    <div class="custom__container">
+        <div class="header__area-menubar p-relative">
+            <div class="header__area-menubar-left">
+                <div class="header__area-menubar-left-logo two">
+                    <a href="/">
+                        <img class="dark-n" src="{{ $setting_data->logo_white ?  asset(imagePath($setting_data->logo_white)) : asset(imagePath($setting_data->logo))}}" alt="">
+                        <img class="light-n" src="{{ $setting_data->logo ?  asset(imagePath($setting_data->logo)) : asset(imagePath($setting_data->logo_white))}}" alt=""></a>
+                </div>
+            </div>
+            <div class="header__area-menubar-center">
+                <div class="header__area-menubar-center-menu two menu-responsive">
+                    <ul id="mobilemenu">
+                        <li class="menus"><a href="#">Home</a>
+                        </li>
+                        @if(!empty($top_nav_data))
+                            @foreach($top_nav_data as $nav)
+                                @if(!empty($nav->children[0]))
+                                    <li class="menu-item-has-children"><a href="#">{{ @$nav->name ?? @$nav->title }}</a>
+                                        <ul class="sub-menu">
+                                            @foreach($nav->children[0] as $childNav)
+                                                <li class="{{ !empty($childNav->children[0]) ? 'menu-item-has-children':'' }}">
+                                                    <a href="{{get_menu_url($childNav->type, $childNav)}}">
+                                                        {{ @$childNav->name ?? @$childNav->title ??''}}
+                                                    </a>
+                                                    @if(!empty($childNav->children[0]))
+                                                        <ul class="sub-menu">
+                                                            @foreach($childNav->children[0] as $key => $lastchild)
+                                                                <li>
+                                                                    <a href="{{get_menu_url($lastchild->type, $lastchild)}}" target="{{@$lastchild->target ? '_blank':''}}">
+                                                                        {{ @$lastchild->name ?? @$lastchild->title ?? ''}}
+                                                                    </a>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    @endif
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                @else
+                                    <li class="menus">
+                                        <a href="{{get_menu_url(@$nav->type, @$nav)}}" target="{{@$nav->target ? '_blank':''}}">
+                                            {{ @$nav->name ?? @$nav->title ??''}}
+                                        </a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        @endif
+                    </ul>
+                </div>
+            </div>
+            <div class="header__area-menubar-right">
+                <div class="header__area-menubar-right-search two">
+                    <div class="search">
+                        <span class="header__area-menubar-right-search-icon open"><i class="fal fa-search"></i></span>
+                    </div>
+                    <div class="header__area-menubar-right-search-box">
+                        {!! Form::open(['route' => $module.'job.search', 'method'=>'GET']) !!}
+                        <input type="text" name="for" id="search" placeholder="Search Jobs...">
+                        <button type="submit"><i class="fal fa-search"></i>
+                        </button>
+                        {!! Form::close() !!}
+                        <span class="header__area-menubar-right-search-box-icon"><i class="fal fa-times"></i></span>
+                    </div>
+                </div>
+                <div class="header__area-menubar-right-sidebar">
+                    <div class="header__area-menubar-right-sidebar-popup-icon"><i class="flaticon-dots-menu"></i></div>
+                </div>
+                <div class="header__area-menubar-right-btn">
+                    <a class="btn-two" href="{{route('frontend.contact-us')}}">Contact Us</a>
+                </div>
+                <div class="header__area-menubar-right-responsive-menu menu__bar">
+                    <i class="flaticon-dots-menu"></i>
+                </div>
+                <!-- sidebar Menu Start -->
+                <div class="header__area-menubar-right-sidebar-popup two">
+                    <div class="sidebar-close-btn"><i class="fal fa-times"></i></div>
+                    <div class="header__area-menubar-right-sidebar-popup-logo">
+                        <a href="/">
+                            <img class="lazy" data-src="{{ $setting_data->logo_white ?  asset(imagePath($setting_data->logo_white)) : asset(imagePath($setting_data->logo))}}" style="max-width: 305px;" alt="">
+                        </a>
+                    </div>
+                    <p>{{ $setting_data->description ?? '' }}</p>
+                    <div class="header__area-menubar-right-sidebar-popup-contact">
+                        <h4 class="mb-30">Get In Touch</h4>
+                        <div class="header__area-menubar-right-sidebar-popup-contact-item">
+                            <div class="header__area-menubar-right-sidebar-popup-contact-item-icon">
+                                <i class="fal fa-phone-alt icon-animation"></i>
+                            </div>
+                            <div class="header__area-menubar-right-sidebar-popup-contact-item-content">
+                                <span>Call Now</span>
+                                <h6><a href="tel:{{ $setting_data->phone ?? $setting_data->mobile }}">{{ $setting_data->phone ?? $setting_data->mobile }}</a></h6>
+                            </div>
+                        </div>
+                        <div class="header__area-menubar-right-sidebar-popup-contact-item">
+                            <div class="header__area-menubar-right-sidebar-popup-contact-item-icon">
+                                <i class="fal fa-envelope"></i>
+                            </div>
+                            <div class="header__area-menubar-right-sidebar-popup-contact-item-content">
+                                <span>Quick Email</span>
+                                <h6><a href="mailto:{{ $setting_data->email ?? '' }}">{{ $setting_data->email ?? '' }}</a></h6>
+                            </div>
+                        </div>
+                        <div class="header__area-menubar-right-sidebar-popup-contact-item">
+                            <div class="header__area-menubar-right-sidebar-popup-contact-item-icon">
+                                <i class="fal fa-map-marker-alt"></i>
+                            </div>
+                            <div class="header__area-menubar-right-sidebar-popup-contact-item-content">
+                                <span>Office Address</span>
+                                <h6><a href="mailto:{{ $setting_data->email ?? '' }}" target="_blank">{{ $setting_data->address ?? '' }}</a></h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header__area-menubar-right-sidebar-popup-social">
+                        <ul>
+                            @if(@$setting_data->facebook)
+                                <li><a href="{{$setting_data->facebook}}" target="_blank"><i class="fab fa-facebook-f"></i><span>Facebook</span></a></li>
+                            @endif
+                            @if(@$setting_data->instagram)
+                                <li><a href="{{$setting_data->instagram}}" target="_blank"><i class="fab fa-instagram"></i><span>Instagram</span></a></li>
+                            @endif
+                            @if(@$setting_data->youtube)
+                                <li><a href="{{$setting_data->youtube}}" target="_blank"><i class="fab fa-youtube"></i><span>YouTube</span></a></li>
+                            @endif
+                            @if(@$setting_data->linkedin)
+                                <li><a href="{{$setting_data->linkedin}}" target="_blank"><i class="fab fa-dribbble"></i><span>Linked In</span></a></li>
                             @endif
                             @if(!empty(@$setting_data->ticktock))
-                                <a href="{{$setting_data->ticktock}}"><i class="fab fa-tiktok"></i></a>
+                                <li><a href="{{$setting_data->ticktock}}" target="_blank"><i class="fab fa-dribbble"></i><span>TikTok</span></a></li>
                             @endif
+                        </ul>
+                    </div>
+                </div>
+                <div class="sidebar-overlay"></div>
+                <!-- sidebar Menu Start -->
+            </div>
+        </div>
+        <div class="menu__bar-popup two">
+            <div class="menu__bar-popup-close"><i class="fal fa-times"></i></div>
+            <div class="menu__bar-popup-left">
+                <div class="menu__bar-popup-left-logo">
+                    <a href="/">
+                        <img src="{{ $setting_data->logo_white ?  asset(imagePath($setting_data->logo_white)) : asset(imagePath($setting_data->logo))}}" style="max-width: 305px;" alt="">
+                    </a>
+                    <div class="responsive-menu"></div>
+                </div>
+                <div class="menu__bar-popup-left-social">
+                    <h6>Follow Us</h6>
+                    <ul>
+                        @if(@$setting_data->facebook)
+                            <li><a href="{{$setting_data->facebook}}" target="_blank"><i class="fab fa-facebook-f"></i><span>Facebook</span></a></li>
+                        @endif
+                        @if(@$setting_data->instagram)
+                            <li><a href="{{$setting_data->instagram}}" target="_blank"><i class="fab fa-instagram"></i><span>Instagram</span></a></li>
+                        @endif
+                        @if(@$setting_data->youtube)
+                            <li><a href="{{$setting_data->youtube}}" target="_blank"><i class="fab fa-youtube"></i><span>YouTube</span></a></li>
+                        @endif
+                        @if(@$setting_data->linkedin)
+                            <li><a href="{{$setting_data->linkedin}}" target="_blank"><i class="fab fa-dribbble"></i><span>Linked In</span></a></li>
+                        @endif
+                        @if(!empty(@$setting_data->ticktock))
+                            <li><a href="{{$setting_data->ticktock}}" target="_blank"><i class="fab fa-dribbble"></i><span>TikTok</span></a></li>
+                        @endif
+                    </ul>
+                </div>
+            </div>
+            <div class="menu__bar-popup-right">
+                <div class="menu__bar-popup-right-search">
+                    {!! Form::open(['route' => $module.'job.search', 'method'=>'GET']) !!}
+                    <input type="text" name="for" id="search" placeholder="Search Jobs...">
+                    <button type="submit"><i class="fal fa-search"></i>
+                    </button>
+                    {!! Form::close() !!}
+                </div>
+                <div class="menu__bar-popup-right-contact">
+                    <h4>Get In Touch</h4>
+                    <div class="menu__bar-popup-right-contact-item">
+                        <div class="menu__bar-popup-right-contact-item-info">
+                            <span>Call Now</span>
+                            <h6><a href="tel:{{ $setting_data->phone ?? $setting_data->mobile }}">{{ $setting_data->phone ?? $setting_data->mobile }}</a></h6>
+                        </div>
+                    </div>
+                    <div class="menu__bar-popup-right-contact-item">
+                        <div class="menu__bar-popup-right-contact-item-info">
+                            <span>Quick Email</span>
+                            <h6><a href="mailto:{{ $setting_data->email ?? '' }}">{{ $setting_data->email ?? '' }}</a></h6>
+                        </div>
+                    </div>
+                    <div class="menu__bar-popup-right-contact-item">
+                        <div class="menu__bar-popup-right-contact-item-info">
+                            <span>Office Address</span>
+                            <h6><a href="mailto:{{ $setting_data->email ?? '' }}" target="_blank">{{ $setting_data->address ?? '' }}</a></h6>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <nav class="main-menu main-menu-three">
-            <div class="main-menu-three__wrapper">
-                <div class="container">
-                    <div class="main-menu-three__wrapper-inner">
-                        <div class="main-menu-three__logo">
-                            <a href="/"><img src="{{ $setting_data->logo ?  asset(imagePath($setting_data->logo)) : asset(imagePath($setting_data->logo_white))}}" style="max-width: 355px;" alt=""></a>
-                        </div>
-                        <div class="main-menu-three__main-menu-box">
-                            <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
-                            <ul class="main-menu__list">
-                                <li>
-                                    <a href="/">Home </a>
-                                </li>
-                                @if(!empty($top_nav_data))
-                                    @foreach($top_nav_data as $nav)
-                                        @if(!empty($nav->children[0]))
-                                            <li class="dropdown">
-                                                <a href="#">{{ @$nav->name ?? @$nav->title }}</a>
-                                                <ul class="sub-menu">
-                                                    @foreach($nav->children[0] as $childNav)
-                                                        <li class="{{ !empty($childNav->children[0]) ? 'dropdown':'' }}">
-                                                            <a href="{{get_menu_url($childNav->type, $childNav)}}">
-                                                                {{ @$childNav->name ?? @$childNav->title ??''}}
-                                                            </a>
-                                                            @if(!empty($childNav->children[0]))
-                                                                <ul>
-                                                                    @foreach($childNav->children[0] as $key => $lastchild)
-                                                                        <li>
-                                                                            <a href="{{get_menu_url($lastchild->type, $lastchild)}}" target="{{@$lastchild->target ? '_blank':''}}">
-                                                                                {{ @$lastchild->name ?? @$lastchild->title ?? ''}}
-                                                                            </a>
-                                                                        </li>
-                                                                    @endforeach
-                                                                </ul>
-                                                            @endif
-                                                        </li>
-                                                    @endforeach
-                                                </ul>
-                                            </li>
-                                        @else
-                                            <li>
-                                                <a href="{{get_menu_url(@$nav->type, @$nav)}}" target="{{@$nav->target ? '_blank':''}}">
-                                                    {{ @$nav->name ?? @$nav->title ??''}}
-                                                </a>
-                                            </li>
-                                        @endif
-                                    @endforeach
-                                @endif
-                            </ul>
-                        </div>
-                        <div class="main-menu-three__right">
-                            {{--                                <div class="main-menu-three__search-box">--}}
-                            {{--                                    <a href="#"--}}
-                            {{--                                       class="main-menu-three__search search-toggler icon-magnifying-glass"></a>--}}
-                            {{--                                </div>--}}
-                            <div class="main-menu-three__btn-box">
-                                <a href="{{route('frontend.contact-us')}}" class="thm-btn main-menu-three__btn thm-btn">
-                                    Contact Us
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <div class="stricky-header stricked-menu main-menu main-menu-three">
-        <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
-    </div><!-- /.stricky-header -->
-
+    </div>
+</div>

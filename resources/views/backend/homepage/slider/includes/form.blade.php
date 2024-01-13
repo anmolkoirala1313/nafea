@@ -31,8 +31,16 @@
     </div>
     <div class="col-lg-12">
         <div class="mb-3">
+            {!! Form::label('video_link', 'Video Link', ['class' => 'form-label']) !!}
+            {!! Form::text('video_link', null,['class'=>'form-control','id'=>'video_link','placeholder'=>'Enter Video link']) !!}
+            <small>Link Format: https://www.youtube.com/watch?v=A94dmLthBHA</small>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="mb-3">
             {!! Form::label('image_input', 'Images', ['class' => 'form-label request']) !!}
             {!! Form::file('image_input', ['class'=>'form-control','id'=>'image_input']) !!}
+            <small>Size: 1920 X 300 PX </small>
         </div>
         @if($page_method=='edit' && $data['row']->image)
             <div class="col-xxl-4 col-xl-4 col-sm-6">

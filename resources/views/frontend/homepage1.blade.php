@@ -106,64 +106,13 @@
                     </div>
                     <div class="col-xl-6 col-lg-6">
                         <div class="about-two__right {{ $data['homepage']->image_position == 'left' ? 'custom_right':'' }}">
-                            @if($data['homepage']->image_position == 'right')
-                                @include($module.'partials.welcome_image')
-                            @else
-                                @include($module.'partials.welcome_description')
-                            @endif
+
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     @endif
-
-{{--    @if(count($data['jobs']) > 1)--}}
-{{--        <section class="news-three">--}}
-{{--            <div class="news-three__shape-1 img-bounce">--}}
-{{--                <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/news-three-shape-1.png') }}" alt="">--}}
-{{--            </div>--}}
-{{--            <div class="news-three__shape-2 float-bob-y">--}}
-{{--                <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/news-three-shape-2.png') }}" alt="">--}}
-{{--            </div>--}}
-{{--            <div class="container">--}}
-{{--                <div class="section-title-three text-center">--}}
-{{--                    <div class="section-title-three__tagline-box">--}}
-{{--                        <p class="section-title-three__tagline">Current demands</p>--}}
-{{--                    </div>--}}
-{{--                    <h2 class="section-title-three__title">Learn more about our latest<br> jobs</h2>--}}
-{{--                </div>--}}
-{{--                <div class="row">--}}
-{{--                    @foreach($data['jobs'] as $index=>$job)--}}
-{{--                        <div class="col-xl-6 col-lg-6">--}}
-{{--                            <div class="news-page-three__single wow fadeInUp" data-wow-delay="{{$index+1}}00ms">--}}
-{{--                                <div class="news-page-three__img">--}}
-{{--                                    <img class="lazy" data-src="{{ asset(imagePath($job->image)) }}" alt="">--}}
-{{--                                </div>--}}
-{{--                                <div class="news-page-three__content news-page-three__content_padding">--}}
-{{--                                    <ul class="list-unstyled news-page-three__meta">--}}
-{{--                                        <li><a href="#"> <span class="icon-date11"></span>--}}
-{{--                                                @if(@$job->end_date >= date('Y-m-d'))--}}
-{{--                                                    {{date('M j, Y',strtotime(@$job->start_date))}} - {{date('M j, Y',strtotime(@$job->end_date))}}--}}
-{{--                                                @else--}}
-{{--                                                    Expired--}}
-{{--                                                @endif--}}
-{{--                                            </a></li>--}}
-{{--                                    </ul>--}}
-{{--                                    <div class="news-page-three__title-box">--}}
-{{--                                        <h3><a href="{{ route('frontend.job.show', $job->slug) }}">{{ $job->title ?? '' }}</a></h3>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    @endforeach--}}
-{{--                    <div class="portfolio-one__btn-box">--}}
-{{--                        <a href="{{ route('frontend.job.index') }}" class="portfolio-one__btn thm-btn">See All Jobs</a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </section>--}}
-{{--    @endif--}}
 
     @if(count($data['jobs']) > 1)
         <section class="portfolio-three">

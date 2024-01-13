@@ -144,7 +144,8 @@
                     <div class="container">
                         <div class="main-menu-three__wrapper-inner">
                             <div class="main-menu-three__logo">
-                                <a href="/"><img src="{{ $setting_data->logo ?  asset(imagePath($setting_data->logo)) : asset(imagePath($setting_data->logo_white))}}" style="max-width: 355px;" alt=""></a>
+                                <a href="/">
+                                    <img src="{{ $setting_data->logo ?  asset(imagePath($setting_data->logo)) : asset(imagePath($setting_data->logo_white))}}" style="max-width: 355px;" alt=""></a>
                             </div>
                             <div class="main-menu-three__main-menu-box">
                                 <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>

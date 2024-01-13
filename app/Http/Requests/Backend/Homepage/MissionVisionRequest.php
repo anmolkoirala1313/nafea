@@ -25,9 +25,9 @@ class MissionVisionRequest extends FormRequest
     public function rules()
     {
         return [
-            'mission'       => 'required|string|max:250',
-            'vision'        => 'required|string|max:250',
-            'value'         => 'required|string|max:250',
+            'mission'       => 'required|string|max:450',
+            'vision'        => 'required|string|max:450',
+            'value'         => 'required|string|max:450',
         ];
     }
 

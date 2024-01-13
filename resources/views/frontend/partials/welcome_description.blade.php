@@ -1,10 +1,16 @@
-<div class="section-title-three__tagline-box">
-    <p class="section-title-three__tagline">{{ $data['homepage']->subtitle ?? '' }}</p>
-</div>
-<h3 class="about-two__title">{{ $data['homepage']->title ?? '' }}</h3>
-<div class="about-two__text">{!! $data['homepage']->description ?? '' !!}</div>
-@if($data['homepage']->link)
-    <div class="about-two__btn-box">
-        <a href="{{ $data['homepage']->link ?? '' }}" class="about-one__btn thm-btn">{{ $data['homepage']->button }}</a>
+<div class="about__one-right">
+    <div class="about__one-right-title">
+        <span class="subtitle-two">{{ $data['homepage']->subtitle ?? '' }}</span>
+        <h2>{{ $data['homepage']->title ?? '' }}</h2>
+        <div class="text-align-justify">
+            {!! $data['homepage']->description ?? '' !!}
+        </div>
     </div>
-@endif
+    @if($data['homepage']->link)
+        <div class="about__one-right-bottom">
+            <div class="about__one-right-bottom-list">
+                <a class="btn-two" href="{{ $data['homepage']->link ?? '' }}">{{ $data['homepage']->button }}</a>
+            </div>
+        </div>
+    @endif
+</div>

@@ -221,6 +221,38 @@ if (!function_exists('core_value_icon')) {
     }
 }
 
+if (!function_exists('recruitment_icon')) {
+    /**
+     * @param $index
+     * @return string
+     */
+    function recruitment_icon($index): string
+    {
+        if($index == 0){
+            $icon = 'flaticon-select';
+        }else if($index == 1){
+            $icon = 'flaticon-meeting';
+        }else if($index == 2){
+            $icon = 'flaticon-check-mark';
+        }else if($index == 3){
+            $icon = 'flaticon-trust';
+        }else if($index == 4){
+            $icon = 'flaticon-medical-report';
+        }else if($index == 5){
+            $icon = 'flaticon-seller';
+        }else if($index == 6){
+            $icon = 'flaticon-travel-insurance';
+        }else if($index == 7){
+            $icon = 'flaticon-globe';
+        }else{
+            $icon = 'flaticon-meeting';
+        }
+
+        return $icon;
+    }
+}
+
+
 if (!function_exists('get_country')) {
     /**
      * @param $code

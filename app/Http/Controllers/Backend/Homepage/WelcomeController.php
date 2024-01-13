@@ -51,7 +51,7 @@ class WelcomeController extends BackendBaseController
         DB::beginTransaction();
         try {
             if($request->hasFile('image_input')){
-                $image_name = $this->uploadImage($request->file('image_input'),'550','560');
+                $image_name = $this->uploadImage($request->file('image_input'),'630','550');
                 $request->request->add(['image'=>$image_name]);
             }
             $request->request->add(['created_by' => auth()->user()->id ]);
@@ -81,7 +81,7 @@ class WelcomeController extends BackendBaseController
         DB::beginTransaction();
         try {
             if($request->hasFile('image_input')){
-                $image_name = $this->updateImage($request->file('image_input'),$data['row']->image,'550','560');
+                $image_name = $this->updateImage($request->file('image_input'),$data['row']->image,'630','550');
                 $request->request->add(['image'=>$image_name]);
             }
 

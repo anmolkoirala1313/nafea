@@ -6,6 +6,11 @@
 @section('content')
 
     <div class="banner__one swiper banner-slider">
+        <div class="banner__two-shape">
+            <img class="banner__two-shape-two left-right-animate" src="{{ asset('assets/frontend/img/shape/banner-3.png') }}" alt="banner-shape">
+            <img class="banner__two-shape-three" src="{{ asset('assets/frontend/img/shape/banners-2.png') }}" alt="banner-shape">
+            <img class="banner__two-shape-four" src="{{ asset('assets/frontend/img/shape/banners-3.png') }}" alt="banner-shape">
+        </div>
         <div class="swiper-wrapper">
             @foreach($data['sliders']  as $index=>$slider)
                 <div class="swiper-slide">
@@ -14,25 +19,22 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-xl-12">
-                                <div class="banner__one-content">
+                                <div class="banner__two-content">
                                     <span data-animation="fadeInUp" data-delay=".3s">{{ $slider->subtitle ?? '' }}</span>
-                                    <h1 data-animation="fadeInUp" data-delay=".7s">{{ $slider->title ?? '' }}</h1>
+                                    <h1 data-animation="fadeInUp" data-delay=".7s" style="width: 70%">{{ $slider->title ?? '' }}</h1>
                                     @if($slider->link || $slider->video_link)
-                                        <div class="banner__one-content-button" data-animation="fadeInUp" data-delay="1s">
+                                        <div class="banner__two-content-button" data-animation="fadeInUp" data-delay="1s">
                                             @if($slider->link)
-                                                <a class="btn-one" href="{{ $slider->link ?? '#' }}">{{ $slider->link ?? 'Discover More' }}</a>
+                                                <a class="btn-two" href="{{ $slider->link ?? '#' }}">{{ $slider->button ?? 'Discover More' }}</a>
                                             @endif
                                             @if($slider->video_link)
-                                                <div class="banner__one-content-button-video video-pulse">
+                                                    <div class="banner__two-content-button-video video-pulse">
                                                     <a class="video-popup" href="{{ $slider->video_link }}"><i class="fas fa-play"></i></a>
                                                 </div>
                                             @endif
                                         </div>
                                     @endif
-                                    <img class="banner__one-shape-four" src="{{ asset('assets/frontend/img/shape/banner-6.png') }}" alt="banner-shape">
                                 </div>
-                                <img class="banner__one-shape-two" src="{{ asset('assets/frontend/img/shape/banner-5.png') }}"  data-animation="fadeInUpBig" data-delay="2s" alt="banner-shape">
-                                <img class="banner__one-shape-three" src="{{ asset('assets/frontend/img/shape/banner-1.png') }}" data-animation="fadeInRightBig" data-delay="1.5s" alt="banner-shape">
                             </div>
                         </div>
                     </div>
@@ -43,701 +45,485 @@
             <div class="banner__one-arrow-prev swiper-button-prev"><i class="fal fa-long-arrow-left"></i></div>
             <div class="banner__one-arrow-next swiper-button-next"><i class="fal fa-long-arrow-right"></i></div>
         </div>
-        <img class="banner__one-shape-one lazy" data-src="{{asset('assets/frontend/img/shape/banner-7.png')}}" alt="">
     </div>
 
-    @if($data['homepage']->mission)
-        <section class="feature-two">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-xl-4 col-lg-4 d-flex align-items-stretch wow fadeInUp" data-wow-delay="100ms">
-                        <div class="feature-two__single">
-                            <div class="feature-two__icon">
-                                <span class="icon-business-advice"></span>
-                            </div>
-                            <h3 class="feature-two__title"><a>Mission</a></h3>
-                            <p class="feature-two__text">{{ $data['homepage']->mission ?? '' }}</p>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-4 col-lg-4 d-flex align-items-stretch wow fadeInUp" data-wow-delay="200ms">
-                        <div class="feature-two__single">
-                            <div class="feature-two__icon">
-                                <span class="icon-icon-start-ups"></span>
-                            </div>
-                            <h3 class="feature-two__title"><a>Vision</a></h3>
-                            <p class="feature-two__text">{{ $data['homepage']->vision ?? '' }}</p>
-
-                        </div>
-                    </div>
-
-                    <div class="col-xl-4 col-lg-4 d-flex align-items-stretch wow fadeInUp" data-wow-delay="300ms">
-                        <div class="feature-two__single">
-                            <div class="feature-two__icon">
-                                <span class="icon-risk-management"></span>
-                            </div>
-                            <h3 class="feature-two__title"><a>Value</a></h3>
-                            <p class="feature-two__text">{{ $data['homepage']->value ?? '' }}</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-    @endif
-
     @if($data['homepage']->description)
-        <section class="about-two">
-            <div class="about-three__shape-5">
-                <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/about-three-shape-5.png') }}" alt="">
-            </div>
-            <div class="about-two__shape-2 zoominout">
-                <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/about-two-shape-2.png') }}" alt="">
-            </div>
-            <div class="about-two__shape-3 float-bob-y">
-                <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/about-two-shape-3.png') }}" alt="">
-            </div>
+        <div class="about__one section-padding" >
             <div class="container">
-                <div class="row">
-                    <div class="col-xl-6 col-lg-6">
-                        <div class="about-two__left {{ $data['homepage']->image_position == 'left' ? 'custom_left':'' }}">
-                            @if($data['homepage']->image_position == 'left')
-                                @include($module.'partials.welcome_image')
-                            @else
-                                @include($module.'partials.welcome_description')
-                            @endif
-                        </div>
+                <div class="row align-items-center">
+                    <div class="col-xl-6 col-lg-6 lg-mb-30">
+                        @if($data['homepage']->image_position == 'left')
+                            @include($module.'partials.welcome_image')
+                        @else
+                            @include($module.'partials.welcome_description')
+                        @endif
                     </div>
                     <div class="col-xl-6 col-lg-6">
-                        <div class="about-two__right {{ $data['homepage']->image_position == 'left' ? 'custom_right':'' }}">
-                            @if($data['homepage']->image_position == 'right')
-                                @include($module.'partials.welcome_image')
-                            @else
-                                @include($module.'partials.welcome_description')
-                            @endif
-                        </div>
+                        @if($data['homepage']->image_position == 'right')
+                            @include($module.'partials.welcome_image')
+                        @else
+                            @include($module.'partials.welcome_description')
+                        @endif
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     @endif
 
-{{--    @if(count($data['jobs']) > 1)--}}
-{{--        <section class="news-three">--}}
-{{--            <div class="news-three__shape-1 img-bounce">--}}
-{{--                <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/news-three-shape-1.png') }}" alt="">--}}
-{{--            </div>--}}
-{{--            <div class="news-three__shape-2 float-bob-y">--}}
-{{--                <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/news-three-shape-2.png') }}" alt="">--}}
-{{--            </div>--}}
-{{--            <div class="container">--}}
-{{--                <div class="section-title-three text-center">--}}
-{{--                    <div class="section-title-three__tagline-box">--}}
-{{--                        <p class="section-title-three__tagline">Current demands</p>--}}
-{{--                    </div>--}}
-{{--                    <h2 class="section-title-three__title">Learn more about our latest<br> jobs</h2>--}}
-{{--                </div>--}}
-{{--                <div class="row">--}}
-{{--                    @foreach($data['jobs'] as $index=>$job)--}}
-{{--                        <div class="col-xl-6 col-lg-6">--}}
-{{--                            <div class="news-page-three__single wow fadeInUp" data-wow-delay="{{$index+1}}00ms">--}}
-{{--                                <div class="news-page-three__img">--}}
-{{--                                    <img class="lazy" data-src="{{ asset(imagePath($job->image)) }}" alt="">--}}
-{{--                                </div>--}}
-{{--                                <div class="news-page-three__content news-page-three__content_padding">--}}
-{{--                                    <ul class="list-unstyled news-page-three__meta">--}}
-{{--                                        <li><a href="#"> <span class="icon-date11"></span>--}}
-{{--                                                @if(@$job->end_date >= date('Y-m-d'))--}}
-{{--                                                    {{date('M j, Y',strtotime(@$job->start_date))}} - {{date('M j, Y',strtotime(@$job->end_date))}}--}}
-{{--                                                @else--}}
-{{--                                                    Expired--}}
-{{--                                                @endif--}}
-{{--                                            </a></li>--}}
-{{--                                    </ul>--}}
-{{--                                    <div class="news-page-three__title-box">--}}
-{{--                                        <h3><a href="{{ route('frontend.job.show', $job->slug) }}">{{ $job->title ?? '' }}</a></h3>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    @endforeach--}}
-{{--                    <div class="portfolio-one__btn-box">--}}
-{{--                        <a href="{{ route('frontend.job.index') }}" class="portfolio-one__btn thm-btn">See All Jobs</a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </section>--}}
-{{--    @endif--}}
-
-    @if(count($data['jobs']) > 1)
-        <section class="portfolio-three">
-            <div class="portfolio-three__shape-1 zoominout">
-                <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/portfolio-three-shape-1.png') }}" alt="">
-            </div>
-            <div class="portfolio-three__shape-2 float-bob-y">
-                <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/portfolio-three-shape-2.png') }}" alt="">
-            </div>
+    @if($data['homepage']->mission)
+        <div class="features">
+            <img class="services__two-shape-one dark-n" src="{{asset('assets/frontend/img/shape/services-3.png')}}" alt="services-shape">
+            <img class="services__two-shape-two dark-n" src="{{asset('assets/frontend/img/shape/services-2.png')}}" alt="services-shape">
             <div class="container">
-                <div class="section-title-three text-center">
-                    <div class="section-title-three__tagline-box">
-                        <p class="section-title-three__tagline">Current demands</p>
-                    </div>
-                    <h2 class="section-title-three__title">Learn more about our latest<br> jobs</h2>
-                </div>
                 <div class="row">
-                    @foreach($data['jobs'] as $index=>$job)
-                        <div class="col-xl-4 col-lg-6 col-md-6">
-                            <div class="portfolio-three__single">
-                                <div class="portfolio-three__img-box">
-                                    <div class="portfolio-three__img">
-                                        <img class="lazy" data-src="{{ asset(imagePath($job->image)) }}" alt="">
-                                    </div>
+                    <div class="col-xl-12">
+                        <div class="features-area">
+                            <div class="features-area-item d-flex align-items-stretch">
+                                <div class="features-area-item-icon">
+                                    <i class="flaticon-mission"></i>
                                 </div>
-                                <div class="portfolio-three__content">
-                                    <p class="portfolio-three__sub-title">
-                                        @if(@$job->end_date >= date('Y-m-d'))
-                                            {{date('M j, Y',strtotime(@$job->start_date))}} - {{date('M j, Y',strtotime(@$job->end_date))}}
-                                        @else
-                                            Expired
-                                        @endif</p>
-                                    <h3 class="portfolio-three__title"><a href="{{ route('frontend.job.show', $job->slug) }}">{{ $job->title ?? '' }}</a></h3>
+                                <div class="features-area-item-content">
+                                    <h4>Mission</h4>
+                                    <p>{{ $data['homepage']->mission ?? '' }}</p>
+                                </div>
+                            </div>
+                            <div class="features-area-item features-area-item-hover d-flex align-items-stretch">
+                                <div class="features-area-item-icon">
+                                    <i class="flaticon-winner"></i>
+                                </div>
+                                <div class="features-area-item-content">
+                                    <h4>Vision</h4>
+                                    <p>{{ $data['homepage']->vision ?? '' }}</p>
+                                </div>
+                            </div>
+                            <div class="features-area-item d-flex align-items-stretch">
+                                <div class="features-area-item-icon">
+                                    <i class="flaticon-value"></i>
+                                </div>
+                                <div class="features-area-item-content">
+                                    <h4>Value</h4>
+                                    <p>{{ $data['homepage']->value ?? '' }}</p>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
-                </div>
-            </div>
-        </section>
-    @endif
-
-    @if(count($data['services']) > 0)
-        <section class="portfolio-one">
-            <div class="portfolio-one__shape-1 float-bob-x">
-                <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/portfolio-one-shape-1.png') }}" alt="">
-            </div>
-            <div class="portfolio-one__shape-2 rotate-me">
-                <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/portfolio-one-shape-2.png') }}" alt="">
-            </div>
-            <div class="container">
-                <div class="section-title text-center">
-                    <div class="section-title__tagline-box">
-                        <p class="section-title__tagline">OUR LATEST CATEGORIES</p>
                     </div>
-                    <h2 class="section-title__title">Covering All Bases With Our <br> Special Category</h2>
-                </div>
-                <div class="row">
-                    @foreach($data['services'] as $index=>$service)
-                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="{{$index+1}}00ms">
-                            <div class="portfolio-one__single">
-                                <div class="portfolio-one__img-box">
-                                    <div class="portfolio-one__img">
-                                        <img class="lazy" data-src="{{ asset(thumbnailImagePath($service->image)) }}" alt="">
-                                    </div>
-                                    <div class="portfolio-one__content">
-{{--                                        <p class="portfolio-one__sub-title">Business Audit</p>--}}
-                                        <h3 class="portfolio-one__title">
-                                            <a href="{{ route('frontend.service.show', $service->key) }}">{{ $service->title ?? '' }}</a></h3>
-                                    </div>
-                                    <div class="portfolio-one__arrow">
-                                        <a href="{{ route('frontend.service.show', $service->key) }}" class=""><span
-                                                class="icon-top-right-1"></span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-                <p class="services-three__bottom-text">Learn more about <a href="{{ route('frontend.service.index') }}" class="all-services">
-                        Categories We Have<span class="icon-right-arrow-11"></span></a>
-                    <a href="{{ route('frontend.service.index') }}" class="">For you</a></p>
-            </div>
-        </section>
-    @endif
-
-
-    @if(count( $data['clients']) > 0)
-        <section class="brand-one">
-            <div class="container">
-                <div class="brand-one__inner">
-                    <div class="brand-one__carousel thm-owl__carousel owl-theme owl-carousel" data-owl-options='{
-                            "items": 3,
-                            "margin": 30,
-                            "smartSpeed": 700,
-                            "loop":true,
-                            "autoplay": 6000,
-                            "nav":false,
-                            "dots":false,
-                            "navText": ["<span class=\"fa fa-angle-left\"></span>","<span class=\"fa fa-angle-right\"></span>"],
-                            "responsive":{
-                                "0":{
-                                    "items":1
-                                },
-                                "768":{
-                                    "items":3
-                                },
-                                "992":{
-                                    "items": 4
-                                },
-                                "1200":{
-                                    "items": 5
-                                }
-                            }
-                        }'>
-                        @foreach($data['clients'] as $index=>$client)
-                            <!--Brand One Single-->
-                            <div class="brand-one__single">
-                                <div class="brand-one__img">
-                                    <a href="{{ $client->link ?? '#' }}" target="{{ ($client->link !== null) ? '_blank':'' }}">
-                                        <img src="{{ asset(imagePath($client->image)) }}" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                    <!-- If we need navigation buttons -->
                 </div>
             </div>
-        </section>
+        </div>
     @endif
 
     @if($data['homepage']->action_title)
-        <section class="cta-one">
-            <div class="cta-one__shape-1 float-bob-x">
-                <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/cta-one-shape-1.png') }}" alt="">
-            </div>
-            <div class="cta-one__shape-2 float-bob-y">
-                <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/cta-one-shape-2.png') }}" alt="">
-            </div>
-            <div class="cta-one__shape-3 shape-mover">
-                <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/cta-one-shape-3.png') }}" alt="">
-            </div>
-            <div class="cta-one__shape-4 img-bounce">
-                <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/cta-one-shape-4.png') }}" alt="">
-            </div>
+        <div class="cta__three section-padding" data-background="{{ asset('assets/frontend/img/pages/bread-bg8.jpeg') }}">
             <div class="container">
-                <div class="cta-one__inner">
-                    <div class="cta-one__title-box">
-                        <p class="cta-one__text">{{ $data['homepage']->action_subtitle ?? '' }}</p>
-                        <h3 class="cta-one__title">{{ $data['homepage']->action_title ?? '' }}</h3>
+                <div class="row align-items-center">
+                    <div class="col-xl-6 col-lg-5 lg-mb-30">
+                        <div class="cta__three-title">
+                            <span class="subtitle-two">{{ $data['homepage']->action_subtitle ?? '' }}</span>
+                            <h2>{{ $data['homepage']->action_title ?? '' }}</h2>
+                            <a class="btn-two mt-30" href="{{ $data['homepage']->action_link ?? '/contact-us' }}">{{ $data['homepage']->action_button ?? 'Start Here' }}</a>
+                        </div>
                     </div>
-                    <div class="cta-one__btn-box">
-                        <a href="{{ $data['homepage']->action_link ?? '/contact-us' }}" class="cta-one__btn thm-btn">{{ $data['homepage']->action_button ?? 'Start Here' }}</a>
+                    <div class="col-xl-6 col-lg-7">
+                        <div class="cta__three-info">
+                            <div class="cta__three-info-item">
+                                <div class="cta__three-info-item-icon">
+                                    <i class="fal fa-phone-alt icon-animation"></i>
+                                </div>
+                                <div>
+                                    <span>Call us </span>
+                                    <h6><a href="tel:{{ $data['setting']->phone ?? $data['setting']->mobile  }}">{{ $data['setting']->phone ?? $data['setting']->mobile  }}</a></h6>
+                                </div>
+                            </div>
+                            <div class="cta__three-info-item">
+                                <div class="cta__three-info-item-icon">
+                                    <i class="fal fa-envelope-open-text"></i>
+                                </div>
+                                <div>
+                                    <span>Mail us anytime</span>
+                                    <h6><a href="mailto:{{ $setting_data->email ?? '' }}">{{ $setting_data->email ?? '' }}</a></h6>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     @endif
 
-    @if(count($data['homepage']->coreValueDetail))
-        <section class="services-three">
-            <div class="services-three__shape-1 float-bob-y">
-                <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/services-three-shape-1.png') }}" alt="">
-            </div>
-            <div class="services-three__shape-2 zoominout">
-                <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/services-three-shape-2.png') }}" alt="">
-            </div>
+    @if(count($data['homepage']->recruitmentProcess))
+        <div class="work__area section-padding">
+            <img class="work__area-shape" src="{{asset('assets/frontend/img/shape/work.png')}}" alt="work-shape">
             <div class="container">
-                <div class="section-title text-center">
-                    <div class="section-title__tagline-box">
-                        <p class="section-title__tagline"> {{ $data['homepage']->core_subtitle ?? '' }}</p>
+                <div class="row mb-60">
+                    <div class="col-xl-12">
+                        <div class="work__area-title t-center">
+                            <span class="subtitle-two">How it Work</span>
+                            <h2>Our Work Process Journey</h2>
+                        </div>
                     </div>
-                    <h2 class="section-title__title">{{ $data['homepage']->core_title ?? '' }}</h2>
                 </div>
-                <div class="row">
-
-                    @foreach($data['homepage']->coreValueDetail as $index=>$core_value)
-                        <div class="col-xl-4 col-lg-6 col-md-6 d-flex align-items-stretch wow fadeInUp" data-wow-delay="{{$index+1}}00ms">
-                            <div class="services-three__single">
-                                <h3 class="services-three__title">
-                                    <a>{{ $core_value->title ?? '' }}</a>
-                                </h3>
-                                <div class="services-three__icon">
-                                    <span class="{{ core_value_icon($index) }}"></span>
+                <div class="row work-n">
+                    @foreach($data['homepage']->recruitmentProcess as $index=>$process)
+                        <div class="col-xl-3 col-lg-4 col-md-6">
+                            <div class="work__area-item">
+                                <div class="work__area-item-icon">
+                                    <i class="{{ recruitment_icon($index) }}"></i>
+                                    <span>{{ $index > 9 ? $index+1:'0'.$index+1 }}</span>
                                 </div>
-                                <p class="services-three__text">
-                                    {{ $core_value->description ?? '' }}
-                                </p>
+                                <div class="work__area-item-content">
+                                    <h5>{{ $process->title ?? '' }}</h5>
+                                    <p>{{ $process->description ?? '' }}</p>
+                                </div>
                             </div>
                         </div>
                     @endforeach
                 </div>
             </div>
-        </section>
+        </div>
     @endif
 
-    @if(count($data['homepage']->recruitmentProcess))
-        <section class="process-one">
-            <div class="container">
-                <div class="section-title text-center">
-                    <div class="section-title__tagline-box">
-                        <p class="section-title__tagline">Our Flow</p>
+    <!-- Portfolio Area Start -->
+    <div class="portfolio__one">
+        <div class="container">
+            <div class="row mb-20">
+                <div class="col-xl-6">
+                    <div class="offer__area-right-title">
+                        <span class="subtitle-two">Our Press Release</span>
+                        <h2>Read Our Groundbreaking Approaches</h2>
                     </div>
-                    <h2 class="section-title__title">Understand Our Work process</h2>
                 </div>
-                <div class="process-one__inner">
-                    @foreach($data['homepage']->recruitmentProcess->chunk(4) as $index=>$chunked_process)
-                        <div class="process-one__shape-{{$index+1}}">
-                            <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/process-one-shape-1.png') }}" alt="">
-                        </div>
-                        <div class="row">
-                            @foreach($chunked_process as $index=>$process)
-                                <div class="col-xl-3 col-lg-6 col-md-6 {{ $index > 3 ? 'mt-3':'' }}">
-                                    <div class="process-one__single">
-                                        <div class="process-one__count"></div>
-                                        <h3 class="process-one__title">{{ $process->title ?? '' }}</h3>
-                                        <p class="process-one__text">
-                                            {{ $process->description ?? '' }}
-                                        </p>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="swiper portfolio__one-slider">
+                        <div class="swiper-wrapper">
+                            @foreach($data['press_release'] as $release)
+                                <div class="portfolio__one-item swiper-slide">
+                                    <img src="{{ asset(thumbnailImagePath($release->image))}}" alt="property-insurance">
+                                    <div class="portfolio__one-item-content">
+                                        <div class="portfolio__one-item-content-left">
+                                            <a href="project-single.html"><i class="flaticon-arrows"></i></a>
+                                        </div>
+                                        <div class="portfolio__one-item-content-right">
+                                            <span>Property Coverage</span>
+                                            <h4><a href="project-single.html">Property Insurance</a></h4>
+                                        </div>
                                     </div>
                                 </div>
                             @endforeach
                         </div>
-                    @endforeach
-
-                </div>
-            </div>
-        </section>
-    @endif
-
-    @if($data['homepage']->why_title)
-        <section class="counter-one">
-            <div class="container">
-                <div class="counter-one__inner">
-                    <div class="counter-one__bg float-bob-y"
-                         style="background-image: url({{ asset('assets/frontend/images/backgrounds/counter-one-bg.png') }});"></div>
-                    <ul class="counter-one__count-list list-unstyled">
-                        <li>
-                            <div class="counter-one__icon">
-                                <span class="icon-icon-years-experience"></span>
-                            </div>
-                            <div class="counter-one__count count-box">
-                                <h3 class="count-text" data-stop="{{ $data['homepage']->project_completed ?? '600' }}" data-speed="1500">00</h3>
-                            </div>
-                            <p class="counter-one__text">Project Completed</p>
-                        </li>
-                        <li>
-                            <div class="counter-one__icon">
-                                <span class="icon-icon-team-members"></span>
-                            </div>
-                            <div class="counter-one__count count-box">
-                                <h3 class="count-text" data-stop="{{ $data['homepage']->happy_clients ?? '560' }}" data-speed="1500">00</h3>
-                            </div>
-                            <p class="counter-one__text">Happy Clients</p>
-                        </li>
-                        <li>
-                            <div class="counter-one__icon">
-                                <span class="icon-icon-successful-project"></span>
-                            </div>
-                            <div class="counter-one__count count-box">
-                                <h3 class="count-text" data-stop="{{ $data['homepage']->visa_approved ?? '785' }}" data-speed="1500">00</h3>
-                                <span>+</span>
-                            </div>
-                            <p class="counter-one__text">Visa Approved</p>
-                        </li>
-                        <li>
-                            <div class="counter-one__icon">
-                                <span class="icon-icon-satisfied-clients"></span>
-                            </div>
-                            <div class="counter-one__count count-box">
-                                <h3 class="count-text" data-stop="{{ $data['homepage']->success_stories ?? '650' }}" data-speed="1500">00</h3>
-                                <span>+</span>
-                            </div>
-                            <p class="counter-one__text">Success Stories</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="why-choose-two">
-            <div class="about-one__shape-3 float-bob-y">
-                <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/about-one-shape-3.png') }}" alt="">
-            </div>
-            <div class="why-choose-two__shape-3 img-bounce">
-                <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/why-choose-two-shape-3.png') }}" alt="">
-            </div>
-            <div class="container">
-                <div class="row mt-6">
-                    <div class="col-xl-6">
-                        <div class="why-choose-two__left">
-                            <div class="section-title-three text-left">
-                                <div class="section-title-three__tagline-box">
-                                    <p class="section-title-three__tagline">{{ $data['homepage']->why_subtitle ?? 'Why Choose Us' }}</p>
-                                </div>
-                                <h2 class="section-title-three__title">{{ $data['homepage']->why_title }}</h2>
-                            </div>
-                            <p class="why-choose-two__text text-align-justify">{{ $data['homepage']->why_description ?? '' }}</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-6">
-                        <div class="why-choose-two__right">
-                            <div class="why-choose-two__img wow slideInRight" data-wow-delay="100ms"
-                                 data-wow-duration="2500ms">
-                                <img class="lazy" data-src="{{ asset(imagePath($data['homepage']->why_image)) }}" alt="">
-                                @if($data['homepage']->why_video)
-                                    <div class="about-two__video-link">
-                                        <a href="{{ $data['homepage']->why_video }}" class="video-popup">
-                                            <div class="about-two__video-icon">
-                                                <span class="fa fa-play"></span>
-                                                <i class="ripple"></i>
-                                            </div>
-                                        </a>
-                                    </div>
-                                @endif
-                                <div class="why-choose-two__shape-1 float-bob-y">
-                                    <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/why-choose-two-shape-1.png') }}"
-                                       alt="">
-                                </div>
-                                <div class="why-choose-two__shape-2 zoominout">
-                                    <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/why-choose-two-shape-2.png') }}"
-                                         alt="">
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-    @endif
-
-    @if(count($data['director']) > 0)
-        <section class="team-details">
-            <div class="pricing-one__shape-1 zoominout">
-                <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/pricing-one-shape-1.png') }}" alt="">
-            </div>
-            <div class="news-one__shape-3 rotate-me">
-                <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/news-one-shape-3.png') }}" alt="">
-            </div>
-            <div class="news-one__shape-2 float-bob-y">
-                <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/news-one-shape-2.png') }}" alt="">
-            </div>
-            <div class="container">
-                <div class="section-title text-center">
-                    <div class="section-title__tagline-box">
-                        <p class="section-title__tagline">Our Flow</p>
-                    </div>
-                    <h2 class="section-title__title">Understand Our Work process</h2>
-                </div>
-
-                <div class="brand-one__inner">
-                    <div class="brand-one__carousel thm-owl__carousel owl-theme owl-carousel" data-owl-options='{
-                            "items": 1,
-                            "margin": 30,
-                            "smartSpeed": 700,
-                            "loop":true,
-                            "autoplay": 6000,
-                            "nav":false,
-                            "dots":false,
-                            "navText": ["<span class=\"fa fa-angle-left\"></span>","<span class=\"fa fa-angle-right\"></span>"],
-                            "responsive":{
-                                "0":{
-                                    "items":1
-                                },
-                                "768":{
-                                    "items":1
-                                },
-                                "992":{
-                                    "items":1
-                                },
-                                "1200":{
-                                    "items":1
-                                }
-                            }
-                        }'>
-                        @foreach($data['director'] as $index=>$director)
-                            <div class="team-details__inner">
-                                <div class="row">
-                                    <div class="col-xl-5 col-lg-5">
-                                        <div class="team-details__left">
-                                            <div class="team-details__img">
-                                                <img src="{{ asset(imagePath($director->image)) }}" alt="">
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-7 col-lg-7">
-                                        <div class="team-details__right">
-                                            <h3 class="team-details__title-1">{{ $director->title ?? '' }}</h3>
-                                            <p class="team-details__sub-title">{{ $director->designation ?? '' }}</p>
-                                            <p class="team-details__text-1 text-align-justify">{{ $director->description ?? '' }}
-                                            </p>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-
-            </div>
-        </section>
-    @endif
-
-    @if($data['homepage']->grievance_title)
-        <section class="why-choose-one">
-            <div class="why-choose-one__shape-3 float-bob-y-2">
-                <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/why-choose-one-shape-3.png') }}" alt="">
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-6">
-                        <div class="why-choose-one__left">
-                            <div class="section-title text-left">
-                                <div class="section-title__tagline-box">
-                                    <p class="section-title__tagline">{{ $data['homepage']->grievance_subtitle ?? '' }}</p>
-                                </div>
-                                <h2 class="section-title__title section-title_normal">{{ $data['homepage']->grievance_title ?? '' }}
-                                </h2>
-                            </div>
-                            <p class="why-choose-one__text text-align-justify">
-                                {{ $data['homepage']->grievance_description }}
-                               </p>
-
-                            @if($data['homepage']->grievance_link)
-                                <div class="why-choose-one__btn-box mt-3">
-                                    <a href="{{ $data['homepage']->grievance_link }}" class="why-choose-one__btn thm-btn">{{ $data['homepage']->grievance_button ?? 'Contact Us' }}</a>
-                                </div>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="col-xl-6">
-                        <div class="why-choose-one__right" style="margin-left: 40px;">
-                            <div class="why-choose-one__img wow slideInRight animated" data-wow-delay="100ms" data-wow-duration="2500ms" style="visibility: visible; animation-duration: 2500ms; animation-delay: 100ms; animation-name: slideInRight;">
-                                <div class="why-choose-one__shape-1 float-bob-x">
-                                    <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/why-choose-one-shape-1.png') }}" alt="">
-                                </div>
-                                <div class="why-choose-one__shape-2 float-bob-y">
-                                    <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/why-choose-one-shape-2.png') }}" alt="">
-                                </div>
-
-                                @if($data['map'])
-                                    <iframe src="{{$data['map']}}" style="border:0;width: 625px;height: 520px;" allowfullscreen="" loading="lazy"></iframe>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    @endif
-
-    @if(count($data['testimonials'])>0)
-        <section class="testimonial-one">
-            <div class="testimonial-one__bg float-bob-x"
-                 style="background-image: url({{ asset('assets/frontend/images/backgrounds/testimonial-one-bg.png') }});"></div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-5">
-                        <div class="testimonial-one__left">
-                            <div class="section-title text-left">
-                                <div class="section-title__tagline-box">
-                                    <p class="section-title__tagline">Testimonials</p>
-                                </div>
-                                <h2 class="section-title__title section-title_normal">What our client's <br> says about our
-                                    <br> best work.</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-7">
-                        <div class="testimonial-one__right">
-                            <div class="testimonial-one__carousel owl-carousel owl-theme thm-owl__carousel"
-                                 data-owl-options='{
-                                    "loop": true,
-                                    "autoplay": true,
-                                    "margin": 48,
-                                    "nav": true,
-                                    "dots": false,
-                                    "smartSpeed": 500,
-                                    "autoplayTimeout": 10000,
-                                    "navText": ["<span class=\"icon-right-arrow-1\"></span>","<span class=\"icon-right-arrow-11\"></span>"],
-                                    "responsive": {
-                                        "0": {
-                                            "items": 1
-                                        },
-                                        "768": {
-                                            "items": 1
-                                        },
-                                        "992": {
-                                            "items": 2
-                                        },
-                                        "1200": {
-                                            "items": 1.60999999999
-                                        }
-                                    }
-                                }'>
-                                @foreach($data['testimonials'] as $index=>$testimonial)
-                                    <div class="testimonial-one__single">
-                                        <p class="testimonial-one__text">
-                                            {{ $testimonial->description }}
-                                        </p>
-                                        <div class="testimonial-one__client-info-and-img">
-                                            <div class="testimonial-one__client-img">
-                                                <img src="{{ asset(imagePath($testimonial->image))}}" alt="">
-                                            </div>
-                                            <div class="testimonial-one__client-info">
-                                                <h3>{{ $testimonial->title ?? '' }}</h3>
-                                                <p>{{ $testimonial->position ?? '' }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    @endif
-
-    @if(count($data['blogs'])>0)
-        <section class="news-three" style="padding: 80px 0 90px;">
-            <div class="news-three__shape-1 img-bounce">
-                <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/news-three-shape-1.png') }}" alt="">
-            </div>
-        <div class="news-three__shape-2 float-bob-y">
-            <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/news-three-shape-2.png') }}" alt="">
         </div>
+
+    </div>
+    <!-- Portfolio Area End -->
+    <!-- Testimonials Area Start -->
+    <div class="testimonial__one section-padding">
+        <img class="testimonial__one-shape" src="{{ asset('assets/frontend/img/shape/testimonial-bg.png') }}" alt="testimonial-shape">
         <div class="container">
-            <div class="section-title-three text-center">
-                <div class="section-title-three__tagline-box">
-                    <p class="section-title-three__tagline">Latest Blog</p>
+            <div class="row align-items-center">
+                <div class="col-xl-6 col-lg-6 lg-mb-30">
+                    <div class="testimonial__one-title">
+                        <span class="subtitle-two">Real Client Stories</span>
+                        <h2>Customer Feedback on Our Insurance</h2>
+                        <p>How responsive and helpful are your customer service representatives ? Do customers feel that their questions and concerns are being addressed in a timely and effective..</p>
+                        <h6>99.9% Customer Satisfaction based on <span>950+</span> Reviews and <span>56,530</span> Objective Resource<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></h6>
+                        <a class="btn-two" href="testimonial.html">See All Review</a>
+                    </div>
                 </div>
-                <h2 class="section-title-three__title">Learn about our latest<br> news from blog.</h2>
+                <div class="col-xl-6 col-lg-6">
+                    <div class="testimonial__one-right">
+                        <div class="testimonial__one-pagination swiper gallery-thumbs">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><div class="testimonial__one-pagination-item swiper-slide-container">
+                                        <img src="assets/img/avatar/avatar-9.jpg" alt="avatar-image">
+                                    </div></div>
+                                <div class="swiper-slide"><div class="testimonial__one-pagination-item swiper-slide-container">
+                                        <img src="assets/img/avatar/avatar-10.jpg" alt="avatar-image">
+                                    </div></div>
+                                <div class="swiper-slide"><div class="testimonial__one-pagination-item swiper-slide-container">
+                                        <img src="assets/img/avatar/avatar-11.jpg" alt="avatar-image">
+                                    </div></div>
+                                <div class="swiper-slide"><div class="testimonial__one-pagination-item swiper-slide-container">
+                                        <img src="assets/img/avatar/avatar-12.jpg" alt="avatar-image">
+                                    </div></div>
+                            </div>
+                        </div>
+                        <div class="swiper gallery-top">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><div class="swiper-slide-container">
+                                        <div class="testimonial__one-item">
+                                            <div class="testimonial__one-item-review">
+                                                <h5>Amazing Quality</h5>
+                                                <div class="testimonial__one-item-review-rating">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                            </div>
+                                            <p>A good review should be structured in a clear and organized way, with an introduction that sets the context and explains the purpose of the review, a detailed analysis of the product's features and performance, and a conclusion that summarizes the key findings and provides a recommendation.</p>
+                                            <div class="testimonial__one-item-bottom">
+                                                <i class="flaticon-quote-1"></i>
+                                                <div class="testimonial__one-item-bottom-name">
+                                                    <h4>Ronald Richards</h4>
+                                                    <span>Green Tech</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div></div>
+                                <div class="swiper-slide"><div class="swiper-slide-container">
+                                        <div class="testimonial__one-item">
+                                            <div class="testimonial__one-item-review">
+                                                <h5>Design Quality</h5>
+                                                <div class="testimonial__one-item-review-rating">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                            </div>
+                                            <p>A good design review should be well-organized and structured, with a clear introduction that explains the purpose of the review and sets the context for the evaluation. The reviewer should provide a detailed analysis of the product's design, including its layout, color scheme, typography..</p>
+                                            <div class="testimonial__one-item-bottom">
+                                                <i class="flaticon-quote-1"></i>
+                                                <div class="testimonial__one-item-bottom-name">
+                                                    <h4>Louise Linton</h4>
+                                                    <span>Manager, Airlines</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div></div>
+                                <div class="swiper-slide"><div class="swiper-slide-container">
+                                        <div class="testimonial__one-item">
+                                            <div class="testimonial__one-item-review">
+                                                <h5>Amazing Quality</h5>
+                                                <div class="testimonial__one-item-review-rating">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                            </div>
+                                            <p>A high-quality review should also be engaging and easy to read, using language that is clear and accessible to the intended audience. The reviewer should provide specific examples and details to support their analysis, drawing on their personal experience and expertise to offer insights advice.</p>
+                                            <div class="testimonial__one-item-bottom">
+                                                <i class="flaticon-quote-1"></i>
+                                                <div class="testimonial__one-item-bottom-name">
+                                                    <h4>Boris Elbert</h4>
+                                                    <span>Green Tech</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div></div>
+                                <div class="swiper-slide"><div class="swiper-slide-container">
+                                        <div class="testimonial__one-item">
+                                            <div class="testimonial__one-item-review">
+                                                <h5>Design Quality</h5>
+                                                <div class="testimonial__one-item-review-rating">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                            </div>
+                                            <p>In addition to analyzing the visual aspects of the design, a high-quality review should also evaluate the product's functionality, assessing how well it performs its intended tasks and how user-friendly it is. The reviewer should consider factors such as ease of use, intuitive navigation, and..</p>
+                                            <div class="testimonial__one-item-bottom">
+                                                <i class="flaticon-quote-1"></i>
+                                                <div class="testimonial__one-item-bottom-name">
+                                                    <h4>Cooper, Kristin</h4>
+                                                    <span>Manager, Airlines</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonials Area End -->
+    <!-- Offer Area Start -->
+    <div class="offer__area section-padding">
+        <img class="offer__area-shape" src="assets/img/shape/offer-bg.png" alt="offer-shape">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-6 col-lg-6 lg-mb-30">
+                    <div class="offer__area-left">
+                        <div class="image-overlay dark__image">
+                            <img class="offer__area-left-one" src="assets/img/pages/offer-1.jpg" alt="offer-image">
+                        </div>
+                        <div class="image-overlay two dark__image">
+                            <img src="assets/img/pages/offer-2.jpg" alt="offer-image">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6">
+                    <div class="offer__area-right">
+                        <div class="offer__area-right-title">
+                            <span class="subtitle-two">What We Offer</span>
+                            <h2>Good Business Insurance Packages</h2>
+                            <p>This insurance covers damage to a business's physical property, such as the building, equipment, inventory, and other assets.</p>
+                        </div>
+                        <div class="offer__area-right-list">
+                            <div class="offer__area-right-list-item">
+                                <i class="flaticon-house"></i>
+                                <div class="offer__area-right-list-item-content">
+                                    <h5>Online Insurance Quotes</h5>
+                                    <p>Many websites offer insurance comparison tools that allow you to compare policies.</p>
+                                </div>
+                            </div>
+                            <div class="offer__area-right-list-item">
+                                <i class="flaticon-travel-insurance"></i>
+                                <div class="offer__area-right-list-item-content">
+                                    <h5>Policy Review Service</h5>
+                                    <p>The purpose of policy review is to assess the adequacy and appropriateness.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Offer Area End -->
+    <div class="text__slider section-padding">
+        <div class="text-slide">
+            <div class="sliders scroll">
+                <ul>
+                    <li><h2><a href="project-single.html">Marine Insurance</a><span>✦</span></h2></li>
+                    <li><h2><a href="project-single.html">Fire Insurance</a><span>✦</span></h2></li>
+                    <li><h2><a href="project-single.html">Farm Insurance</a><span>✦</span></h2></li>
+                    <li><h2><a href="project-single.html">Business Insurance</a><span>✦</span></h2></li>
+                    <li><h2><a href="project-single.html">Pet Insurance</a><span>✦</span></h2></li>
+                </ul>
+            </div>
+            <div class="sliders scroll">
+                <ul>
+                    <li><h2><a href="project-single.html">Marine Insurance</a><span>✦</span></h2></li>
+                    <li><h2><a href="project-single.html">Fire Insurance</a><span>✦</span></h2></li>
+                    <li><h2><a href="project-single.html">Farm Insurance</a><span>✦</span></h2></li>
+                    <li><h2><a href="project-single.html">Business Insurance</a><span>✦</span></h2></li>
+                    <li><h2><a href="project-single.html">Pet Insurance</a><span>✦</span></h2></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Blog Area Start -->
+    <div class="blog__one section-padding">
+        <div class="container">
+            <div class="row mb-30">
+                <div class="col-xl-12">
+                    <div class="blog__one-title t-center">
+                        <span class="subtitle-two">From the blog</span>
+                        <h2>News & Articles</h2>
+                    </div>
+                </div>
             </div>
             <div class="row">
-                @foreach($data['blogs'] as $blog)
-                    <div class="col-xl-4 col-lg-4 d-flex align-items-stretch">
-                        <div class="news-three__single">
-                            <div class="news-three__img-box">
-                                <div class="news-three__img">
-                                    <img class="lazy" data-src="{{ asset(imagePath($blog->image))}}" alt="">
-                                </div>
-                                <div class="news-three__date">
-                                    <p>{{date('d', strtotime($blog->created_at))}}</p>
-                                    <span>{{date('M Y', strtotime($blog->created_at))}}</span>
-                                </div>
-                            </div>
-                            <div class="news-three__content">
-                                <ul class="news-three__meta list-unstyled">
-                                    <li>
-                                        <p><span class="icon-report"></span> {{ $blog->blogCategory->title ?? '' }}</p>
-                                    </li>
-                                </ul>
-                                <h3 class="news-three__title"><a href="{{ route('frontend.blog.show', $blog->slug) }}">
-                                        {{ $blog->title ?? '' }}</a></h3>
-                                <div class="news-three__btn">
-                                    <a href="{{ route('frontend.blog.show', $blog->slug) }}">Learn More<span class="icon-right-arrow1"></span></a>
-                                </div>
+                <div class="col-xl-4 col-lg-6">
+                    <div class="blog__one-item">
+                        <div class="blog__one-item-image">
+                            <img src="assets/img/blog/liability-insurance.jpg" alt="liability-insurance">
+                            <div class="blog__one-item-image-date">
+                                <h5>22</h5>
+                                <span>Apr</span>
                             </div>
                         </div>
+                        <div class="blog__one-item-content">
+                            <div class="blog__one-item-content-meta">
+                                <ul>
+                                    <li><a href="single-left-sidebar.html"><i class="far fa-user"></i>By-Admin</a></li>
+                                    <li><a href="single-left-sidebar.html"><i class="far fa-comment-dots"></i>Comments (3)</a></li>
+                                </ul>
+                            </div>
+                            <h4><a href="single-left-sidebar.html">How Liability Insurance Protects You</a></h4>
+                            <p>Liability insurance can also help cover the costs of damages you may have..</p>
+                        </div>
+                        <div class="blog__one-item-btn">
+                            <a href="single-left-sidebar.html">Read More<span><i class="far fa-long-arrow-right"></i></span></a>
+                        </div>
                     </div>
-                @endforeach
+                </div>
+                <div class="col-xl-4 col-lg-6">
+                    <div class="blog__one-item">
+                        <div class="blog__one-item-image">
+                            <img src="assets/img/blog/business-insurance.jpg" alt="business-insurance">
+                            <div class="blog__one-item-image-date">
+                                <h5>19</h5>
+                                <span>Apr</span>
+                            </div>
+                        </div>
+                        <div class="blog__one-item-content">
+                            <div class="blog__one-item-content-meta">
+                                <ul>
+                                    <li><a href="single-left-sidebar.html"><i class="far fa-user"></i>By-Admin</a></li>
+                                    <li><a href="single-left-sidebar.html"><i class="far fa-comment-dots"></i>Comments (4)</a></li>
+                                </ul>
+                            </div>
+                            <h4><a href="single-left-sidebar.html">Business Auto Insurance Coverage Basics</a></h4>
+                            <p>This coverage protects businesses from claims of bodily injury or property..</p>
+                        </div>
+                        <div class="blog__one-item-btn">
+                            <a href="single-left-sidebar.html">Read More<span><i class="far fa-long-arrow-right"></i></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-6">
+                    <div class="blog__one-item">
+                        <div class="blog__one-item-image">
+                            <img src="assets/img/blog/cyber-insurance.jpg" alt="cyber-insurance">
+                            <div class="blog__one-item-image-date">
+                                <h5>17</h5>
+                                <span>Apr</span>
+                            </div>
+                        </div>
+                        <div class="blog__one-item-content">
+                            <div class="blog__one-item-content-meta">
+                                <ul>
+                                    <li><a href="single-left-sidebar.html"><i class="far fa-user"></i>By-Admin</a></li>
+                                    <li><a href="single-left-sidebar.html"><i class="far fa-comment-dots"></i>Comments (2)</a></li>
+                                </ul>
+                            </div>
+                            <h4><a href="single-left-sidebar.html">Cyber Security Risks & Prevention Measures</a></h4>
+                            <p>Malware is malicious software that can infect a computer system and steal..</p>
+                        </div>
+                        <div class="blog__one-item-btn">
+                            <a href="single-left-sidebar.html">Read More<span><i class="far fa-long-arrow-right"></i></span></a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-    @endif
+    </div>
+    <!-- Blog Area End -->
+    <!-- Subscribe Area Start -->
+    <div class="subscribe__area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-6 col-lg-6 lg-mb-30">
+                    <div class="subscribe__area-title">
+                        <h3>Subscribe Our Newsletter to Get Company Update</h3>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6">
+                    <div class="subscribe__area-form">
+                        <form action="#">
+                            <input type="text" name="email" placeholder="Email Address" required="">
+                            <button class="btn-two" type="submit">Subscribe Now</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection
 
 @section('js')
