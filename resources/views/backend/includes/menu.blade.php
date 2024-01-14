@@ -61,11 +61,11 @@
                                    class="nav-link {{request()->route()->getName() == 'backend.homepage.recruitment_process.create' ? 'active':''}}"
                                    data-key="t-multi-level-homepage">Recruitment Process</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="{{ route('backend.homepage.general_grievance.create') }}"
-                                   class="nav-link {{request()->route()->getName() == 'backend.homepage.general_grievance.create' ? 'active':''}}"
-                                   data-key="t-multi-level-homepage">General Grievance</a>
-                            </li>
+{{--                            <li class="nav-item">--}}
+{{--                                <a href="{{ route('backend.homepage.general_grievance.create') }}"--}}
+{{--                                   class="nav-link {{request()->route()->getName() == 'backend.homepage.general_grievance.create' ? 'active':''}}"--}}
+{{--                                   data-key="t-multi-level-homepage">General Grievance</a>--}}
+{{--                            </li>--}}
                         </ul>
                     </div>
                 </li>

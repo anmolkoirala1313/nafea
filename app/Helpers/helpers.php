@@ -198,23 +198,23 @@ if (!function_exists('core_value_icon')) {
     function core_value_icon($index): string
     {
         if($index == 0){
-            $icon = 'icon-business-advice';
+            $icon = 'flaticon-meeting';
         }else if($index == 1){
-            $icon = 'icon-planning';
+            $icon = 'flaticon-review';
         }else if($index == 2){
-            $icon = 'icon-report';
+            $icon = 'flaticon-seller';
         }else if($index == 3){
-            $icon = 'icon-solution';
+            $icon = 'flaticon-trust';
         }else if($index == 4){
-            $icon = 'icon-diversity';
+            $icon = 'flaticon-costumer';
         }else if($index == 5){
-            $icon = 'icon-risk-management';
+            $icon = 'flaticon-team';
         }else if($index == 6){
-            $icon = 'icon-woman';
+            $icon = 'flaticon-medical-report';
         }else if($index == 7){
-            $icon = 'icon-risk-management';
+            $icon = 'flaticon-cost-saving';
         }else{
-            $icon = 'icon-icon-years-experience';
+            $icon = 'flaticon-globe';
         }
 
         return $icon;

@@ -13,7 +13,7 @@
                                 <h5 class="fs-13 mb-0">Navigation List</h5>
                             </div>
                             <div class="flex-shrink-0 ms-2">
-                                <span class="badge bg-light text-muted">8</span>
+                                <span class="badge bg-light text-muted">7</span>
                             </div>
                         </a>
 
@@ -40,9 +40,9 @@
                                 <li>
                                     <a href="{{ route('backend.homepage.recruitment_process.create') }}" class="d-block py-1 {{request()->route()->getName() == 'backend.homepage.recruitment_process.create' ? '':'text-muted'}}">Recruitment Process</a>
                                 </li>
-                                <li>
-                                    <a href="{{ route('backend.homepage.general_grievance.create') }}" class="d-block py-1 {{request()->route()->getName() == 'backend.homepage.general_grievance.create' ? '':'text-muted'}}">General Grievance</a>
-                                </li>
+{{--                                <li>--}}
+{{--                                    <a href="{{ route('backend.homepage.general_grievance.create') }}" class="d-block py-1 {{request()->route()->getName() == 'backend.homepage.general_grievance.create' ? '':'text-muted'}}">General Grievance</a>--}}
+{{--                                </li>--}}
                             </ul>
                         </div>
                     </li>

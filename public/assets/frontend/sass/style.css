@@ -5402,8 +5402,8 @@ h6 {
 * Features One CSS
 ==========================================================================*/
 .features {
-  margin-top: -80px;
-    margin-bottom: 40px;
+  margin-top: -20px;
+    margin-bottom: 60px;
   position: relative;
   z-index: 1;
 }
@@ -8005,7 +8005,7 @@ h6 {
 }
 .portfolio__three-item-content span {
   font-family: var(--heading-font);
-  color: var(--primary-color-3);
+  color: var(--primary-color-2);
   font-weight: 600;
 }
 .portfolio__three-item-content h4 a {
@@ -8021,7 +8021,7 @@ h6 {
   transform: translateY(-50%);
 }
 .portfolio__three-item-content-icon a i {
-  background: var(--primary-color-3);
+  background: var(--primary-color-2);
   color: var(--text-white);
   width: 60px;
   height: 60px;
@@ -10472,6 +10472,9 @@ h6 {
 /*==========================================================================
 * Blog One CSS
 ==========================================================================*/
+.blog__one{
+    background: var(--color-4);
+}
 .blog__one-item {
   margin-top: 30px;
 }
@@ -11994,7 +11997,7 @@ h6 {
   overflow: hidden;
   width: 100%;
   background: var(--primary-color-2);
-  padding: 80px 0;
+  padding: 70px 0;
   direction: ltr;
 }
 .text__slider .text-slide {

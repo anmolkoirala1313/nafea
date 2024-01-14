@@ -219,6 +219,38 @@
         </div>
     @endif
 
+    @if(count($data['homepage']->coreValueDetail))
+        <div class="services__two section-padding" style="padding-top: 60px">
+            <img class="services__two-shape-one dark-n lazy" src="{{ asset('assets/frontend/img/shape/services-3.png') }}" alt="">
+            <img class="services__two-shape-two dark-n lazy" src="{{ asset('assets/frontend/img/shape/services-2.png') }}" alt="">
+            <div class="container">
+                <div class="row mb-30">
+                    <div class="col-xl-12">
+                        <div class="services__two-title">
+                            <span class="subtitle-two">Available Solutions</span>
+                            <h2>Insurance Solutions</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach($data['homepage']->coreValueDetail as $index=>$core_value)
+                        <div class="col-xl-4 col-lg-4 col-md-6 d-flex align-items-stretch">
+                            <div class="services__two-item">
+                                <div class="services__two-item-icon">
+                                    <i class="{{ core_value_icon($index) }}"></i>
+                                </div>
+                                <div class="services__two-item-content">
+                                    <h4><a>{{ $core_value->title ?? '' }}</a></h4>
+                                    <p>{{ $core_value->description ?? '' }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    @endif
+
     @if(count($data['director']) > 0)
         <div class="testimonial__two section-padding">
             <div class="shape-slide">
@@ -403,7 +435,7 @@
                 <div class="row mb-60">
                     <div class="col-xl-12">
                         <div class="portfolio__three-title t-center">
-                            <span class="subtitle-three">Our Notice</span>
+                            <span class="subtitle-two">Our Notice</span>
                             <h2>Our Important Notice and Information</h2>
                         </div>
                     </div>
@@ -490,137 +522,77 @@
         </div>
     @endif
 
+    @if(count( $data['clients']) > 0)
+        <div class="text__slider client section-padding" style="background: #fff url({{ asset('assets/frontend/img/shape/counter-bg.png') }})">
+            <div class="container">
+                <div class="row mb-60">
+                    <div class="col-xl-12">
+                        <div class="portfolio__three-title t-center">
+                            <span class="subtitle-two">Our Valuable clients</span>
+                            <h2>Associated With</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        @foreach($data['clients'] as $index=>$client)
+                            <div class="swiper-slide">
+                                <div class="client__box">
+                                    <a href="{{ $client->link ?? '#' }}" target="{{ ($client->link !== null) ? '_blank':'' }}">
+                                        <img src="{{ asset(imagePath($client->image)) }}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        @endforeach
 
-    <div class="text__slider section-padding">
-        <div class="text-slide">
-            <div class="sliders scroll">
-                <ul>
-                    <li><h2><a href="project-single.html">Marine Insurance</a><span>✦</span></h2></li>
-                    <li><h2><a href="project-single.html">Fire Insurance</a><span>✦</span></h2></li>
-                    <li><h2><a href="project-single.html">Farm Insurance</a><span>✦</span></h2></li>
-                    <li><h2><a href="project-single.html">Business Insurance</a><span>✦</span></h2></li>
-                    <li><h2><a href="project-single.html">Pet Insurance</a><span>✦</span></h2></li>
-                </ul>
-            </div>
-            <div class="sliders scroll">
-                <ul>
-                    <li><h2><a href="project-single.html">Marine Insurance</a><span>✦</span></h2></li>
-                    <li><h2><a href="project-single.html">Fire Insurance</a><span>✦</span></h2></li>
-                    <li><h2><a href="project-single.html">Farm Insurance</a><span>✦</span></h2></li>
-                    <li><h2><a href="project-single.html">Business Insurance</a><span>✦</span></h2></li>
-                    <li><h2><a href="project-single.html">Pet Insurance</a><span>✦</span></h2></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- Blog Area Start -->
-    <div class="blog__one section-padding">
-        <div class="container">
-            <div class="row mb-30">
-                <div class="col-xl-12">
-                    <div class="blog__one-title t-center">
-                        <span class="subtitle-two">From the blog</span>
-                        <h2>News & Articles</h2>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-4 col-lg-6">
-                    <div class="blog__one-item">
-                        <div class="blog__one-item-image">
-                            <img src="assets/img/blog/liability-insurance.jpg" alt="liability-insurance">
-                            <div class="blog__one-item-image-date">
-                                <h5>22</h5>
-                                <span>Apr</span>
-                            </div>
-                        </div>
-                        <div class="blog__one-item-content">
-                            <div class="blog__one-item-content-meta">
-                                <ul>
-                                    <li><a href="single-left-sidebar.html"><i class="far fa-user"></i>By-Admin</a></li>
-                                    <li><a href="single-left-sidebar.html"><i class="far fa-comment-dots"></i>Comments (3)</a></li>
-                                </ul>
-                            </div>
-                            <h4><a href="single-left-sidebar.html">How Liability Insurance Protects You</a></h4>
-                            <p>Liability insurance can also help cover the costs of damages you may have..</p>
-                        </div>
-                        <div class="blog__one-item-btn">
-                            <a href="single-left-sidebar.html">Read More<span><i class="far fa-long-arrow-right"></i></span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-6">
-                    <div class="blog__one-item">
-                        <div class="blog__one-item-image">
-                            <img src="assets/img/blog/business-insurance.jpg" alt="business-insurance">
-                            <div class="blog__one-item-image-date">
-                                <h5>19</h5>
-                                <span>Apr</span>
-                            </div>
-                        </div>
-                        <div class="blog__one-item-content">
-                            <div class="blog__one-item-content-meta">
-                                <ul>
-                                    <li><a href="single-left-sidebar.html"><i class="far fa-user"></i>By-Admin</a></li>
-                                    <li><a href="single-left-sidebar.html"><i class="far fa-comment-dots"></i>Comments (4)</a></li>
-                                </ul>
-                            </div>
-                            <h4><a href="single-left-sidebar.html">Business Auto Insurance Coverage Basics</a></h4>
-                            <p>This coverage protects businesses from claims of bodily injury or property..</p>
-                        </div>
-                        <div class="blog__one-item-btn">
-                            <a href="single-left-sidebar.html">Read More<span><i class="far fa-long-arrow-right"></i></span></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-6">
-                    <div class="blog__one-item">
-                        <div class="blog__one-item-image">
-                            <img src="assets/img/blog/cyber-insurance.jpg" alt="cyber-insurance">
-                            <div class="blog__one-item-image-date">
-                                <h5>17</h5>
-                                <span>Apr</span>
-                            </div>
-                        </div>
-                        <div class="blog__one-item-content">
-                            <div class="blog__one-item-content-meta">
-                                <ul>
-                                    <li><a href="single-left-sidebar.html"><i class="far fa-user"></i>By-Admin</a></li>
-                                    <li><a href="single-left-sidebar.html"><i class="far fa-comment-dots"></i>Comments (2)</a></li>
-                                </ul>
-                            </div>
-                            <h4><a href="single-left-sidebar.html">Cyber Security Risks & Prevention Measures</a></h4>
-                            <p>Malware is malicious software that can infect a computer system and steal..</p>
-                        </div>
-                        <div class="blog__one-item-btn">
-                            <a href="single-left-sidebar.html">Read More<span><i class="far fa-long-arrow-right"></i></span></a>
-                        </div>
-                    </div>
+
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
+
                 </div>
             </div>
         </div>
-    </div>
+    @endif
+
+    @if(count($data['blogs'])>0)
+        <div class="blog__one section-padding">
+            <div class="container">
+                <div class="row mb-30">
+                    <div class="col-xl-12">
+                        <div class="blog__one-title t-center">
+                            <span class="subtitle-two">From the blog</span>
+                            <h2>News & Articles</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach($data['blogs'] as $blog)
+                        <div class="col-xl-4 col-lg-6 d-flex align-items-stretch">
+                            <div class="blog__one-item">
+                                <div class="blog__one-item-image">
+                                    <img class="lazy" data-src="{{ asset(imagePath($blog->image))}}" alt="">
+                                </div>
+                                <div class="blog__one-item-content">
+                                    <div class="blog__one-item-content-meta">
+                                        <ul>
+                                            <li><a href="{{ route('frontend.blog.show', $blog->slug) }}"><i class="far fa-list-alt"></i>{{ $blog->blogCategory->title ?? '' }}</a></li>
+                                            <li><a href="{{ route('frontend.blog.show', $blog->slug) }}"><i class="far fa-calendar-alt"></i>{{date('d, M Y', strtotime($blog->created_at))}}</a></li>
+                                        </ul>
+                                    </div>
+                                    <h4><a href="{{ route('frontend.blog.show', $blog->slug) }}"> {{ $blog->title ?? '' }}</a></h4>
+                                </div>
+                                <div class="blog__one-item-btn">
+                                    <a href="{{ route('frontend.blog.show', $blog->slug) }}">Read More<span><i class="far fa-long-arrow-right"></i></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    @endif
     <!-- Blog Area End -->
-    <!-- Subscribe Area Start -->
-    <div class="subscribe__area">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-xl-6 col-lg-6 lg-mb-30">
-                    <div class="subscribe__area-title">
-                        <h3>Subscribe Our Newsletter to Get Company Update</h3>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6">
-                    <div class="subscribe__area-form">
-                        <form action="#">
-                            <input type="text" name="email" placeholder="Email Address" required="">
-                            <button class="btn-two" type="submit">Subscribe Now</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
 @endsection
 

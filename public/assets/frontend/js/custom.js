@@ -227,7 +227,47 @@
 			},
 		}
 	});
-	///============= * Request Quote  =============\\\
+
+    ///============= * Client One  =============\\\
+    var mySwiper = new Swiper('.client .swiper-container', {
+        loop: false,
+        speed: 2000,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            0: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            414: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+            },
+            768: {
+                slidesPerView: 4,
+                spaceBetween: 40,
+            },
+            991: {
+                slidesPerView: 5,
+                spaceBetween: 70,
+            },
+        }
+    })
+    ///============= * Request Quote  =============\\\
 	var swiper = new Swiper(".request__quote-slider", {
 		loop: true,
 		speed: 1500,
