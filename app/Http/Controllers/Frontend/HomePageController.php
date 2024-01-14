@@ -18,6 +18,7 @@ use App\Models\Backend\Homepage\Slider;
 use App\Models\Backend\Homepage\Welcome;
 use App\Models\Backend\ManagingDirector;
 use App\Models\Backend\News\Blog;
+use App\Models\Backend\News\Notice;
 use App\Models\Backend\News\PressRelease;
 use App\Models\Backend\Page\PageSectionGallery;
 use App\Models\Backend\PageHeading;
@@ -67,6 +68,7 @@ class HomePageController extends BackendBaseController
         $data['services']               = Service::active()->latest()->take(4)->get();
         $data['blogs']                  = Blog::active()->descending()->latest()->take(3)->get();
         $data['press_release']          = PressRelease::active()->descending()->latest()->take(6)->get();
+        $data['notices']                = Notice::active()->descending()->latest()->take(4)->get();
         $data['homepage']               = Welcome::first();
         $data['director']               = ManagingDirector::active()->orderBy('order', 'asc')->get();
         $data['setting']                = Setting::first();

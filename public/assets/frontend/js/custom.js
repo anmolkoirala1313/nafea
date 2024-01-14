@@ -47,7 +47,7 @@
 		meanScreenWidth: '1050',
 		meanMenuOpen: '<span></span><span></span><span></span>',
 		meanMenuClose: '<i class="fal fa-times"></i>'
-	});	
+	});
 
     ///============= * Header Sticky  =============\\\
     $(window).on("scroll", function () {
@@ -98,7 +98,7 @@
 		navigation: {
 			nextEl: '.swiper-button-next',
 			prevEl: '.swiper-button-prev',
-		},		
+		},
 		pagination: {
 			el: ".banner-pagination",
 			type: "fraction",
@@ -145,20 +145,21 @@
 	///============= * Testimonial Slider  =============\\\
     var mySwiper = new Swiper(".testimonial__slider", {
 		direction: 'vertical',
-        spaceBetween: 30,
-		slidesPerView: 2,
-		speed: 2000,
-		loop: true,
-		pagination: {
+        spaceBetween: 90,
+		slidesPerView: 1,
+		speed: 1000,
+		loop: false,
+        autoHeight: true,  // Add this line
+        pagination: {
 			el: ".testimonial-pagination",
 			clickable: true,
 		},
 		autoplay: {
-			delay: 4500,
+			delay: 7500,
 			reverseDirection: false,
 			disableOnInteraction: false,
 		},
-	});	
+	});
 	///============= * Testimonial Two  =============\\\
 	var galleryTop = new Swiper('.gallery-top', {
 		spaceBetween: 10,
@@ -189,7 +190,7 @@
 	$('.video-popup').magnificPopup({
 		type: 'iframe'
 	});
-	
+
 	///============= * Image Popup  =============\\\
 	$('.img-popup').magnificPopup({
 		type: 'image',
@@ -225,7 +226,7 @@
 				slidesPerView: 4
 			},
 		}
-	});		
+	});
 	///============= * Request Quote  =============\\\
 	var swiper = new Swiper(".request__quote-slider", {
 		loop: true,
@@ -241,15 +242,15 @@
 			el: ".swiper-pagination",
 			clickable: true,
 		},
-	});		
+	});
 	///============= * Portfolio Three Active Hover  =============\\\
 	$(document).on("click", ".portfolio__three-item", function () {
 		removeActiveClasses();
 		$(this).addClass("active");
-	});	
+	});
 	function removeActiveClasses() {
 		$(".portfolio__three-item").removeClass("active");
-	}	
+	}
     ///============= * Theme Loader  =============\\\
     $(window).on("load", function () {
         $(".theme-loader").fadeOut(0.0009);
@@ -276,11 +277,11 @@
 		var themeDark = $('.type-dark-mode button.active').attr('data-mode');
 		if (themeDark == 'dark-mode') {
 		  	$('body').addClass('dark-mode');
-		} 
+		}
 		else {
 		  	$('body').removeClass('dark-mode');
-		}		
-	});  
+		}
+	});
 	///============= * RTL & LTR Switch  =============\\\
 	$('.ltr-rtl-mode button').on('click', function (e) {
 		$(this).addClass('active').siblings().removeClass('active');
@@ -329,7 +330,7 @@
 			item.classList.add('active');
 		});
 	});
-	
+
     ///============= * croll To Top =============\\\
 	var scrollPath = document.querySelector(".scroll-up path");
 	var pathLength = scrollPath.getTotalLength();
@@ -355,12 +356,12 @@
 		else {
 			jQuery(".scroll-up").removeClass("active-scroll");
 		}
-	});	
+	});
 	jQuery(".scroll-up").on("click", function (event) {
 	  	event.preventDefault();
 	  	jQuery("html, body").animate(
 			{ scrollTop: 0, } , duration
 		);
 	  	return false;
-	});	
+	});
 })(jQuery);

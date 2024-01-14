@@ -362,7 +362,7 @@
                         </li>
                         <li>
                             <div class="counter-one__icon">
-                                <span class="icon-icon-team-members"></span>
+                                <span class="flaticon-trust"></span>
                             </div>
                             <div class="counter-one__count count-box">
                                 <h3 class="count-text" data-stop="{{ $data['homepage']->happy_clients ?? '560' }}" data-speed="1500">00</h3>

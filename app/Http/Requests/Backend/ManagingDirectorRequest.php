@@ -26,7 +26,7 @@ class ManagingDirectorRequest extends FormRequest
     {
         return [
             'title'         => 'required|string|max:50',
-            'description'   => 'required|string|max:900',
+            'description'   => 'required|string|max:1200',
             'image_input'   => request()->method() == 'POST' ? 'required':'nullable'.'|image|mimes:jpeg,png,jpg',
         ];
     }

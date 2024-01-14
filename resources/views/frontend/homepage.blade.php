@@ -219,6 +219,224 @@
         </div>
     @endif
 
+    @if(count($data['director']) > 0)
+        <div class="testimonial__two section-padding">
+            <div class="shape-slide">
+                <div class="sliders scrolls">
+                    <img class="lazy" data-src="{{ asset('assets/frontend/img/shape/testimonial.png') }}" alt="">
+                </div>
+                <div class="sliders scrolls">
+                    <img class="lazy" data-src="{{ asset('assets/frontend/img/shape/testimonial.png') }}" alt="">
+                </div>
+            </div>
+            <div class="container">
+                <div class="col-xl-6 col-lg-6 lg-mb-30 mb-5">
+                    <div class="testimonial__two-title">
+                        <span class="subtitle-two">Message From Directors</span>
+                        <h2>Listen to what our directors have to say.</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12">
+                        <div class="testimonial__two-left">
+                            <div class="swiper testimonial__slider">
+                                <div class="swiper-wrapper" style="height: fit-content;">
+                                    @foreach($data['director'] as $index=>$director)
+                                        <div class="testimonial__two-item swiper-slide">
+                                            <div class="testimonial__two-item-inner">
+                                                <div class="testimonial__two-item-inner-client">
+                                                    <h4>{{ $director->title ?? '' }}</h4>
+                                                    <p class="text-align-justify">{{ $director->description ?? '' }}</p>
+                                                </div>
+                                                <div class="testimonial__two-item-inner-avatar">
+                                                    <img src="{{ asset(imagePath($director->image)) }}" alt="avatar-shape">
+                                                    <div class="quote">
+                                                        <i class="flaticon-quote"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="testimonial__two-item-bottom">
+                                                <span>{{ $director->designation ?? '' }}</span>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div class="testimonial-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
+
+    @if($data['homepage']->why_title)
+        <div class="offer__area section-padding" style="padding: 90px 0px 20px;">
+            <img class="offer__area-shape lazy" data-src="{{ asset('assets/frontend/img/shape/offer-bg.pn') }}g" alt="offer-shape">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-6 col-lg-6 lg-mb-30">
+                        <div class="offer__area-left">
+                            <div class="image-overlay dark__image">
+                                <img class="offer__area-left-one lazy" data-src="{{ asset(imagePath($data['homepage']->why_image)) }}" alt=" ">
+                            </div>
+                            @if($data['homepage']->why_video)
+                                <div class="video__area-play video video-pulse" style="position: absolute;top: 40%;left: 40%;">
+                                    <a class="video-popup" href="{{ $data['homepage']->why_video }}">
+                                        <i class="fas fa-play"></i>
+                                    </a>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="offer__area-right">
+                            <div class="offer__area-right-title">
+                                <span class="subtitle-two">{{ $data['homepage']->why_subtitle ?? 'Why Choose Us' }}</span>
+                                <h2>{{ $data['homepage']->why_title }}</h2>
+                                <p class="text-align-justify">{{ $data['homepage']->why_description ?? '' }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="counter__three section-padding pt-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="counter__two-bg">
+                            <div class="counter__two-item">
+                                <div class="counter__two-item-icon">
+                                    <i class="flaticon-success"></i>
+                                </div>
+                                <div class="counter__two-item-content">
+                                    <h2><span class="counter">{{ $data['homepage']->project_completed ?? '200' }}</span></h2>
+                                    <h6>Project Completed</h6>
+                                </div>
+                            </div>
+                            <div class="counter__two-item">
+                                <div class="counter__two-item-icon">
+                                    <i class="flaticon-safe-flight"></i>
+                                </div>
+                                <div class="counter__two-item-content">
+                                    <h2><span class="counter">{{ $data['homepage']->happy_clients ?? '560' }}</span></h2>
+                                    <h6>Happy Clients</h6>
+                                </div>
+                            </div>
+                            <div class="counter__two-item">
+                                <div class="counter__two-item-icon">
+                                    <i class="flaticon-project-management"></i>
+                                </div>
+                                <div class="counter__two-item-content">
+                                    <h2><span class="counter">{{ $data['homepage']->visa_approved ?? '260' }}</span></h2>
+                                    <h6>Visa Approved</h6>
+                                </div>
+                            </div>
+                            <div class="counter__two-item">
+                                <div class="counter__two-item-icon">
+                                    <i class="flaticon-costumer"></i>
+                                </div>
+                                <div class="counter__two-item-content">
+                                    <h2><span class="counter">{{ $data['homepage']->success_stories ?? '250' }}</span>+</h2>
+                                    <h6>Success Stories</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
+    @if(count($data['services']) > 0)
+        <div class="services__one section-padding">
+            <div class="shape-slide">
+                <div class="sliders scroll">
+                    <img class="lazy" data-src="{{ asset('assets/frontend/img/shape/services-1.png') }}" alt="service-shape">
+                </div>
+                <div class="sliders scroll">
+                    <img class="lazy" data-src="{{ asset('assets/frontend/img/shape/services-1.png') }}" alt="service-shape">
+                </div>
+            </div>
+            <div class="container">
+                <div class="row align-items-end">
+                    <div class="col-xl-6 col-lg-6 lg-mb-30">
+                        <div class="services__one-title lg-t-center">
+                            <span class="subtitle-two">Our Latest Categories</span>
+                            <h2>Covering All Bases With Our Special Category</h2>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="services__one-btn t-right lg-t-center">
+                            <a class="btn-one" href="{{ asset('frontend.service.index') }}">View All</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach($data['services'] as $index=>$service)
+                        <div class="col-xl-3 col-lg-4 col-md-6">
+                            <div class="services__one-item">
+                                <div class="services__one-item-image">
+                                    <img class="lazy" data-src="{{ asset(thumbnailImagePath($service->image)) }}" alt="">
+                                </div>
+                                <div class="services__one-item-content">
+                                    <div class="services__one-item-content-icon">
+                                        <i class="flaticon-winner"></i>
+                                    </div>
+                                    <h4><a href="{{ route('frontend.service.show', $service->key) }}">{{ $service->title ?? '' }}</a></h4>
+                                    <p></p>
+                                    <a href="{{ route('frontend.service.show', $service->key) }}">Read More<i class="fas fa-long-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    @endif
+
+    @if(count($data['notices']) > 0)
+        <div class="portfolio__three section-padding">
+            <div class="container">
+                <div class="row mb-60">
+                    <div class="col-xl-12">
+                        <div class="portfolio__three-title t-center">
+                            <span class="subtitle-three">Our Notice</span>
+                            <h2>Our Important Notice and Information</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio">
+                @foreach($data['notices'] as $index=>$notice)
+                    <div class="portfolio__three-item {{ $index == 1 ? 'active':'' }}">
+                        <img src="{{ asset(imagePath($notice->image)) }}" alt="">
+                        <div class="portfolio__three-item-content vertical">
+                            <div>
+                                <span>NAFEA Notice</span>
+                                <h4><a href="{{ route('frontend.notice.index') }}">{{ $notice->title ?? '' }}</a></h4>
+                            </div>
+                            <div class="portfolio__three-item-content-icon vertical">
+                                <a href="{{ route('frontend.notice.index') }}"><i class="flaticon-right-up"></i></a>
+                            </div>
+                        </div>
+                        <div class="portfolio__three-item-content transition">
+                            <div>
+                                <span>NAFEA Notice</span>
+                                <h4><a href="{{ route('frontend.notice.index') }}">{{ $notice->title ?? '' }}</a></h4>
+                            </div>
+                            <div class="portfolio__three-item-content-icon">
+                                <a href="{{ route('frontend.notice.index') }}"><i class="flaticon-right-up"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    @endif
+
     @if(count($data['testimonials'])>0)
         <div class="testimonial__one section-padding">
             <img class="testimonial__one-shape" src="{{ asset('assets/frontend/img/shape/testimonial-bg.png') }}" alt="testimonial-shape">
@@ -272,39 +490,6 @@
         </div>
     @endif
 
-    @if($data['homepage']->why_title)
-
-        <div class="offer__area section-padding">
-            <img class="offer__area-shape lazy" data-src="{{ asset('assets/frontend/img/shape/offer-bg.pn') }}g" alt="offer-shape">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xl-6 col-lg-6 lg-mb-30">
-                        <div class="offer__area-left">
-                            <div class="image-overlay dark__image">
-                                <img class="offer__area-left-one lazy" data-src="{{ asset(imagePath($data['homepage']->why_image)) }}" alt=" ">
-                            </div>
-                            @if($data['homepage']->why_video)
-                                <div class="video__area-play video video-pulse" style="position: absolute;top: 40%;left: 40%;">
-                                    <a class="video-popup" href="{{ $data['homepage']->why_video }}">
-                                        <i class="fas fa-play"></i>
-                                    </a>
-                                </div>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-6">
-                        <div class="offer__area-right">
-                            <div class="offer__area-right-title">
-                                <span class="subtitle-two">{{ $data['homepage']->why_subtitle ?? 'Why Choose Us' }}</span>
-                                <h2>{{ $data['homepage']->why_title }}</h2>
-                                <p class="text-align-justify">{{ $data['homepage']->why_description ?? '' }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
 
     <div class="text__slider section-padding">
         <div class="text-slide">

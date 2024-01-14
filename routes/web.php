@@ -39,6 +39,11 @@ Route::get('/blog/search/', [BlogController::class, 'search'])->name('blog.searc
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 Route::get('/blog/category/{slug}', [BlogController::class, 'category'])->name('blog.category');
 
+//notice
+Route::get('/our-notice', [BlogController::class, 'index'])->name('notice.index');
+Route::get('/our-notice/search/', [BlogController::class, 'search'])->name('notice.search');
+Route::get('/our-notice/{slug}', [BlogController::class, 'show'])->name('notice.show');
+
 //jobs
 Route::get('/job', [JobController::class, 'index'])->name('job.index');
 Route::get('/job/search/', [JobController::class, 'search'])->name('job.search');
@@ -56,9 +61,9 @@ Route::get('/brochure', [HomePageController::class, 'brochure'])->name('page.bro
 
 Route::get('/video-gallery', [HomePageController::class, 'document'])->name('page.video_gallery');
 
-Route::get('/categories-we-recruit', [ServiceController::class, 'index'])->name('service.index');
-Route::get('/categories-we-recruit/search/', [ServiceController::class, 'search'])->name('service.search');
-Route::get('/categories-we-recruit/{slug}', [ServiceController::class, 'show'])->name('service.show');
+Route::get('/our-categories', [ServiceController::class, 'index'])->name('service.index');
+Route::get('/our-categories/search/', [ServiceController::class, 'search'])->name('service.search');
+Route::get('/our-categories/{slug}', [ServiceController::class, 'show'])->name('service.show');
 
 Route::get('/team', [HomePageController::class, 'team'])->name('page.team');
 Route::get('/testimonial', [HomePageController::class, 'testimonial'])->name('page.testimonial');
