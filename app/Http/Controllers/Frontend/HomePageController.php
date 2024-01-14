@@ -61,16 +61,17 @@ class HomePageController extends BackendBaseController
      */
     public function index()
     {
-        $data                       = $this->getCommonData();
-        $data['sliders']            = Slider::active()->descending()->get();
-        $data['testimonials']       = Testimonial::active()->descending()->limit(8)->get();
-        $data['services']           = Service::active()->latest()->take(4)->get();
-        $data['blogs']              = Blog::active()->descending()->latest()->take(3)->get();
-        $data['press_release']      = PressRelease::active()->descending()->latest()->take(6)->get();
-        $data['homepage']           = Welcome::first();
-        $data['director']           = ManagingDirector::active()->orderBy('order', 'asc')->get();
-        $data['setting']            = Setting::first();
-        $data['clients']            = Client::active()->descending()->latest()->take(10)->get();
+        $data                           = $this->getCommonData();
+        $data['sliders']                = Slider::active()->descending()->get();
+        $data['testimonials']           = Testimonial::active()->descending()->limit(6)->get();
+        $data['services']               = Service::active()->latest()->take(4)->get();
+        $data['blogs']                  = Blog::active()->descending()->latest()->take(3)->get();
+        $data['press_release']          = PressRelease::active()->descending()->latest()->take(6)->get();
+        $data['homepage']               = Welcome::first();
+        $data['director']               = ManagingDirector::active()->orderBy('order', 'asc')->get();
+        $data['setting']                = Setting::first();
+        $data['clients']                = Client::active()->descending()->latest()->take(10)->get();
+        $data['testimonial_heading']    = PageHeading::active()->where('type','testimonial')->first();
 
         return view($this->loadResource($this->view_path.'homepage'), compact('data'));
     }

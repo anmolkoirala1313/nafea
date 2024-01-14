@@ -56,7 +56,6 @@ Route::get('/brochure', [HomePageController::class, 'brochure'])->name('page.bro
 
 Route::get('/video-gallery', [HomePageController::class, 'document'])->name('page.video_gallery');
 
-
 Route::get('/categories-we-recruit', [ServiceController::class, 'index'])->name('service.index');
 Route::get('/categories-we-recruit/search/', [ServiceController::class, 'search'])->name('service.search');
 Route::get('/categories-we-recruit/{slug}', [ServiceController::class, 'show'])->name('service.show');

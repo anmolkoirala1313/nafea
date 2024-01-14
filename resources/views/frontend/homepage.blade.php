@@ -84,7 +84,7 @@
                                 </div>
                                 <div class="features-area-item-content">
                                     <h4>Mission</h4>
-                                    <p>{{ $data['homepage']->mission ?? '' }}</p>
+                                    <p class="text-align-justify">{{ $data['homepage']->mission ?? '' }}</p>
                                 </div>
                             </div>
                             <div class="features-area-item features-area-item-hover d-flex align-items-stretch">
@@ -93,7 +93,7 @@
                                 </div>
                                 <div class="features-area-item-content">
                                     <h4>Vision</h4>
-                                    <p>{{ $data['homepage']->vision ?? '' }}</p>
+                                    <p class="text-align-justify">{{ $data['homepage']->vision ?? '' }}</p>
                                 </div>
                             </div>
                             <div class="features-area-item d-flex align-items-stretch">
@@ -102,7 +102,7 @@
                                 </div>
                                 <div class="features-area-item-content">
                                     <h4>Value</h4>
-                                    <p>{{ $data['homepage']->value ?? '' }}</p>
+                                    <p class="text-align-justify">{{ $data['homepage']->value ?? '' }}</p>
                                 </div>
                             </div>
                         </div>
@@ -157,8 +157,8 @@
                 <div class="row mb-60">
                     <div class="col-xl-12">
                         <div class="work__area-title t-center">
-                            <span class="subtitle-two">How it Work</span>
-                            <h2>Our Work Process Journey</h2>
+                            <span class="subtitle-two">{{ $data['homepage']->recruitment_subtitle ?? 'How it Works' }}</span>
+                            <h2>{{ $data['homepage']->recruitment_title ?? 'Our Work Process Journey' }}</h2>
                         </div>
                     </div>
                 </div>
@@ -182,208 +182,87 @@
         </div>
     @endif
 
-    <!-- Portfolio Area Start -->
-    <div class="portfolio__one">
-        <div class="container">
-            <div class="row mb-20">
-                <div class="col-xl-6">
-                    <div class="offer__area-right-title">
-                        <span class="subtitle-two">Our Press Release</span>
-                        <h2>Read Our Groundbreaking Approaches</h2>
+    @if(count($data['press_release']))
+        <div class="portfolio__one">
+            <div class="container">
+                <div class="row mb-20">
+                    <div class="col-xl-6">
+                        <div class="offer__area-right-title">
+                            <span class="subtitle-two">Our Press Release</span>
+                            <h2>Read Our Groundbreaking Approaches</h2>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="swiper portfolio__one-slider">
-                        <div class="swiper-wrapper">
-                            @foreach($data['press_release'] as $release)
-                                <div class="portfolio__one-item swiper-slide">
-                                    <img src="{{ asset(thumbnailImagePath($release->image))}}" alt="property-insurance">
-                                    <div class="portfolio__one-item-content">
-                                        <div class="portfolio__one-item-content-left">
-                                            <a href="project-single.html"><i class="flaticon-arrows"></i></a>
-                                        </div>
-                                        <div class="portfolio__one-item-content-right">
-                                            <span>Property Coverage</span>
-                                            <h4><a href="project-single.html">Property Insurance</a></h4>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="swiper portfolio__one-slider">
+                            <div class="swiper-wrapper">
+                                @foreach($data['press_release'] as $release)
+                                    <div class="portfolio__one-item swiper-slide">
+                                        <img src="{{ asset(thumbnailImagePath($release->image))}}" alt="property-insurance">
+                                        <div class="portfolio__one-item-content">
+                                            <div class="portfolio__one-item-content-left">
+                                                <a href="project-single.html"><i class="flaticon-arrows"></i></a>
+                                            </div>
+                                            <div class="portfolio__one-item-content-right">
+                                                <span>Property Coverage</span>
+                                                <h4><a href="project-single.html">Property Insurance</a></h4>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    @endif
 
-    </div>
-    <!-- Portfolio Area End -->
-    <!-- Testimonials Area Start -->
-    <div class="testimonial__one section-padding">
-        <img class="testimonial__one-shape" src="{{ asset('assets/frontend/img/shape/testimonial-bg.png') }}" alt="testimonial-shape">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-xl-6 col-lg-6 lg-mb-30">
-                    <div class="testimonial__one-title">
-                        <span class="subtitle-two">Real Client Stories</span>
-                        <h2>Customer Feedback on Our Insurance</h2>
-                        <p>How responsive and helpful are your customer service representatives ? Do customers feel that their questions and concerns are being addressed in a timely and effective..</p>
-                        <h6>99.9% Customer Satisfaction based on <span>950+</span> Reviews and <span>56,530</span> Objective Resource<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></h6>
-                        <a class="btn-two" href="testimonial.html">See All Review</a>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6">
-                    <div class="testimonial__one-right">
-                        <div class="testimonial__one-pagination swiper gallery-thumbs">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide"><div class="testimonial__one-pagination-item swiper-slide-container">
-                                        <img src="assets/img/avatar/avatar-9.jpg" alt="avatar-image">
-                                    </div></div>
-                                <div class="swiper-slide"><div class="testimonial__one-pagination-item swiper-slide-container">
-                                        <img src="assets/img/avatar/avatar-10.jpg" alt="avatar-image">
-                                    </div></div>
-                                <div class="swiper-slide"><div class="testimonial__one-pagination-item swiper-slide-container">
-                                        <img src="assets/img/avatar/avatar-11.jpg" alt="avatar-image">
-                                    </div></div>
-                                <div class="swiper-slide"><div class="testimonial__one-pagination-item swiper-slide-container">
-                                        <img src="assets/img/avatar/avatar-12.jpg" alt="avatar-image">
-                                    </div></div>
-                            </div>
-                        </div>
-                        <div class="swiper gallery-top">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide"><div class="swiper-slide-container">
-                                        <div class="testimonial__one-item">
-                                            <div class="testimonial__one-item-review">
-                                                <h5>Amazing Quality</h5>
-                                                <div class="testimonial__one-item-review-rating">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                            </div>
-                                            <p>A good review should be structured in a clear and organized way, with an introduction that sets the context and explains the purpose of the review, a detailed analysis of the product's features and performance, and a conclusion that summarizes the key findings and provides a recommendation.</p>
-                                            <div class="testimonial__one-item-bottom">
-                                                <i class="flaticon-quote-1"></i>
-                                                <div class="testimonial__one-item-bottom-name">
-                                                    <h4>Ronald Richards</h4>
-                                                    <span>Green Tech</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div></div>
-                                <div class="swiper-slide"><div class="swiper-slide-container">
-                                        <div class="testimonial__one-item">
-                                            <div class="testimonial__one-item-review">
-                                                <h5>Design Quality</h5>
-                                                <div class="testimonial__one-item-review-rating">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                            </div>
-                                            <p>A good design review should be well-organized and structured, with a clear introduction that explains the purpose of the review and sets the context for the evaluation. The reviewer should provide a detailed analysis of the product's design, including its layout, color scheme, typography..</p>
-                                            <div class="testimonial__one-item-bottom">
-                                                <i class="flaticon-quote-1"></i>
-                                                <div class="testimonial__one-item-bottom-name">
-                                                    <h4>Louise Linton</h4>
-                                                    <span>Manager, Airlines</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div></div>
-                                <div class="swiper-slide"><div class="swiper-slide-container">
-                                        <div class="testimonial__one-item">
-                                            <div class="testimonial__one-item-review">
-                                                <h5>Amazing Quality</h5>
-                                                <div class="testimonial__one-item-review-rating">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                            </div>
-                                            <p>A high-quality review should also be engaging and easy to read, using language that is clear and accessible to the intended audience. The reviewer should provide specific examples and details to support their analysis, drawing on their personal experience and expertise to offer insights advice.</p>
-                                            <div class="testimonial__one-item-bottom">
-                                                <i class="flaticon-quote-1"></i>
-                                                <div class="testimonial__one-item-bottom-name">
-                                                    <h4>Boris Elbert</h4>
-                                                    <span>Green Tech</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div></div>
-                                <div class="swiper-slide"><div class="swiper-slide-container">
-                                        <div class="testimonial__one-item">
-                                            <div class="testimonial__one-item-review">
-                                                <h5>Design Quality</h5>
-                                                <div class="testimonial__one-item-review-rating">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                            </div>
-                                            <p>In addition to analyzing the visual aspects of the design, a high-quality review should also evaluate the product's functionality, assessing how well it performs its intended tasks and how user-friendly it is. The reviewer should consider factors such as ease of use, intuitive navigation, and..</p>
-                                            <div class="testimonial__one-item-bottom">
-                                                <i class="flaticon-quote-1"></i>
-                                                <div class="testimonial__one-item-bottom-name">
-                                                    <h4>Cooper, Kristin</h4>
-                                                    <span>Manager, Airlines</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div></div>
-                            </div>
+    @if(count($data['testimonials'])>0)
+        <div class="testimonial__one section-padding">
+            <img class="testimonial__one-shape" src="{{ asset('assets/frontend/img/shape/testimonial-bg.png') }}" alt="testimonial-shape">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-6 col-lg-6 lg-mb-30">
+                        <div class="testimonial__two-title">
+                            <span class="subtitle-two">{{ $data['testimonial_heading']->subtitle ?? 'Our Testimonials'}}</span>
+                            <h2>{{ $data['testimonial_heading']->title ?? '' }}</h2>
+                            {!! $data['testimonial_heading']->description  ?? "<p>At NAFEA, we take pride in providing exceptional coverage and service to our clients. But don't just take our word for it - hear it from our associates and clients!</p>" !!}
+                            <a class="btn-two" href="{{ route('frontend.page.testimonial') }}">See All Testimonial</a>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Testimonials Area End -->
-    <!-- Offer Area Start -->
-    <div class="offer__area section-padding">
-        <img class="offer__area-shape" src="assets/img/shape/offer-bg.png" alt="offer-shape">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-xl-6 col-lg-6 lg-mb-30">
-                    <div class="offer__area-left">
-                        <div class="image-overlay dark__image">
-                            <img class="offer__area-left-one" src="assets/img/pages/offer-1.jpg" alt="offer-image">
-                        </div>
-                        <div class="image-overlay two dark__image">
-                            <img src="assets/img/pages/offer-2.jpg" alt="offer-image">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6">
-                    <div class="offer__area-right">
-                        <div class="offer__area-right-title">
-                            <span class="subtitle-two">What We Offer</span>
-                            <h2>Good Business Insurance Packages</h2>
-                            <p>This insurance covers damage to a business's physical property, such as the building, equipment, inventory, and other assets.</p>
-                        </div>
-                        <div class="offer__area-right-list">
-                            <div class="offer__area-right-list-item">
-                                <i class="flaticon-house"></i>
-                                <div class="offer__area-right-list-item-content">
-                                    <h5>Online Insurance Quotes</h5>
-                                    <p>Many websites offer insurance comparison tools that allow you to compare policies.</p>
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="testimonial__one-right">
+                            <div class="testimonial__one-pagination swiper gallery-thumbs">
+                                <div class="swiper-wrapper">
+                                    @foreach($data['testimonials'] as $index=>$testimonial)
+                                        <div class="swiper-slide">
+                                            <div class="testimonial__one-pagination-item swiper-slide-container">
+                                                <img src="{{ asset(imagePath($testimonial->image))}}" alt="">
+                                            </div>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
-                            <div class="offer__area-right-list-item">
-                                <i class="flaticon-travel-insurance"></i>
-                                <div class="offer__area-right-list-item-content">
-                                    <h5>Policy Review Service</h5>
-                                    <p>The purpose of policy review is to assess the adequacy and appropriateness.</p>
+                            <div class="swiper gallery-top">
+                                <div class="swiper-wrapper">
+                                    @foreach($data['testimonials'] as $index=>$testimonial)
+                                        <div class="swiper-slide">
+                                            <div class="swiper-slide-container">
+                                                <div class="testimonial__one-item">
+                                                    <p>{{ $testimonial->description }}</p>
+                                                    <div class="testimonial__one-item-bottom">
+                                                        <i class="flaticon-quote-1"></i>
+                                                        <div class="testimonial__one-item-bottom-name">
+                                                            <h4>{{ $testimonial->title ?? '' }}</h4>
+                                                            <span>{{ $testimonial->position ?? '' }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -391,8 +270,42 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Offer Area End -->
+    @endif
+
+    @if($data['homepage']->why_title)
+
+        <div class="offer__area section-padding">
+            <img class="offer__area-shape lazy" data-src="{{ asset('assets/frontend/img/shape/offer-bg.pn') }}g" alt="offer-shape">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-6 col-lg-6 lg-mb-30">
+                        <div class="offer__area-left">
+                            <div class="image-overlay dark__image">
+                                <img class="offer__area-left-one lazy" data-src="{{ asset(imagePath($data['homepage']->why_image)) }}" alt=" ">
+                            </div>
+                            @if($data['homepage']->why_video)
+                                <div class="video__area-play video video-pulse" style="position: absolute;top: 40%;left: 40%;">
+                                    <a class="video-popup" href="{{ $data['homepage']->why_video }}">
+                                        <i class="fas fa-play"></i>
+                                    </a>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="offer__area-right">
+                            <div class="offer__area-right-title">
+                                <span class="subtitle-two">{{ $data['homepage']->why_subtitle ?? 'Why Choose Us' }}</span>
+                                <h2>{{ $data['homepage']->why_title }}</h2>
+                                <p class="text-align-justify">{{ $data['homepage']->why_description ?? '' }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
     <div class="text__slider section-padding">
         <div class="text-slide">
             <div class="sliders scroll">

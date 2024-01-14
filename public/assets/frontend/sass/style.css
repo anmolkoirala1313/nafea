@@ -720,10 +720,10 @@ h6 {
 }
 .video a {
   position: relative;
-  color: var(--primary-color-1);
+  color: var(--primary-color-2);
   font-size: 20px;
   z-index: 1;
-  background: var(--bg-white);
+  background: #2974ffd4;
   width: 90px;
   height: 90px;
   line-height: 90px;
@@ -7378,7 +7378,8 @@ h6 {
   bottom: 0;
 }
 .offer__area-right {
-  margin-left: 90px;
+  margin-left: 25px;
+    margin-bottom: 42px;
 }
 .offer__area-right-title h2 {
   margin-bottom: 20px;
@@ -8470,7 +8471,7 @@ h6 {
   opacity: 0.5;
 }
 .video__area-play a {
-  color: var(--primary-color-3);
+  color: var(--bg-white);
 }
 .video__area h2 {
   max-width: 740px;

@@ -50,7 +50,7 @@ class WhyUsController extends BackendBaseController
         DB::beginTransaction();
         try {
             if($request->hasFile('image_input')){
-                $image_name = $this->uploadImage($request->file('image_input'),'470','550');
+                $image_name = $this->uploadImage($request->file('image_input'),'570','580');
                 $request->request->add(['why_image'=>$image_name]);
             }
             $request->request->add(['created_by' => auth()->user()->id ]);
@@ -80,7 +80,7 @@ class WhyUsController extends BackendBaseController
         DB::beginTransaction();
         try {
             if($request->hasFile('image_input')){
-                $image_name = $this->updateImage($request->file('image_input'),$data['row']->why_image,'470','550');
+                $image_name = $this->updateImage($request->file('image_input'),$data['row']->why_image,'570','580');
                 $request->request->add(['why_image'=>$image_name]);
             }
 
