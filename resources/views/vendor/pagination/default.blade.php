@@ -2,22 +2,22 @@
 
 @if ($paginator->hasPages())
 
-<ul class="pg-pagination list-unstyled">
+<ul class="list-unstyled">
 
 
     @if ($paginator->onFirstPage())
         <li class="page-item disabled prev">
-            <a href="{{ $paginator->previousPageUrl() }}" class="page-link" aria-label="Prev"><i class="fas fa-angle-left"></i></a>
+            <a href="{{ $paginator->previousPageUrl() }}" class="page-link" aria-label="Prev"><i class="fas fa-chevron-double-left"></i></a>
         </li>
     @else
     <li class="page-item prev">
-            <a href="{{ $paginator->previousPageUrl() }}" class="page-link" aria-label="Prev"><i class="fas fa-angle-left"></i></a>
+            <a href="{{ $paginator->previousPageUrl() }}" class="page-link" aria-label="Prev"><i class="fas fa-chevron-double-left"></i></a>
         </li>
     @endif
 
     @if($paginator->currentPage() > 3)
 
-    <li class="page-item count"><a class="page-link" href="{{ $paginator->url(1) }}"> 1</a></li>
+    <li class="page-item count"><a class="page-link active" href="{{ $paginator->url(1) }}"> 1</a></li>
     @endif
 
     @if($paginator->currentPage() > 4)
@@ -30,10 +30,10 @@
             @if ($i == $paginator->currentPage())
 
                 <li class="page-item active count">
-                    <span class="page-link">
+                    <a class="page-link">
                     {{ $i }}
                         <span class="sr-only">(current)</span>
-                    </span>
+                    </a>
                 </li>
             @else
                 <li class="page-item count"><a class="page-link" href="{{ $paginator->url($i) }}"> {{ $i }}</a></li>
@@ -54,7 +54,7 @@
     @if ($paginator->hasMorePages())
 
     <li class="page-item next">
-        <a class="page-link" href="{{ $paginator->nextPageUrl() }}" aria-label="Next"><i class="fas fa-angle-right"></i></a>
+        <a class="page-link" href="{{ $paginator->nextPageUrl() }}" aria-label="Next"><i class="fas fa-chevron-double-right"></i></a>
     </li>
     @else
 

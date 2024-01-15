@@ -21,7 +21,7 @@
                             <div class="col-xl-12">
                                 <div class="banner__two-content">
                                     <span data-animation="fadeInUp" data-delay=".3s">{{ $slider->subtitle ?? '' }}</span>
-                                    <h1 data-animation="fadeInUp" data-delay=".7s" style="width: 70%">{{ $slider->title ?? '' }}</h1>
+                                    <h1 data-animation="fadeInUp" data-delay=".7s" style="color:#fff;width: 70%">{{ $slider->title ?? '' }}</h1>
                                     @if($slider->link || $slider->video_link)
                                         <div class="banner__two-content-button" data-animation="fadeInUp" data-delay="1s">
                                             @if($slider->link)

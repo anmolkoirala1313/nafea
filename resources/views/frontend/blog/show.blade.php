@@ -5,47 +5,54 @@
 
     @include($module.'includes.breadcrumb',['breadcrumb_image'=>'image-3.jpeg'])
 
-    <section class="news-details">
+
+    <div class="blog__details section-padding">
         <div class="container">
             <div class="row">
-                <div class="col-xl-8 col-lg-7">
-                    <div class="news-details__left">
-                        <div class="news-details__img">
-                            <img class="lazy" data-src="{{ asset(imagePath($data['row']->image)) }}" alt="">
+                <div class="col-xl-8 col-lg-8 lg-mb-50">
+                    <div class="blog__details-left">
+                        <div class="dark__image">
+                            <img class="img__full lazy" data-src="{{ asset(imagePath($data['row']->image)) }}" alt="">
                         </div>
-                        <div class="news-details__author-and-meta">
-                            <div class="news-details__meta">
-                                <p><span class="fas fa-calendar"></span>{{date('d M Y', strtotime($data['row']->created_at))}}</p>
-                                <p> <a href="{{ route('frontend.blog.category', $data['row']->blogCategory->slug)}}" >
-                                    <span class="fas fa-list-alt"></span>
-                                        {{ $data['row']->blogCategory->title ?? ''}}
-                                    </a>
-                                </p>
-                            </div>
+                        <div class="blog__details-left-meta">
+                            <ul>
+                                <li><a><i class="far fa-calendar-alt"></i>{{date('d M Y', strtotime($data['row']->created_at))}}</a></li>
+                                <li><a href="{{ route('frontend.blog.category', $data['row']->blogCategory->slug)}}">
+                                        <i class="far fa-comment-dots"></i>   {{ $data['row']->blogCategory->title ?? ''}}</a></li>
+                            </ul>
                         </div>
-                        <h3 class="news-details__title-1">
-                            {{ $data['row']->title ?? '' }}
-                        </h3>
-                        <div class="news-details__text-2 text-align-justify custom-description">{!!  $data['row']->description !!}</div>
-                        <div class="news-details__tag-and-social">
-                            <div class="news-details__tag">
+                        <h3 class="mb-20"> {{ $data['row']->title ?? '' }}</h3>
+                        <div class="text-align-justify custom-description">
+                            {!!  $data['row']->description !!}
+                        </div>
+                        <div class="row mt-45 mb-60">
+                            <div class="col-md-8 md-mb-15">
+                                <div class="blog__details-left-tag">
+                                    <h6>Category:</h6>
+                                    <ul>
+                                        <li><a href="{{ route('frontend.blog.category', $data['row']->blogCategory->slug)}}"> {{ $data['row']->blogCategory->title ?? ''}}</a></li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="news-details__social">
-                                <span>Share on:</span>
-                                <a href="#"><i class="fab fa-facebook" onclick='fbShare("{{route('frontend.blog.show',$data['row']->slug)}}")'></i></a>
-                                <a href="#"><i class="fab fa-twitter" onclick='twitShare("{{route('frontend.blog.show',$data['row']->slug)}}","{{ $data['row']->title }}")'></i></a>
-                                <a href="#"><i class="fab fa-whatsapp" onclick='whatsappShare("{{route('frontend.blog.show',$data['row']->slug)}}","{{ $data['row']->title }}")'></i></a>
-
+                            <div class="col-md-4">
+                                <div class="blog__details-left-share">
+                                    <h6>Share:</h6>
+                                    <ul>
+                                        <li><a href="#" target="_blank"><i class="fab fa-facebook-f" onclick='fbShare("{{route('frontend.blog.show',$data['row']->slug)}}")'></i></a></li>
+                                        <li><a href="#" target="_blank"><i class="fab fa-twitter" onclick='twitShare("{{route('frontend.blog.show',$data['row']->slug)}}","{{ $data['row']->title }}")'></i></a></li>
+                                        <li><a href="#" target="_blank"><i class="fab fa-whatsapp" onclick='whatsappShare("{{route('frontend.blog.show',$data['row']->slug)}}","{{ $data['row']->title }}")'></i></a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 col-lg-5">
+                <div class="col-xl-4 col-lg-4">
                     @include($view_path.'includes.sidebar')
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 @endsection
 
 @section('js')

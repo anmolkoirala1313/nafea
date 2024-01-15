@@ -105,7 +105,7 @@
             <div class="header__area-menubar-center">
                 <div class="header__area-menubar-center-menu two menu-responsive">
                     <ul id="mobilemenu">
-                        <li class="menus"><a href="#">Home</a>
+                        <li class="menus"><a href="/">Home</a>
                         </li>
                         @if(!empty($top_nav_data))
                             @foreach($top_nav_data as $nav)
