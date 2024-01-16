@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\Agency\AuthorizedAgencyController;
 use App\Http\Controllers\Frontend\Career\CompanyCareerController;
 use App\Http\Controllers\Frontend\Career\JobController;
 use App\Http\Controllers\Frontend\ContactUsController;
@@ -70,6 +71,11 @@ Route::get('/testimonial', [HomePageController::class, 'testimonial'])->name('pa
 
 Route::get('/album', [HomePageController::class, 'album'])->name('page.album');
 Route::get('/album/{slug}', [HomePageController::class, 'albumGallery'])->name('page.album_gallery');
+
+//authorized agency
+Route::get('/authorized-agencies', [AuthorizedAgencyController::class, 'index'])->name('authorized_agency.index');
+Route::post('/authorized-agencies/data', [AuthorizedAgencyController::class, 'dataForAgency'])->name('authorized_agency.data');
+
 
 //slider list single page
 Route::get('slider-detail/{slug}',[PageController::class, 'sliderListSingle'])->name('page.slider_single');

@@ -1,0 +1,107 @@
+.table > thead > tr > th, table > thead > tr > td {
+    /*vertical-align: bottom;*/
+    border-bottom: 1px solid #cccccc;
+    font-weight: 600;
+}
+
+.table thead {
+    background-color: #2974FF;
+    color: white;
+}
+
+.table>:not(:first-child) {
+    border-top: 2px solid #2974FF;
+}
+
+.table tbody, .table.dataTable > tbody{
+    border-left: 1px solid #dfe2e7;
+    border-right: 1px solid #dfe2e7;
+}
+
+table.dataTable {
+    border-collapse: collapse;
+}
+
+table.dataTable tbody tr{
+    border-bottom: 1px solid #dfe2e7;
+}
+
+.table.dataTable.no-footer {
+    border-bottom: 1px solid #dfe2e8;
+}
+
+.dataTables_filter input[type=search]{
+    color: #666667;
+    border-radius: 6px;
+    width: 100%;
+    height: 45px;
+    border: 1px solid #E6E6E6;
+    padding: 0 15px;
+    background: #fff;
+    margin-bottom: 10px;
+}
+
+.dataTables_paginate {
+    margin: 0;
+    padding: 0;
+    margin-left: -5px;
+}
+
+/*.dataTables_paginate .paginate_button.disabled{*/
+/*    display: none;*/
+/*}*/
+.dataTables_paginate span .paginate_button{
+    display: inline-block;
+    margin: 5px 0 5px 0px;
+    font-family: "Outfit", sans-serif;
+    border: 1px solid #2974FF;
+    display: block;
+    height: 40px;
+    width: 40px;
+    line-height: 25px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    transition: 0.4s;
+    border-radius: 5px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button{
+    border: 1px solid #E6E6E6;
+    margin: 5px 0 5px 0px;
+    height: 40px;
+    width: 40px;
+    color: #717172;
+    line-height: 25px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    transition: 0.4s;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.paginate_button.next{
+    width: 60px!important;
+}
+.paginate_button.previous{
+    width: 85px!important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+    background: #2974FF;
+    color: #fff;
+    border-color: #E6E6E6;
+    border: 1px solid #2974FF;
+    color: #FFF!important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button{
+    border-radius: 4px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+    background: #2974FF;
+    color: var(--text-white);
+    border-color: #2974FF;
+}

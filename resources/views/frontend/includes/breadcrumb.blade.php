@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="page__banner-content">
-                    <h1>Blog Standard</h1>
+                    <h1> {{ $page_title }}</h1>
                     <ul>
                         <li><a href="/">Home</a><span>|</span></li>
                     @if($page_method !=='index')

@@ -4914,7 +4914,7 @@ h6 {
   z-index: 99;
 }
 .banner__two-content > span {
-  color: var(--primary-color-2);
+  color: var(--text-white);
 }
 .banner__two-content > span::before, .banner__two-content > span::after {
   background: var(--primary-color-2);
@@ -14427,5 +14427,9 @@ h6 {
     z-index: 1;
     border-left: 3px solid var(--primary-color-2);
 }
+
+.btn-sm {
+    padding: 8px 12px; /* Adjust padding for desired size */
+    font-size: 14px; /* Adjust font size for desired size */
 }
 
