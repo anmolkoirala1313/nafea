@@ -199,14 +199,14 @@
                             <div class="swiper-wrapper">
                                 @foreach($data['press_release'] as $release)
                                     <div class="portfolio__one-item swiper-slide">
-                                        <img src="{{ asset(thumbnailImagePath($release->image))}}" alt="property-insurance">
+                                        <img src="{{ asset(thumbnailImagePath($release->image))}}" alt="">
                                         <div class="portfolio__one-item-content">
                                             <div class="portfolio__one-item-content-left">
-                                                <a href="project-single.html"><i class="flaticon-arrows"></i></a>
+                                                <a href="{{ route('frontend.press_release.show', $release->slug) }}"><i class="flaticon-arrows"></i></a>
                                             </div>
                                             <div class="portfolio__one-item-content-right">
-                                                <span>Property Coverage</span>
-                                                <h4><a href="project-single.html">Property Insurance</a></h4>
+                                                <span><i class="far fa-calendar-alt"></i> {{date('d, M Y', strtotime($release->created_at))}}</span>
+                                                <h4><a href="{{ route('frontend.press_release.show', $release->slug) }}">{{ $release->title ?? '' }}</a></h4>
                                             </div>
                                         </div>
                                     </div>

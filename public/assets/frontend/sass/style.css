@@ -7851,14 +7851,14 @@ h6 {
   opacity: 1;
 }
 .portfolio__one-item.page .portfolio__one-item-content-left {
-  background: var(--primary-color-1);
+  background: var(--primary-color-2);
 }
 .portfolio__one-item.page .portfolio__one-item-content-left i {
-  color: var(--primary-color-1);
+  color: var(--primary-color-2);
 }
 .portfolio__one-item.page .portfolio__one-item-content-right h4 a:hover,
 .portfolio__one-item.page .portfolio__one-item-content-right span {
-  color: var(--primary-color-1);
+  color: var(--primary-color-2);
 }
 
 /*==========================================================================

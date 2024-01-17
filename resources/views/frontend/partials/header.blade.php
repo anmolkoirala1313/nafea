@@ -167,8 +167,8 @@
                         <span class="header__area-menubar-right-search-icon open"><i class="fal fa-search"></i></span>
                     </div>
                     <div class="header__area-menubar-right-search-box">
-                        {!! Form::open(['route' => $module.'job.search', 'method'=>'GET']) !!}
-                            <input type="text" name="for" id="search" placeholder="Search Jobs...">
+                        {!! Form::open(['route' => $module.'press_release.search', 'method'=>'GET']) !!}
+                            <input type="text" name="for" id="search" placeholder="Search Press Release...">
                             <button type="submit"><i class="fal fa-search"></i>
                             </button>
                         {!! Form::close() !!}
@@ -279,8 +279,8 @@
             </div>
             <div class="menu__bar-popup-right">
                 <div class="menu__bar-popup-right-search">
-                    {!! Form::open(['route' => $module.'job.search', 'method'=>'GET']) !!}
-                    <input type="text" name="for" id="search" placeholder="Search Jobs...">
+                    {!! Form::open(['route' => $module.'press_release.search', 'method'=>'GET']) !!}
+                    <input type="text" name="for" id="search" placeholder="Search Press Release...">
                     <button type="submit"><i class="fal fa-search"></i>
                     </button>
                     {!! Form::close() !!}

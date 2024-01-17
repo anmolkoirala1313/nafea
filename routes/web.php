@@ -6,6 +6,8 @@ use App\Http\Controllers\Frontend\Career\JobController;
 use App\Http\Controllers\Frontend\ContactUsController;
 use App\Http\Controllers\Frontend\HomePageController;
 use App\Http\Controllers\Frontend\News\BlogController;
+use App\Http\Controllers\Frontend\News\NoticeController;
+use App\Http\Controllers\Frontend\News\PressReleaseController;
 use App\Http\Controllers\Frontend\Page\PageController;
 use App\Http\Controllers\Frontend\Service\ServiceController;
 use Illuminate\Support\Facades\Route;
@@ -41,17 +43,16 @@ Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 Route::get('/blog/category/{slug}', [BlogController::class, 'category'])->name('blog.category');
 
 //notice
-Route::get('/our-notice', [BlogController::class, 'index'])->name('notice.index');
-Route::get('/our-notice/search/', [BlogController::class, 'search'])->name('notice.search');
-Route::get('/our-notice/{slug}', [BlogController::class, 'show'])->name('notice.show');
+Route::get('/our-notice', [NoticeController::class, 'index'])->name('notice.index');
+Route::get('/our-notice/search/', [NoticeController::class, 'search'])->name('notice.search');
+Route::get('/our-notice/{slug}', [NoticeController::class, 'show'])->name('notice.show');
 
-//jobs
-Route::get('/job', [JobController::class, 'index'])->name('job.index');
-Route::get('/job/search/', [JobController::class, 'search'])->name('job.search');
-Route::get('/job/{slug}', [JobController::class, 'show'])->name('job.show');
-Route::get('/job/category/{slug}', [JobController::class, 'category'])->name('job.category');
+//press release
+Route::get('/press-release', [PressReleaseController::class, 'index'])->name('press_release.index');
+Route::get('/press-release/search/', [PressReleaseController::class, 'search'])->name('press_release.search');
+Route::get('/press-release/{slug}', [PressReleaseController::class, 'show'])->name('press_release.show');
 
-//jobs
+//career
 Route::get('/career', [CompanyCareerController::class, 'index'])->name('career.index');
 Route::get('/career/search/', [CompanyCareerController::class, 'search'])->name('career.search');
 Route::get('/career/{slug}', [CompanyCareerController::class, 'show'])->name('career.show');
