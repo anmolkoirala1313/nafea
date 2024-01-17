@@ -8,6 +8,9 @@ use App\Http\Controllers\Backend\Career\Basic_setup\JobCategoryController;
 use App\Http\Controllers\Backend\Career\CompanyCareerController;
 use App\Http\Controllers\Backend\Career\JobController;
 use App\Http\Controllers\Backend\ClientController;
+use App\Http\Controllers\Backend\CompanyPersonnel\ManagingDirectorController;
+use App\Http\Controllers\Backend\CompanyPersonnel\PastPresidentController;
+use App\Http\Controllers\Backend\CompanyPersonnel\TeamController;
 use App\Http\Controllers\Backend\News\NoticeController;
 use App\Http\Controllers\Backend\News\PressReleaseController;
 use App\Http\Controllers\Backend\PageHeadingController;
@@ -22,7 +25,6 @@ use App\Http\Controllers\Backend\Homepage\RecruitmentProcessController;
 use App\Http\Controllers\Backend\Homepage\WelcomeController;
 use App\Http\Controllers\Backend\Homepage\SliderController;
 use App\Http\Controllers\Backend\Homepage\WhyUsController;
-use App\Http\Controllers\Backend\ManagingDirectorController;
 use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\News\BlogCategoryController;
 use App\Http\Controllers\Backend\News\BlogController;
@@ -30,7 +32,6 @@ use App\Http\Controllers\Backend\Page\PageController;
 use App\Http\Controllers\Backend\Page\PageSectionElementController;
 use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\SettingController;
-use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\Backend\TestimonialController;
 use App\Http\Controllers\Backend\User\UserController;
 use App\Http\Controllers\Backend\User\UserProfileController;
@@ -198,19 +199,30 @@ Route::post('/service/trash/{id}/restore', [ServiceController::class,'restore'])
 Route::delete('/service/trash/{id}/remove', [ServiceController::class,'removeTrash'])->name('service.remove-trash');
 Route::resource('service', ServiceController::class)->names('service');
 
-//managing director
-Route::post('/managing-director/order', [ManagingDirectorController::class,'orderUpdate'])->name('managing_director.order');
-Route::get('/managing-director/trash', [ManagingDirectorController::class,'trash'])->name('managing_director.trash');
-Route::post('/managing-director/trash/{id}/restore', [ManagingDirectorController::class,'restore'])->name('managing_director.restore');
-Route::delete('/managing-director/trash/{id}/remove', [ManagingDirectorController::class,'removeTrash'])->name('managing_director.remove-trash');
-Route::resource('managing-director', ManagingDirectorController::class)->names('managing_director');
+Route::prefix('company-personnel/')->name('company_personnel.')->middleware(['auth'])->group(function () {
+    //managing director
+    Route::post('/managing-director/order', [ManagingDirectorController::class,'orderUpdate'])->name('managing_director.order');
+    Route::get('/managing-director/trash', [ManagingDirectorController::class,'trash'])->name('managing_director.trash');
+    Route::post('/managing-director/trash/{id}/restore', [ManagingDirectorController::class,'restore'])->name('managing_director.restore');
+    Route::delete('/managing-director/trash/{id}/remove', [ManagingDirectorController::class,'removeTrash'])->name('managing_director.remove-trash');
+    Route::resource('managing-director', ManagingDirectorController::class)->names('managing_director');
 
-//team
-Route::post('/team/order', [TeamController::class,'orderUpdate'])->name('team.order');
-Route::get('/team/trash', [TeamController::class,'trash'])->name('team.trash');
-Route::post('/team/trash/{id}/restore', [TeamController::class,'restore'])->name('team.restore');
-Route::delete('/team/trash/{id}/remove', [TeamController::class,'removeTrash'])->name('team.remove-trash');
-Route::resource('team', TeamController::class)->names('team');
+    //team
+    Route::post('/team/order', [TeamController::class,'orderUpdate'])->name('team.order');
+    Route::get('/team/trash', [TeamController::class,'trash'])->name('team.trash');
+    Route::post('/team/trash/{id}/restore', [TeamController::class,'restore'])->name('team.restore');
+    Route::delete('/team/trash/{id}/remove', [TeamController::class,'removeTrash'])->name('team.remove-trash');
+    Route::resource('team', TeamController::class)->names('team');
+
+    //Past President
+    Route::post('/past-president/order', [PastPresidentController::class,'orderUpdate'])->name('past_president.order');
+    Route::get('/past-president/trash', [PastPresidentController::class,'trash'])->name('past_president.trash');
+    Route::post('/past-president/trash/{id}/restore', [PastPresidentController::class,'restore'])->name('past_president.restore');
+    Route::delete('/past-president/trash/{id}/remove', [PastPresidentController::class,'removeTrash'])->name('past_president.remove-trash');
+    Route::resource('past-president', PastPresidentController::class)->names('past_president');
+});
+
+
 
 //client
 Route::get('/client/trash', [ClientController::class,'trash'])->name('client.trash');

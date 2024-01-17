@@ -149,6 +149,31 @@
                     </div>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link menu-link collapsed" href="#sidebarCompanyPersonnelMultilevel" data-bs-toggle="collapse" role="button" aria-controls="sidebarCompanyPersonnelMultilevel">
+                        <i class="ri-parent-line"></i> <span data-key="t-multi-level-company-personnel">Company Personnel</span>
+                    </a>
+                    <div class="menu-dropdown collapse" id="sidebarCompanyPersonnelMultilevel" style="">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="{{ route('backend.company_personnel.managing_director.index') }}"
+                                   class="nav-link {{request()->route()->getName() == 'backend.company_personnel.managing_director.index' ? 'active':''}}"
+                                   data-key="t-multi-level-company-personnel"> Managing Director </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('backend.company_personnel.past_president.index') }}"
+                                   class="nav-link {{request()->route()->getName() == 'backend.company_personnel.past_president.index' ? 'active':''}}"
+                                   data-key="t-multi-level-company-personnel"> Past President </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('backend.company_personnel.team.index') }}"
+                                   class="nav-link {{request()->route()->getName() == 'backend.company_personnel.team.index' ? 'active':''}}"
+                                   data-key="t-multi-level-company-personnel"> Team </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
 
                 <li class="nav-item">
                     <a class="nav-link menu-link {{request()->route()->getName() == 'backend.page.index' ? 'active':''}}" href="{{route('backend.page.index')}}">
@@ -183,18 +208,6 @@
                 <li class="nav-item">
                     <a class="nav-link menu-link {{request()->route()->getName() == 'backend.video_gallery.create' ? 'active':''}}" href="{{route('backend.video_gallery.create')}}">
                         <i class="ri-video-chat-line"></i> <span data-key="t-widgets">Video Gallery</span>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link {{request()->route()->getName() == 'backend.managing_director.index' ? 'active':''}}" href="{{route('backend.managing_director.index')}}">
-                        <i class="ri-open-arm-line"></i> <span data-key="t-widgets">Managing Director</span>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link {{request()->route()->getName() == 'backend.team.index' ? 'active':''}}" href="{{route('backend.team.index')}}">
-                        <i class="ri-team-line"></i> <span data-key="t-widgets">Team</span>
                     </a>
                 </li>
 

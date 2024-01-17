@@ -42,7 +42,7 @@ class PageHeadingController extends BackendBaseController
 
     public function getData(): array
     {
-        $data['type'] = ['team'=>'Team Page','testimonial'=>'Testimonial Page','album'=>'Album'];
+        $data['type'] = ['team'=>'Team Page','past_president'=>'Past President Page','testimonial'=>'Testimonial Page','album'=>'Album'];
 
         return $data;
     }

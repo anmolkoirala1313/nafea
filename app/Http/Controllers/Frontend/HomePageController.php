@@ -22,6 +22,7 @@ use App\Models\Backend\News\Notice;
 use App\Models\Backend\News\PressRelease;
 use App\Models\Backend\Page\PageSectionGallery;
 use App\Models\Backend\PageHeading;
+use App\Models\Backend\PastPresident;
 use App\Models\Backend\Service;
 use App\Models\Backend\Setting;
 use App\Models\Backend\Team;
@@ -83,7 +84,6 @@ class HomePageController extends BackendBaseController
         return [];
     }
 
-
     public function team()
     {
         $this->page_method   = 'index';
@@ -94,6 +94,18 @@ class HomePageController extends BackendBaseController
         $data['heading']     = PageHeading::active()->where('type','team')->first();
 
         return view($this->loadResource($this->view_path.'page.team'), compact('data'));
+    }
+
+    public function pastPresident()
+    {
+        $this->page_method   = 'index';
+        $this->page_title    = 'Our Past Presidents';
+        $this->page          = 'Past Presidents';
+        $data                = $this->getCommonData();
+        $data['rows']        = PastPresident::active()->orderBy('order','desc')->get();
+        $data['heading']     = PageHeading::active()->where('type','past_president')->first();
+
+        return view($this->loadResource($this->view_path.'page.past_president'), compact('data'));
     }
 
     public function testimonial()

@@ -68,6 +68,7 @@ Route::get('/our-category/search/', [ServiceController::class, 'search'])->name(
 Route::get('/our-category/{slug}', [ServiceController::class, 'show'])->name('service.show');
 
 Route::get('/team', [HomePageController::class, 'team'])->name('page.team');
+Route::get('/past-president', [HomePageController::class, 'pastPresident'])->name('page.past_president');
 Route::get('/testimonial', [HomePageController::class, 'testimonial'])->name('page.testimonial');
 
 Route::get('/album', [HomePageController::class, 'album'])->name('page.album');

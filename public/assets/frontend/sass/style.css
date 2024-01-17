@@ -8924,7 +8924,7 @@ h6 {
 .team-one {
   position: relative;
   z-index: 1;
-  padding-top: 90px;
+  margin: 90px 0 90px;
 }
 .team-one h6 {
   font-size: 18px;
@@ -9191,7 +9191,7 @@ h6 {
   height: 40px;
   border-radius: 50%;
   background: var(--bg-white);
-  color: var(--primary-color-1);
+  color: var(--primary-color-2);
   transition: 0.4s;
   font-size: 14px;
 }
@@ -9228,14 +9228,14 @@ h6 {
   left: 0;
   width: 100%;
   bottom: 0;
-  background: var(--primary-color-1);
+  background: var(--primary-color-2);
   transition: all 400ms ease;
   height: 0;
   z-index: -1;
   border-radius: 5px;
 }
 .team__four-item-content span {
-  color: var(--primary-color-1);
+  color: var(--primary-color-2);
   transition: 0.4s;
 }
 .team__four-item-content h4 {

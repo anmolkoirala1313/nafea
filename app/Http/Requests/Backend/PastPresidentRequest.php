@@ -4,7 +4,7 @@ namespace App\Http\Requests\Backend;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TeamRequest extends FormRequest
+class PastPresidentRequest extends FormRequest
 {
 
     /**
@@ -27,6 +27,7 @@ class TeamRequest extends FormRequest
         return [
             'title'             => 'required|string|max:190',
             'designation'       => 'required|string|max:190',
+            'duration'          => 'required|string|max:190',
             'fb_link'           => 'nullable|url',
             'twitter_link'      => 'nullable|url',
             'instagram_link'    => 'nullable|url',
@@ -40,6 +41,8 @@ class TeamRequest extends FormRequest
         return [
             'title.required'            => 'Please enter title',
             'designation.required'      => 'Please enter designation',
+            'duration.max'              => 'Please enter description',
+            'duration.required'         => 'Duration must be less than 190 characters',
             'designation.max'           => 'Designation must be less than 190 characters',
             'title.max'                 => 'Title must be less than 190 characters',
             'image_input.required'      => 'Please select a image',
