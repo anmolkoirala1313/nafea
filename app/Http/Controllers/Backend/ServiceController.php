@@ -94,6 +94,7 @@ class ServiceController extends BackendBaseController
             DB::commit();
         } catch (\Exception $e) {
             DB::rollback();
+            dd($e->getMessage());
             Session::flash('error',$this->page.' was not updated. Something went wrong.');
         }
 

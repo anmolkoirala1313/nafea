@@ -63,9 +63,9 @@ Route::get('/brochure', [HomePageController::class, 'brochure'])->name('page.bro
 
 Route::get('/video-gallery', [HomePageController::class, 'document'])->name('page.video_gallery');
 
-Route::get('/our-categories', [ServiceController::class, 'index'])->name('service.index');
-Route::get('/our-categories/search/', [ServiceController::class, 'search'])->name('service.search');
-Route::get('/our-categories/{slug}', [ServiceController::class, 'show'])->name('service.show');
+Route::get('/our-category', [ServiceController::class, 'index'])->name('service.index');
+Route::get('/our-category/search/', [ServiceController::class, 'search'])->name('service.search');
+Route::get('/our-category/{slug}', [ServiceController::class, 'show'])->name('service.show');
 
 Route::get('/team', [HomePageController::class, 'team'])->name('page.team');
 Route::get('/testimonial', [HomePageController::class, 'testimonial'])->name('page.testimonial');

@@ -5,38 +5,40 @@
 
     @include($module.'includes.breadcrumb',['breadcrumb_image'=>'image-3.jpeg'])
 
-    <section class="services-details">
+    <div class="services__details section-padding">
         <div class="container">
             <div class="row">
-                <div class="col-xl-3 col-lg-4">
-                    @include($view_path.'includes.sidebar')
-                </div>
-                <div class="col-xl-9 col-lg-8">
-                    <div class="services-details__right">
-                        <div class="services-details__img">
-                            <img class="lazy" data-src="{{ asset(imagePath($data['row']->image)) }}" alt="">
+                <div class="col-xl-8 col-lg-8 lg-mb-50">
+                    <div class="services__details-left">
+                        <div class="services__details-left-image mb-30 dark__image">
+                            <img class="img__full lazy" data-src="{{ asset(imagePath($data['row']->image)) }}" alt="">
                         </div>
-                        <h3 class="services-details__title-1">
-                            {{ $data['row']->title ?? '' }}
-                        </h3>
-                        <div class="services-details__text-1 text-align-justify custom-description">
-                            {!!  $data['row']->description !!}
-                        </div>
-                        <div class="news-details__tag-and-social">
-                            <div class="news-details__tag">
+                        <div class="services__details-left-content">
+                            <h3 class="mb-20"> {{ $data['row']->title ?? '' }}</h3>
+                            <div class="text-align-justify custom-description">
+                                {!!  $data['row']->description !!}
                             </div>
-                            <div class="news-details__social">
-                                <span>Share on:</span>
-                                <a href="#"><i class="fab fa-facebook" onclick='fbShare("{{route('frontend.service.show',$data['row']->key)}}")'></i></a>
-                                <a href="#"><i class="fab fa-twitter" onclick='twitShare("{{route('frontend.service.show',$data['row']->key)}}","{{ $data['row']->title }}")'></i></a>
-                                <a href="#"><i class="fab fa-whatsapp" onclick='whatsappShare("{{route('frontend.service.show',$data['row']->key)}}","{{ $data['row']->title }}")'></i></a>
+                        </div>
+                        <div class="row mt-45 mb-60">
+                            <div class="col-md-4">
+                                <div class="blog__details-left-share">
+                                    <h6>Share:</h6>
+                                    <ul>
+                                        <li><a href="#" target="_blank"><i class="fab fa-facebook-f" onclick='fbShare("{{route('frontend.service.show',$data['row']->key)}}")'></i></a></li>
+                                        <li><a href="#" target="_blank"><i class="fab fa-twitter" onclick='twitShare("{{route('frontend.service.show',$data['row']->key)}}","{{ $data['row']->title }}")'></i></a></li>
+                                        <li><a href="#" target="_blank"><i class="fab fa-whatsapp" onclick='whatsappShare("{{route('frontend.service.show',$data['row']->key)}}","{{ $data['row']->title }}")'></i></a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-xl-4 col-lg-4">
+                    @include($view_path.'includes.sidebar')
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 @endsection
 
 @section('js')
