@@ -102,6 +102,14 @@ table.dataTable tbody tr{
 
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover{
     background: #2974FF;
-    color: var(--text-white);
+    color: #fff;
     border-color: #2974FF;
+}
+
+.modal-header{
+    background: #2974FF;
+}
+.modal-header h5{
+    color: #fff;
+    font-weight: 200;
 }

@@ -75,6 +75,7 @@ Route::get('/album/{slug}', [HomePageController::class, 'albumGallery'])->name('
 //authorized agency
 Route::get('/authorized-agencies', [AuthorizedAgencyController::class, 'index'])->name('authorized_agency.index');
 Route::post('/authorized-agencies/data', [AuthorizedAgencyController::class, 'dataForAgency'])->name('authorized_agency.data');
+Route::post('/authorized-agencies/detail', [AuthorizedAgencyController::class, 'agencyDetails'])->name('authorized_agency.details');
 
 
 //slider list single page

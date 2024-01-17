@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Frontend\Agency;
 
 use App\Http\Controllers\Backend\BackendBaseController;
 use App\Models\Backend\AuthorizedAgency;
-use App\Models\Backend\News\BlogCategory;
 use App\Services\Frontend\AuthorizedAgencyService;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
@@ -47,22 +46,25 @@ class AuthorizedAgencyController extends BackendBaseController
     {
         $this->page_method      = 'index';
         $this->page_title       = 'All '.$this->page;
-        $data                   = $this->getCommonData();
-        $data['rows']           = $this->model->active()->descending()->paginate(9);
+        $data                   = [];
+        $data['rows']           = $this->model->active()->orderBy('order', 'asc')->paginate(9);
 
         if(!$data['rows']){
             abort(404);
         }
+
         return view($this->loadResource($this->view_path.'index'), compact('data'));
     }
 
 
-    public function getCommonData(): array
-    {
-        $data['categories']     = BlogCategory::active()->descending()->has('blogs')->withCount('blogs')->get();
-        $data['latest']         = $this->model->active()->descending()->limit(4)->get();
+    public function agencyDetails(Request $request){
+        $data['agency'] = $this->model->with('proprietors','laborRepresentatives')->find($request['agency_id']);
 
-        return $data;
+        $rendered_view = view($this->view_path.'includes.detail',compact('data'))->render();
+
+        return response()->json(['rendered_view'=>$rendered_view]);
     }
+
+
 
 }

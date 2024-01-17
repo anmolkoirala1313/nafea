@@ -26,14 +26,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>232423</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Kathmandu</td>
-                                <td><button class="btn-two btn-sm" type="button">View</button></td>
-                            </tr>
+
                             </tbody>
                         </table>
                     </div>
@@ -41,6 +34,7 @@
             </div>
         </div>
     </div>
+    @include($view_path.'includes.modal')
 @endsection
 @section('js')
     <script src="{{asset('assets/backend/js/jquery.dataTables.min.js')}}"></script>
@@ -52,7 +46,7 @@
             serverSide: true,
             searching: true,
             stateSave: true,
-            order:[[1,'asc']],
+            order:[],
             aaSorting: [],
             lengthChange: false,
             info: false,
@@ -74,5 +68,28 @@
                 {data:'action', name: 'action', searchable:false, orderable: false},
             ]
         })
+
+        $(document).on('click','.view-agency-modal', function (e) {
+            e.preventDefault();
+            let agency_id = $(this).data('value');
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: "{{ route($base_route.'details') }}",
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    agency_id: agency_id,
+                },
+                success: function(response) {
+                    let rendered_view = response.rendered_view;
+                    $('#table-details').empty();
+                    $('#table-details').html(rendered_view);
+                },
+                error: function(response) {
+
+                }
+            });
+            $("#authorized-agency_details").modal('toggle');
+        });
     </script>
 @endsection

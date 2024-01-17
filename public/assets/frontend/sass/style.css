@@ -14433,3 +14433,7 @@ h6 {
     font-size: 14px; /* Adjust font size for desired size */
 }
 
+.modal-details .subtitle-two{
+    color: var(--dark-one);
+    margin-bottom: 5px;
+}

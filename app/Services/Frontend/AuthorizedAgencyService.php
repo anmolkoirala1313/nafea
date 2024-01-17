@@ -25,11 +25,11 @@ class AuthorizedAgencyService {
 
     public function getDataForDatatable(Request $request){
 
-        $query = $this->model->query()->orderBy('created_at', 'desc');
+        $query = $this->model->query()->orderBy('order', 'asc');
 
         return $this->dataTables->eloquent($query)
             ->editColumn('action',function ($item){
-                return '<button class="btn-two btn-sm" type="button">View</button>';
+                return '<button class="btn-two btn-sm view-agency-modal" data-value="'.$item->id.'" type="button">View</button>';
             })
             ->rawColumns(['action'])
             ->addIndexColumn()
