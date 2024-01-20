@@ -98,7 +98,7 @@
                                 <li><a href="{{$setting_data->linkedin}}" target="_blank"><i class="fab fa-linkedin"></i><span>Linkedin</span></a></li>
                             @endif
                             @if(@$setting_data->linkedin)
-                                <li><a href="{{$setting_data->ticktock}}" target="_blank"><i class="fab fa-tiktok"></i><span>Tiktock</span></a></li>
+                                <li><a href="{{$setting_data->ticktock}}" target="_blank"><i class="fab fa-tiktok"></i><span>Tiktok</span></a></li>
                             @endif
                         </ul>
                     </div>
@@ -226,19 +226,19 @@
                     <div class="header__area-menubar-right-sidebar-popup-social">
                         <ul>
                             @if(@$setting_data->facebook)
-                                <li><a href="{{$setting_data->facebook}}" target="_blank"><i class="fab fa-facebook-f"></i><span>Facebook</span></a></li>
+                                <li><a href="{{$setting_data->facebook}}" target="_blank"><i class="fab fa-facebook-f"></i><span></span></a></li>
                             @endif
                             @if(@$setting_data->instagram)
-                                <li><a href="{{$setting_data->instagram}}" target="_blank"><i class="fab fa-instagram"></i><span>Instagram</span></a></li>
+                                <li><a href="{{$setting_data->instagram}}" target="_blank"><i class="fab fa-instagram"></i><span></span></a></li>
                             @endif
                             @if(@$setting_data->youtube)
-                                <li><a href="{{$setting_data->youtube}}" target="_blank"><i class="fab fa-youtube"></i><span>Youtube</span></a></li>
+                                <li><a href="{{$setting_data->youtube}}" target="_blank"><i class="fab fa-youtube"></i><span></span></a></li>
                             @endif
                             @if(@$setting_data->linkedin)
-                                <li><a href="{{$setting_data->linkedin}}" target="_blank"><i class="fab fa-linkedin"></i><span>Linkedin</span></a></li>
+                                <li><a href="{{$setting_data->linkedin}}" target="_blank"><i class="fab fa-linkedin"></i><span></span></a></li>
                             @endif
                             @if(@$setting_data->linkedin)
-                                <li><a href="{{$setting_data->ticktock}}" target="_blank"><i class="fab fa-tiktok"></i><span>Tiktock</span></a></li>
+                                <li><a href="{{$setting_data->ticktock}}" target="_blank"><i class="fab fa-tiktok"></i><span></span></a></li>
                             @endif
                         </ul>
                     </div>
@@ -260,19 +260,19 @@
                     <h6>Follow Us</h6>
                     <ul>
                         @if(@$setting_data->facebook)
-                            <li><a href="{{$setting_data->facebook}}" target="_blank"><i class="fab fa-facebook-f"></i><span>Facebook</span></a></li>
+                            <li><a href="{{$setting_data->facebook}}" target="_blank"><i class="fab fa-facebook-f"></i><span></span></a></li>
                         @endif
                         @if(@$setting_data->instagram)
-                            <li><a href="{{$setting_data->instagram}}" target="_blank"><i class="fab fa-instagram"></i><span>Instagram</span></a></li>
+                            <li><a href="{{$setting_data->instagram}}" target="_blank"><i class="fab fa-instagram"></i><span></span></a></li>
                         @endif
                         @if(@$setting_data->youtube)
-                            <li><a href="{{$setting_data->youtube}}" target="_blank"><i class="fab fa-youtube"></i><span>Youtube</span></a></li>
+                            <li><a href="{{$setting_data->youtube}}" target="_blank"><i class="fab fa-youtube"></i><span></span></a></li>
                         @endif
                         @if(@$setting_data->linkedin)
-                            <li><a href="{{$setting_data->linkedin}}" target="_blank"><i class="fab fa-linkedin"></i><span>Linkedin</span></a></li>
+                            <li><a href="{{$setting_data->linkedin}}" target="_blank"><i class="fab fa-linkedin"></i><span></span></a></li>
                         @endif
                         @if(@$setting_data->linkedin)
-                            <li><a href="{{$setting_data->ticktock}}" target="_blank"><i class="fab fa-tiktok"></i><span>Tiktock</span></a></li>
+                            <li><a href="{{$setting_data->ticktock}}" target="_blank"><i class="fab fa-tiktok"></i><span></span></a></li>
                         @endif
                     </ul>
                 </div>

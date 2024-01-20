@@ -41,6 +41,7 @@
     @yield('css')
     @stack('styles')
 </head>
+
 <body>
 <!-- Preloader Start -->
 <div class="theme-loader">
@@ -52,6 +53,7 @@
 </div>
 <!-- Preloader End -->
 <!-- Top Bar Area Start -->
+
 <div class="top__bar-two">
     <div class="custom__container">
         <div class="row">
@@ -81,7 +83,7 @@
                                 <li><a href="{{$setting_data->linkedin}}" target="_blank"><i class="fab fa-linkedin"></i><span>Linkedin</span></a></li>
                             @endif
                             @if(@$setting_data->linkedin)
-                                <li><a href="{{$setting_data->ticktock}}" target="_blank"><i class="fab fa-tiktok"></i><span>Tiktock</span></a></li>
+                                <li><a href="{{$setting_data->ticktock}}" target="_blank"><i class="fab fa-tiktok"></i><span>Tiktok</span></a></li>
                             @endif
                         </ul>
                     </div>
@@ -105,7 +107,7 @@
             <div class="header__area-menubar-center">
                 <div class="header__area-menubar-center-menu two menu-responsive">
                     <ul id="mobilemenu">
-                        <li class="menus"><a href="/">Home</a>
+                        <li><a href="/">Home</a>
                         </li>
                         @if(!empty($top_nav_data))
                             @foreach($top_nav_data as $nav)
@@ -175,7 +177,7 @@
                             <img class="lazy" data-src="{{ $setting_data->logo_white ?  asset(imagePath($setting_data->logo_white)) : asset(imagePath($setting_data->logo))}}" style="max-width: 305px;" alt="">
                         </a>
                     </div>
-                    <p>{{ $setting_data->description ?? '' }}</p>
+                    <div class="text-align-justify">{{ $setting_data->description ?? '' }}</div>
                     <div class="header__area-menubar-right-sidebar-popup-contact">
                         <h4 class="mb-30">Get In Touch</h4>
                         <div class="header__area-menubar-right-sidebar-popup-contact-item">
@@ -209,19 +211,19 @@
                     <div class="header__area-menubar-right-sidebar-popup-social">
                         <ul>
                             @if(@$setting_data->facebook)
-                                <li><a href="{{$setting_data->facebook}}" target="_blank"><i class="fab fa-facebook-f"></i><span>Facebook</span></a></li>
+                                <li><a href="{{$setting_data->facebook}}" target="_blank"><i class="fab fa-facebook-f"></i><span></span></a></li>
                             @endif
                             @if(@$setting_data->instagram)
-                                <li><a href="{{$setting_data->instagram}}" target="_blank"><i class="fab fa-instagram"></i><span>Instagram</span></a></li>
+                                <li><a href="{{$setting_data->instagram}}" target="_blank"><i class="fab fa-instagram"></i><span></span></a></li>
                             @endif
                             @if(@$setting_data->youtube)
-                                <li><a href="{{$setting_data->youtube}}" target="_blank"><i class="fab fa-youtube"></i><span>YouTube</span></a></li>
+                                <li><a href="{{$setting_data->youtube}}" target="_blank"><i class="fab fa-youtube"></i><span></span></a></li>
                             @endif
                             @if(@$setting_data->linkedin)
-                                <li><a href="{{$setting_data->linkedin}}" target="_blank"><i class="fab fa-dribbble"></i><span>Linked In</span></a></li>
+                                <li><a href="{{$setting_data->linkedin}}" target="_blank"><i class="fab fa-linkedin"></i><span></span></a></li>
                             @endif
-                            @if(!empty(@$setting_data->ticktock))
-                                <li><a href="{{$setting_data->ticktock}}" target="_blank"><i class="fab fa-dribbble"></i><span>TikTok</span></a></li>
+                            @if(@$setting_data->linkedin)
+                                <li><a href="{{$setting_data->ticktock}}" target="_blank"><i class="fab fa-tiktok"></i><span></span></a></li>
                             @endif
                         </ul>
                     </div>
@@ -243,19 +245,19 @@
                     <h6>Follow Us</h6>
                     <ul>
                         @if(@$setting_data->facebook)
-                            <li><a href="{{$setting_data->facebook}}" target="_blank"><i class="fab fa-facebook-f"></i><span>Facebook</span></a></li>
+                            <li><a href="{{$setting_data->facebook}}" target="_blank"><i class="fab fa-facebook-f"></i><span></span></a></li>
                         @endif
                         @if(@$setting_data->instagram)
-                            <li><a href="{{$setting_data->instagram}}" target="_blank"><i class="fab fa-instagram"></i><span>Instagram</span></a></li>
+                            <li><a href="{{$setting_data->instagram}}" target="_blank"><i class="fab fa-instagram"></i><span></span></a></li>
                         @endif
                         @if(@$setting_data->youtube)
-                            <li><a href="{{$setting_data->youtube}}" target="_blank"><i class="fab fa-youtube"></i><span>YouTube</span></a></li>
+                            <li><a href="{{$setting_data->youtube}}" target="_blank"><i class="fab fa-youtube"></i><span></span></a></li>
                         @endif
                         @if(@$setting_data->linkedin)
-                            <li><a href="{{$setting_data->linkedin}}" target="_blank"><i class="fab fa-dribbble"></i><span>Linked In</span></a></li>
+                            <li><a href="{{$setting_data->linkedin}}" target="_blank"><i class="fab fa-linkedin"></i><span></span></a></li>
                         @endif
-                        @if(!empty(@$setting_data->ticktock))
-                            <li><a href="{{$setting_data->ticktock}}" target="_blank"><i class="fab fa-dribbble"></i><span>TikTok</span></a></li>
+                        @if(@$setting_data->linkedin)
+                            <li><a href="{{$setting_data->ticktock}}" target="_blank"><i class="fab fa-tiktok"></i><span></span></a></li>
                         @endif
                     </ul>
                 </div>

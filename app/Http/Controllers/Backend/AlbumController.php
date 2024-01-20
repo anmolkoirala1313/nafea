@@ -46,7 +46,7 @@ class AlbumController extends BackendBaseController
             $request->request->add(['created_by' => auth()->user()->id ]);
 
             if($request->hasFile('image_input')){
-                $image_name = $this->uploadImage($request->file('image_input'),'412','450');
+                $image_name = $this->uploadImage($request->file('image_input'),'415','505');
                 $request->request->add(['image'=>$image_name]);
             }
 
@@ -75,7 +75,7 @@ class AlbumController extends BackendBaseController
         DB::beginTransaction();
         try {
             if($request->hasFile('image_input')){
-                $image_name = $this->updateImage($request->file('image_input'),$data['row']->image,'412','450');
+                $image_name = $this->updateImage($request->file('image_input'),$data['row']->image,'415','505');
                 $request->request->add(['image'=>$image_name]);
             }
             $request->request->add(['slug' => $this->model->changeTokey($request['title'])]);
@@ -200,4 +200,84 @@ class AlbumController extends BackendBaseController
 
         return Response::json(['success' => $resized_name], 200);
     }
+
+    public function destroy($id)
+    {
+        try {
+            DB::beginTransaction();
+            $data = $this->model->find($id);
+
+            $data->albumGallery()->delete();
+
+            $this->model->find($id)->delete();
+            DB::commit();
+            Session::flash('success',$this->page.' was removed successfully');
+        } catch (\Exception $e) {
+            Session::flash('error',$this->page.' was not removed as data is already in use.');
+        }
+
+        return response()->json(route($this->base_route.'index'));
+    }
+
+    public function restore(Request $request, $id)
+    {
+
+        DB::beginTransaction();
+        try {
+            $page = $this->model->withTrashed()->find($id);
+            if ($page) {
+                $page->restore();
+                // Restoring related page sections
+                $page->albumGallery()->restore();
+            }
+
+            Session::flash('success',$this->page.' restored successfully');
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            Session::flash('error',$this->page.' restored failed. Something went wrong.');
+        }
+
+        return redirect()->route($this->base_route.'index');
+    }
+
+    public function removeTrash(Request $request, $id)
+    {
+        $data['row']       = $this->model->withTrashed()->find($id);
+        DB::beginTransaction();
+        try {
+
+            $this->deleteImage($data['row']->image);
+
+            $gallery_imagePaths = DB::table('album_galleries')
+                ->select('resized_name','filename')
+                ->where('album_id', $data['row']->id)
+                ->get()
+                ->pluck('resized_name','filename')
+                ->toArray();
+
+            foreach ($gallery_imagePaths as $index=>$image) {
+                if ($image) {
+                    $this->deleteGalleryImage($index,'album/gallery');
+                    $this->deleteGalleryImage($image,'album/gallery');
+                }
+            }
+
+            // Permanently delete related PageSections (from the trash)
+            $data['row']->albumGallery()->onlyTrashed()->forceDelete();
+
+            // Permanently delete the Page itself (from the trash)
+            $data['row'] ->forceDelete();
+
+            Session::flash('success',$this->page.' was removed successfully');
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            dd($e);
+            Session::flash('error',$this->page.' was not removed. Something went wrong.');
+        }
+
+        return redirect()->route($this->base_route.'trash');
+    }
+
 }
