@@ -187,9 +187,9 @@ Route::get('video-gallery', [VideoGalleryController::class, 'create'])->name('vi
 Route::resource('video-gallery', VideoGalleryController::class)->only(['store', 'update'])->names('video_gallery');
 
 //testimonials
-Route::get('/testimonial/trash', [WelcomeController::class,'trash'])->name('testimonial.trash');
-Route::post('/testimonial/trash/{id}/restore', [WelcomeController::class,'restore'])->name('testimonial.restore');
-Route::delete('/testimonial/trash/{id}/remove', [WelcomeController::class,'removeTrash'])->name('testimonial.remove-trash');
+Route::get('/testimonial/trash', [TestimonialController::class,'trash'])->name('testimonial.trash');
+Route::post('/testimonial/trash/{id}/restore', [TestimonialController::class,'restore'])->name('testimonial.restore');
+Route::delete('/testimonial/trash/{id}/remove', [TestimonialController::class,'removeTrash'])->name('testimonial.remove-trash');
 Route::resource('testimonial', TestimonialController::class)->names('testimonial');
 
 //services

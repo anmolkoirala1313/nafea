@@ -7,50 +7,51 @@
 
     @include($module.'includes.breadcrumb',['breadcrumb_image'=> 'image-2.png'])
 
-    <section class="testimonials-page" style="padding: 90px 0 90px;">
+    <div class="testimonial__page section-padding">
         <div class="container">
             @if($data['heading'])
-                <div class="col-xl-6">
-                    <div class="why-choose-one__left">
-                        <div class="section-title text-left">
-                            <div class="section-title__tagline-box">
-                                <p class="section-title__tagline">{{ $data['heading']->subtitle ?? '' }}</p>
-                            </div>
-                            <h2 class="section-title__title section-title_normal">{{ $data['heading']->title ?? '' }}
-                            </h2>
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 text-center">
+                        <div class="about__four-right-title mb-0">
+                            <span class="subtitle-two" style="margin-bottom: 0px;">{{ $data['heading']->subtitle ?? '' }}</span>
+                            <h2 style="width: 50%;margin:auto;line-height: 50px;">{{ $data['heading']->title ?? '' }}</h2>
                         </div>
                     </div>
-                </div>
-                <div class="why-choose-one__text text-align-justify">
-                    {!! $data['heading']->description ?? ''  !!}
+                    <div class="custom-description text-align-justify text-center mt-3">
+                        {!! $data['heading']->description ?? ''  !!}
+                    </div>
                 </div>
             @endif
-            <div class="row mt-4">
+            <div class="row mt-3">
                 @if(count($data['rows'] ))
                     @foreach($data['rows'] as $testimonial)
-                        <div class="col-xl-4 col-lg-6 col-md-6 d-flex align-items-stretch">
-                            <div class="testimonial-two__single">
-                                <div class="testimonial-two__client-img">
+                        <div class="col-xl-4 col-md-6 mb-30 d-flex text-align-justify">
+                            <div class="testimonial__page-item">
+                                <div class="testimonial__page-item-top">
+                                    <i class="flaticon-quote-1"></i>
+                                </div>
+                                <p class="text-align-justify">{{ $testimonial->description }}</p>
+                                <div class="testimonial__page-item-bottom">
                                     <img class="lazy" data-src="{{ asset(imagePath($testimonial->image)) }}" alt="">
+                                    <div class="testimonial__page-item-bottom-name">
+                                        <h5>{{ $testimonial->title ?? '' }}</h5>
+                                        <span>{{ $testimonial->position ?? '' }}</span>
+                                    </div>
                                 </div>
-                                <div class="testimonial-two__client-info">
-                                    <h3>{{ $testimonial->title ?? '' }}</h3>
-                                    <p>{{ $testimonial->position ?? '' }}</p>
-                                </div>
-                                <p class="testimonial-two__text">
-                                   "{{ $testimonial->description }}"
-                                </p>
                             </div>
                         </div>
                     @endforeach
-                        <div class="portfolio-page__pagination">
-                            {{ $data['rows']->links('vendor.pagination.default') }}
-                        </div>
                 @endif
-
+            </div>
+            <div class="row mt-50">
+                <div class="col-xl-12">
+                    <div class="theme__pagination text-center">
+                        {{ $data['rows']->links('vendor.pagination.default') }}
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
 @endsection
 @section('js')

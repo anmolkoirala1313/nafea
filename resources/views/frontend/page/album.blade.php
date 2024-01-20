@@ -17,7 +17,7 @@
                             <h2 style="width: 50%;margin:auto;line-height: 50px;">{{ $data['heading']->title ?? '' }}</h2>
                         </div>
                     </div>
-                    <div class="custom-description text-align-justify mt-3">
+                    <div class="custom-description text-align-justify text-center mt-3">
                         {!! $data['heading']->description ?? ''  !!}
                     </div>
                 </div>
@@ -38,14 +38,13 @@
                     </div>
                 @endforeach
             </div>
-                <div class="row mt-50">
-                    <div class="col-xl-12">
-                        <div class="theme__pagination text-center">
-                            {{ $data['rows']->links('vendor.pagination.default') }}
-                        </div>
+            <div class="row mt-50">
+                <div class="col-xl-12">
+                    <div class="theme__pagination text-center">
+                        {{ $data['rows']->links('vendor.pagination.default') }}
                     </div>
                 </div>
-
+            </div>
         </div>
     </div>
 @endsection
