@@ -5,28 +5,29 @@
         <div class="row">
             <div class="col-xl-4 col-lg-5 col-sm-7">
                 <div class="footer__one-widget">
+                    <h4>About Us</h4>
                     <div class="footer__one-widget-about">
                         <a href="/">
                             <img class="lazy" data-src="{{ $setting_data->logo_white ?  asset(imagePath($setting_data->logo_white)) : asset(imagePath($setting_data->logo))}}" style="max-width: 305px;" alt="">
                         </a>
-                        <p>{{ $setting_data->description ?? '' }}</p>
+                        <p class="text-align-justify">{{ $setting_data->description ?? '' }}</p>
                         <div class="footer__one-widget-about-social">
                             <h6>Follow Us :</h6>
                             <ul>
                                 @if(@$setting_data->facebook)
-                                    <li><a href="{{$setting_data->facebook}}" target="_blank"><i class="fab fa-facebook-f"></i><span>Facebook</span></a></li>
+                                    <li><a href="{{$setting_data->facebook}}" target="_blank"><i class="fab fa-facebook-f"></i><span></span></a></li>
                                 @endif
                                 @if(@$setting_data->instagram)
-                                    <li><a href="{{$setting_data->instagram}}" target="_blank"><i class="fab fa-instagram"></i><span>Instagram</span></a></li>
+                                    <li><a href="{{$setting_data->instagram}}" target="_blank"><i class="fab fa-instagram"></i><span></span></a></li>
                                 @endif
                                 @if(@$setting_data->youtube)
-                                    <li><a href="{{$setting_data->youtube}}" target="_blank"><i class="fab fa-youtube"></i><span>YouTube</span></a></li>
+                                    <li><a href="{{$setting_data->youtube}}" target="_blank"><i class="fab fa-youtube"></i><span></span></a></li>
                                 @endif
                                 @if(@$setting_data->linkedin)
-                                    <li><a href="{{$setting_data->linkedin}}" target="_blank"><i class="fab fa-dribbble"></i><span>Linked In</span></a></li>
+                                    <li><a href="{{$setting_data->linkedin}}" target="_blank"><i class="fab fa-linkedin"></i><span></span></a></li>
                                 @endif
                                 @if(!empty(@$setting_data->ticktock))
-                                    <li><a href="{{$setting_data->ticktock}}" target="_blank"><i class="fab fa-dribbble"></i><span>TikTok</span></a></li>
+                                    <li><a href="{{$setting_data->ticktock}}" target="_blank"><i class="fab fa-tiktok"></i><span></span></a></li>
                                 @endif
                             </ul>
                         </div>
