@@ -47,7 +47,7 @@
     </div>
     @include($view_path.'includes.page_section')
 
-    <div class="col-lg-12 border-top mt-3">
+    <div class="col-lg-12 border-top mt-3 mb-3">
         <div class="hstack gap-2">
             {!! Form::submit($button,['class'=>'btn btn-success mt-3','id'=>'add-button']) !!}
         </div>

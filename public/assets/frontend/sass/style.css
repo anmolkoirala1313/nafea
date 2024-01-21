@@ -5850,7 +5850,7 @@ h6 {
 .about__three-shape {
   position: absolute;
   left: 0;
-  top: 170px;
+  top: 0px;
   z-index: -1;
 }
 .about__three-left {
@@ -5860,12 +5860,12 @@ h6 {
   margin-right: 70px;
 }
 .about__three-left-shape {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  max-width: 90%;
-  z-index: -1;
-  animation: rollIn 40s infinite linear;
+    position: absolute;
+    right: -41px;
+    bottom: 8px;
+    max-width: 90%;
+    z-index: -1;
+    animation: rollIn 40s infinite linear;
 }
 .about__three-left-image {
   display: inline-flex;
