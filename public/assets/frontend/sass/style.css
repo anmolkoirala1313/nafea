@@ -7508,7 +7508,7 @@ h6 {
 }
 .solution__area-title h2 {
   color: var(--text-white);
-  max-width: 500px;
+  max-width: 800px;
   margin-bottom: 40px;
 }
 .solution__area-title .btn-one {
@@ -7527,7 +7527,7 @@ h6 {
   margin: 0 0 0 auto;
 }
 .solution__area-right-video a {
-  color: var(--primary-color-1);
+  color: var(--bg-white);
 }
 .solution__area-shape-one {
   position: absolute;
@@ -8643,6 +8643,8 @@ h6 {
 .cta__three-title h2 {
   color: var(--text-white);
   max-width: 600px;
+    font-size: 44px;
+    line-height: 50px;
 }
 .cta__three-info {
   display: flex;

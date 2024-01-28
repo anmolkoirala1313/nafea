@@ -140,7 +140,7 @@
                                 </div>
                                 <div>
                                     <span>Mail us anytime</span>
-                                    <h6><a href="mailto:{{ $setting_data->email ?? '' }}">{{ $setting_data->email ?? '' }}</a></h6>
+                                    <h6><a href="mailto:{{ $data['setting']->email ?? '' }}">{{ $data['setting']->email ?? '' }}</a></h6>
                                 </div>
                             </div>
                         </div>

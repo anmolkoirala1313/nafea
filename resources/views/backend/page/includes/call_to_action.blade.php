@@ -15,8 +15,8 @@
             <div class="card-body">
                 <div class="row">
                     <img class="img-responsive pb-4 border-bottom lazy" data-src="{{asset('assets/backend/images/pages/sections/'.$value.'.png')}}" width="100%"/>
-                    <div class="col-lg-6 mt-3">
-                        <div class="mb-1">
+                    <div class="col-lg-12 mt-3">
+                        <div class="mb-1 ">
                             <label class="form-label required">Title </label>
                             <input type="text" class="form-control" name="title" value="{{$call_to_action->title ?? null}}" maxlength="180" required>
                             <input type="hidden" class="form-control" value="{{$key}}" name="page_section_id" required>
@@ -27,7 +27,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 mt-3">
+                    <div class="col-lg-6 mt-2">
                         <div class="mb-1">
                             <label>Sub Title </label>
                             <input type="text" class="form-control" maxlength="40" name="subtitle" value="{{$call_to_action->subtitle ?? null}}">
@@ -36,7 +36,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 mt-2">
                         <div class="mb-1">
                             <label>Button Text </label>
                             <input type="text" maxlength="20" class="form-control" value="{{$call_to_action->button ?? null}}" name="button">
@@ -51,6 +51,15 @@
                             <input type="text" class="form-control" value="{{$call_to_action->button_link ?? null}}" name="button_link">
                             <div class="invalid-feedback">
                                 Please enter the button link.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="mb-1">
+                            <label>Video Link </label>
+                            <input type="text" class="form-control" value="{{$call_to_action->description ?? null}}" name="description">
+                            <div class="invalid-feedback">
+                                Please enter the video link.
                             </div>
                         </div>
                     </div>

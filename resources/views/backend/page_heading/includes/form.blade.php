@@ -8,7 +8,7 @@
     <div class="col-lg-12">
         <div class="mb-3">
             {!! Form::label('type', 'Page Type', ['class' => 'form-label required']) !!}
-            {!! Form::select('type', $data['type'], null,['class'=>'form-select mb-3 select2','id'=>'type','placeholder'=>'Select Pafe Type']) !!}
+            {!! Form::select('type', $data['type'], null,['class'=>'form-select mb-3 select2','id'=>'type','placeholder'=>'Select Page Type']) !!}
         </div>
     </div>
     <div class="col-lg-6">

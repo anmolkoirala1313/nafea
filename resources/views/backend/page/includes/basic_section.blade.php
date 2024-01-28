@@ -38,7 +38,7 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="mb-2 mt-2">
-                            <label class="form-label required"> Description <span class="text-danger">* write 800 characters only</span></label>
+                            <label class="form-label required"> Description <span class="text-danger">* write 1000 characters only</span></label>
                             <textarea class="form-control" maxlength="1000" rows="14" name="description" id="basic_editor" required>{!! $basic_element->description ?? null !!}</textarea>
                             <div class="invalid-feedback">
                                 Please write the small summary for basic section.

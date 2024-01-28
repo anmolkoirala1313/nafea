@@ -38,7 +38,7 @@
     <div class="col-lg-6">
         <div class="mb-3">
             {!! Form::label('image_position', 'Image Position', ['class' => 'form-label required']) !!}
-            {!! Form::select('image_position', ['left'=>'Left','right'=>'Right'], isset($data['row']) ? $data['row']->image_position : 'left',['class'=>'form-select mb-3 select2','id'=>'package_category_id','placeholder'=>'Select category']) !!}
+            {!! Form::select('image_position', ['left'=>'Left','right'=>'Right'], isset($data['row']) ? $data['row']->image_position : 'left',['class'=>'form-select mb-3 select2','id'=>'package_category_id','placeholder'=>'Select Image Position']) !!}
         </div>
     </div>
     <div class="col-lg-12">
