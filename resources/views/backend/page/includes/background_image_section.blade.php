@@ -39,8 +39,8 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="mb-1 mt-2">
-                            <label class="form-label required"> Description <span class="text-danger">* write 800 characters only</span></label>
-                            <textarea class="form-control" maxlength="1000" rows="14" name="description" id="basic_editor" required>{!! $basic_image_section->description ?? null !!}</textarea>
+                            <label class="form-label required"> Description </label>
+                            <textarea class="form-control ck-editor" rows="14" name="description" id="background_editor" required>{!! $basic_image_section->description ?? null !!}</textarea>
                             <div class="invalid-feedback">
                                 Please write the small summary for basic section.
                             </div>
