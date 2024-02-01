@@ -3,7 +3,7 @@
             <div class="row">
                 <div class="col-xl-12 col-lg-12 text-center">
                     <div class="about__four-right-title mb-0">
-                        <span class="subtitle-two" style="margin-bottom: 10px;">{{ $element->first()->subtitle ?? '' }} </span>
+                        <span class="subtitle-four" style="margin-bottom: 10px;">{{ $element->first()->subtitle ?? '' }} </span>
                         <h2 style="width: 50%;margin:auto;line-height: 50px;">{{ $element->first()->title ?? '' }}</h2>
                     </div>
                 </div>

@@ -5,7 +5,7 @@
         <div class="row align-items-center">
             <div class="col-md-8">
                 <div class="solution__area-title md-t-center">
-                    <span class="subtitle-two">{{ $element->first()->subtitle ?? '' }}</span>
+                    <span class="subtitle-four">{{ $element->first()->subtitle ?? '' }}</span>
                     <h2>{{ $element->first()->title ?? '' }}</h2>
                     @if($element->first()->button_link)
                         <a class="btn-two" href="{{ $element->first()->button_link }}">{{ $element->first()->button ?? 'Learn More' }}</a>

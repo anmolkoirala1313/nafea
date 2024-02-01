@@ -56,7 +56,7 @@
                 <div class="col-xl-12">
                     <div class="contact__three-form t-center">
                         <div class="contact__three-form-title">
-                            <span class="subtitle-two">Get in Touch</span>
+                            <span class="subtitle-four">Get in Touch</span>
                             <h2>We are always Ready for your queries</h2>
                         </div>
                         {!! Form::open(['route' => $module.'contact-us.store', 'method'=>'POST', 'class'=>'submit_form','novalidate'=>'novalidate']) !!}

@@ -1,6 +1,6 @@
 <div class="row p-4 modal-details">
     <div class="properitors-data mb-2">
-        <span class="subtitle-two">Proprietors</span>
+        <span class="subtitle-four">Proprietors</span>
         <table class="table">
             <thead class="thead-light">
             <tr>
@@ -31,7 +31,7 @@
         </table>
     </div>
     <div class="properitors-data">
-        <span class="subtitle-two">Labor Representatives</span>
+        <span class="subtitle-four">Labor Representatives</span>
         <table class="table">
             <thead class="thead-light">
             <tr>

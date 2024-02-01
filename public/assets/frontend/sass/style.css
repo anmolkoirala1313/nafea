@@ -669,8 +669,8 @@ h6 {
   --border-white: #FFFFFF;
   --primary-color-1: #01BDB2;
   --primary-color-4: #ff0000;
-  --primary-color-2: #2974FF;
-  --primary-color-3: #0D9B4D;
+  --primary-color-2: #0D9B4D;
+  --primary-color-3: #2974FF;
   --bg-heading-color: #121212;
   --text-heading-color: #121212;
   --btn-heading-color: #121212;
@@ -14377,7 +14377,7 @@ h6 {
 }
 
 .portfolio__one{
-    background: #437ffc21;
+    background: #98f1e717;
     padding: 60px 0 60px 0;
 }
 .swiper-slide-active{

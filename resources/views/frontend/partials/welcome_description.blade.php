@@ -1,6 +1,6 @@
 <div class="about__one-right">
     <div class="about__one-right-title">
-        <span class="subtitle-two">{{ $data['homepage']->subtitle ?? '' }}</span>
+        <span class="subtitle-four">{{ $data['homepage']->subtitle ?? '' }}</span>
         <h2>{{ $data['homepage']->title ?? '' }}</h2>
         <div class="text-align-justify">
             {!! $data['homepage']->description ?? '' !!}

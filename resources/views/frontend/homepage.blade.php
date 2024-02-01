@@ -7,9 +7,9 @@
 
     <div class="banner__one swiper banner-slider">
         <div class="banner__two-shape">
-            <img class="banner__two-shape-two left-right-animate" src="{{ asset('assets/frontend/img/shape/banner-3.png') }}" alt="banner-shape">
-            <img class="banner__two-shape-three" src="{{ asset('assets/frontend/img/shape/banners-2.png') }}" alt="banner-shape">
-            <img class="banner__two-shape-four" src="{{ asset('assets/frontend/img/shape/banners-3.png') }}" alt="banner-shape">
+{{--            <img class="banner__two-shape-two left-right-animate" src="{{ asset('assets/frontend/img/shape/banner-3.png') }}" alt="banner-shape">--}}
+{{--            <img class="banner__two-shape-three" src="{{ asset('assets/frontend/img/shape/banners-2.png') }}" alt="banner-shape">--}}
+{{--            <img class="banner__two-shape-four" src="{{ asset('assets/frontend/img/shape/banners-3.png') }}" alt="banner-shape">--}}
         </div>
         <div class="swiper-wrapper">
             @foreach($data['sliders']  as $index=>$slider)
@@ -118,7 +118,7 @@
                 <div class="row align-items-center">
                     <div class="col-xl-6 col-lg-5 lg-mb-30">
                         <div class="cta__three-title">
-                            <span class="subtitle-two">{{ $data['homepage']->action_subtitle ?? '' }}</span>
+                            <span class="subtitle-four">{{ $data['homepage']->action_subtitle ?? '' }}</span>
                             <h2>{{ $data['homepage']->action_title ?? '' }}</h2>
                             <a class="btn-two mt-30" href="{{ $data['homepage']->action_link ?? '/contact-us' }}">{{ $data['homepage']->action_button ?? 'Start Here' }}</a>
                         </div>
@@ -157,7 +157,7 @@
                 <div class="row mb-60">
                     <div class="col-xl-12">
                         <div class="work__area-title t-center">
-                            <span class="subtitle-two">{{ $data['homepage']->recruitment_subtitle ?? 'How it Works' }}</span>
+                            <span class="subtitle-four">{{ $data['homepage']->recruitment_subtitle ?? 'How it Works' }}</span>
                             <h2>{{ $data['homepage']->recruitment_title ?? 'Our Work Process Journey' }}</h2>
                         </div>
                     </div>
@@ -188,7 +188,7 @@
                 <div class="row mb-20">
                     <div class="col-xl-6">
                         <div class="offer__area-right-title">
-                            <span class="subtitle-two">Our Press Release</span>
+                            <span class="subtitle-four">Our Press Release</span>
                             <h2>Read Our Groundbreaking Approaches</h2>
                         </div>
                     </div>
@@ -227,7 +227,7 @@
                 <div class="row mb-30">
                     <div class="col-xl-12">
                         <div class="services__two-title">
-                            <span class="subtitle-two">Available Solutions</span>
+                            <span class="subtitle-four">Available Solutions</span>
                             <h2>Insurance Solutions</h2>
                         </div>
                     </div>
@@ -264,7 +264,7 @@
             <div class="container">
                 <div class="col-xl-6 col-lg-6 lg-mb-30 mb-5">
                     <div class="testimonial__two-title">
-                        <span class="subtitle-two">Message From Directors</span>
+                        <span class="subtitle-four">Message From Directors</span>
                         <h2>Listen to what our directors have to say.</h2>
                     </div>
                 </div>
@@ -325,7 +325,7 @@
                     <div class="col-xl-6 col-lg-6">
                         <div class="offer__area-right">
                             <div class="offer__area-right-title">
-                                <span class="subtitle-two">{{ $data['homepage']->why_subtitle ?? 'Why Choose Us' }}</span>
+                                <span class="subtitle-four">{{ $data['homepage']->why_subtitle ?? 'Why Choose Us' }}</span>
                                 <h2>{{ $data['homepage']->why_title }}</h2>
                                 <p class="text-align-justify">{{ $data['homepage']->why_description ?? '' }}</p>
                             </div>
@@ -396,7 +396,7 @@
                 <div class="row align-items-end">
                     <div class="col-xl-6 col-lg-6 lg-mb-30">
                         <div class="services__one-title lg-t-center">
-                            <span class="subtitle-two">Our Latest Categories</span>
+                            <span class="subtitle-four">Our Latest Categories</span>
                             <h2>Covering All Bases With Our Special Category</h2>
                         </div>
                     </div>
@@ -435,7 +435,7 @@
                 <div class="row mb-60">
                     <div class="col-xl-12">
                         <div class="portfolio__three-title t-center">
-                            <span class="subtitle-two">Our Notice</span>
+                            <span class="subtitle-four">Our Notice</span>
                             <h2>Our Important Notice and Information</h2>
                         </div>
                     </div>
@@ -476,7 +476,7 @@
                 <div class="row align-items-center">
                     <div class="col-xl-6 col-lg-6 lg-mb-30">
                         <div class="testimonial__two-title">
-                            <span class="subtitle-two">{{ $data['testimonial_heading']->subtitle ?? 'Our Testimonials'}}</span>
+                            <span class="subtitle-four">{{ $data['testimonial_heading']->subtitle ?? 'Our Testimonials'}}</span>
                             <h2>{{ $data['testimonial_heading']->title ?? '' }}</h2>
                             {!! $data['testimonial_heading']->description  ?? "<p>At NAFEA, we take pride in providing exceptional coverage and service to our clients. But don't just take our word for it - hear it from our associates and clients!</p>" !!}
                             <a class="btn-two" href="{{ route('frontend.page.testimonial') }}">See All Testimonial</a>
@@ -528,7 +528,7 @@
                 <div class="row mb-60">
                     <div class="col-xl-12">
                         <div class="portfolio__three-title t-center">
-                            <span class="subtitle-two">Our Valuable clients</span>
+                            <span class="subtitle-four">Our Valuable clients</span>
                             <h2>Associated With</h2>
                         </div>
                     </div>
@@ -561,7 +561,7 @@
                 <div class="row mb-30">
                     <div class="col-xl-12">
                         <div class="blog__one-title t-center">
-                            <span class="subtitle-two">From the blog</span>
+                            <span class="subtitle-four">From the blog</span>
                             <h2>News & Articles</h2>
                         </div>
                     </div>

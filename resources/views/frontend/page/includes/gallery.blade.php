@@ -12,7 +12,7 @@
             <div class="col-xl-12 col-lg-12 text-center">
                 <div class="about__four-right-title mb-0">
                     @if($element->list_number_2)
-                    <span class="subtitle-two" style="margin-bottom: 10px;">{{ $element->list_number_1 ?? '' }}</span>
+                    <span class="subtitle-four" style="margin-bottom: 10px;">{{ $element->list_number_1 ?? '' }}</span>
                     @endif
                     <h2 style="width: 50%;margin:auto;line-height: 50px;">{{ $element->list_number_2 ?? '' }}</h2>
                 </div>

@@ -5,7 +5,7 @@
         <div class="row mb-60">
             <div class="col-xl-12">
                 <div class="quote__area-title t-center">
-                    <span class="subtitle-two">{{ $element->first()->subtitle ?? '' }}</span>
+                    <span class="subtitle-four">{{ $element->first()->subtitle ?? '' }}</span>
                     <h2>{{ $element->first()->title ?? '' }}</h2>
                 </div>
             </div>
