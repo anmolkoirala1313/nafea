@@ -7073,7 +7073,7 @@ h6 {
 * Quote Area CSS
 ==========================================================================*/
 .quote__area {
-  background: var(--bg-heading-color);
+  background: #212121;
   position: relative;
   z-index: 1;
   overflow: hidden;

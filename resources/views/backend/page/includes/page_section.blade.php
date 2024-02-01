@@ -42,7 +42,7 @@
                 </div>
                 <div class="card shadow-none">
                     <div class="card-header">
-                        <h5 class="card-title text-primary mb-0">Background Image Section {{ $page_method == 'edit' ? (in_array('background_image_section', $data['section_slug']) ? "image-checkbox-checked":"") : ''}}</h5>
+                        <h5 class="card-title text-primary mb-0">Background Image Section</h5>
                     </div>
                     <div class="card-body">
                         <div class="row">

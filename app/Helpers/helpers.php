@@ -390,13 +390,19 @@ if (!function_exists('get_flash_card_icons')) {
     function get_flash_card_icons($index): string
     {
         if ($index == 0) {
-            $icon = 'icon-icon-start-ups';
+            $icon = 'flaticon-mission';
         } else if ($index == 1) {
-            $icon = 'icon-icon-successful-project';
+            $icon = 'flaticon-success';
         } else if ($index == 2) {
-            $icon = 'icon-icon-years-experience';
+            $icon = 'flaticon-value';
+        } else if ($index == 3) {
+            $icon = 'flaticon-select';
+        }else if ($index == 4) {
+            $icon = 'flaticon-costumer';
+        } else if ($index == 5) {
+            $icon = 'flaticon-winner';
         } else {
-            $icon = 'icon-star-1';
+            $icon = 'flaticon-trust';
         }
 
         return $icon;

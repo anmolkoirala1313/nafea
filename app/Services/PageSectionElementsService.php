@@ -58,7 +58,11 @@ class PageSectionElementsService {
                     if ($section && $section->image){
                         $this->deleteImage($section->image);
                     }
+                }else{
+                    $request->request->add(['image_'.$index => null]);
                 }
+
+
 
                 $this->model->updateOrCreate(
                     [
@@ -69,7 +73,7 @@ class PageSectionElementsService {
                         'title'               => $heading,
                         'subtitle'            => $subheading,
                         'list_title'          => $title,
-                        'image'               => $request['image_'.$index] ?? $section->image,
+                        'image'               => $request['image_' . $index] ?? $section->image,
                         'list_description'    => $request['list_description'][$index],
                         'status'              => $request['status'],
                         'created_by'          => $request['created_by'],
