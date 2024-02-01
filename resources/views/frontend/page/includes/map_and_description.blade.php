@@ -1,46 +1,32 @@
-<section class="why-choose-one" style="background: #fff">
-    <div class="why-choose-one__shape-3 float-bob-y-2">
-        <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/why-choose-one-shape-3.png') }}" alt="">
-    </div>
+<div class="features__two section-padding" data-background="{{ asset('assets/frontend/img/shape/features.png') }}">
     <div class="container">
         <div class="row">
-            <div class="col-xl-6">
-                <div class="why-choose-one__left">
-                    <div class="section-title text-left">
-                        <div class="section-title__tagline-box">
-                            <p class="section-title__tagline">{{ $element->first()->subtitle ?? '' }}</p>
-                        </div>
-                        <h2 class="section-title__title section-title_normal">{{ $element->first()->title ?? '' }}
-                        </h2>
-                    </div>
-                    <p class="why-choose-one__text text-align-justify">
-                        {{ $element->first()->description ?? '' }}
-                    </p>
-
-                    @if($element->first()->button_link)
-                        <div class="why-choose-one__btn-box mt-3">
-                            <a href="{{$element->first()->button_link}}" class="why-choose-one__btn thm-btn">{{ $element->first()->button ?? 'Explore more' }}</a>
-                        </div>
-                    @endif
-                </div>
-            </div>
-            <div class="col-xl-6">
-                <div class="why-choose-one__right" style="margin-left: 40px;">
-                    <div class="why-choose-one__img wow slideInRight animated" data-wow-delay="100ms" data-wow-duration="2500ms" style="visibility: visible; animation-duration: 2500ms; animation-delay: 100ms; animation-name: slideInRight;">
-                        <div class="why-choose-one__shape-1 float-bob-x">
-                            <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/why-choose-one-shape-1.png') }}" alt="">
-                        </div>
-                        <div class="why-choose-one__shape-2 float-bob-y">
-                            <img class="lazy" data-src="{{ asset('assets/frontend/images/shapes/why-choose-one-shape-2.png') }}" alt="">
-                        </div>
-
-                        @if($setting_data && $setting_data->google_map)
-                            <iframe src="{{ $setting_data->google_map }}" style="border:0;width: 625px;height: 520px;" allowfullscreen="" loading="lazy"></iframe>
+            <div class="col-xl-6 col-lg-7 lg-mb-30">
+                <div class="features__two-left mt-5">
+                    <div class="features__two-left-title" style="width: 110%;">
+                        <span class="subtitle-three">{{ $element->first()->subtitle ?? '' }}</span>
+                        <h2>{{ $element->first()->title ?? '' }}</h2>
+                        <p class="text-align-justify">
+                            {{ $element->first()->description ?? '' }}
+                        </p>
+                        @if($element->first()->button_link)
+                            <div class="about__one-right-bottom">
+                                <div class="about__one-right-bottom-list">
+                                    <a class="btn-two" href="{{ $element->first()->button_link ?? '' }}">{{ $element->first()->button }}</a>
+                                </div>
+                            </div>
                         @endif
                     </div>
                 </div>
             </div>
+            <div class="col-xl-6 col-lg-5">
+                <div class="features__two-right dark__image">
+                    @if($setting_data && $setting_data->google_map)
+                        <iframe src="{{ $setting_data->google_map }}" style="border:0;width: 625px;height: 759px;" allowfullscreen="" loading="lazy"></iframe>
+                    @endif
+                </div>
+            </div>
         </div>
     </div>
-</section>
+</div>
 

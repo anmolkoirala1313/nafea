@@ -1,6 +1,8 @@
 @extends('frontend.layouts.master')
 @section('title') {{ $page_title }} @endsection
 <link rel="stylesheet" href="{{ asset('assets/frontend/css/magnific-popup.css') }}" />
+<link rel="stylesheet" href="{{asset('assets/common/frontend_datatable.css')}}">
+
 <style>
     .image-dimension{
         height: 270px;

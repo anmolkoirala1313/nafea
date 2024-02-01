@@ -46,24 +46,24 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="mb-1">
-                            <label>Button Text </label>
-                            <input type="text" maxlength="20" class="form-control" value="{{@$map_and_description->button ?? null}}" name="button">
-                            <div class="invalid-feedback">
-                                Please enter the button text.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="mb-1">
-                            <label>Button Link </label>
-                            <input type="text" class="form-control" value="{{@$map_and_description->button_link ?? null}}" name="button_link">
-                            <div class="invalid-feedback">
-                                Please enter the button link.
-                            </div>
-                        </div>
-                    </div>
+{{--                    <div class="col-lg-6">--}}
+{{--                        <div class="mb-1">--}}
+{{--                            <label>Button Text </label>--}}
+{{--                            <input type="text" maxlength="20" class="form-control" value="{{@$map_and_description->button ?? null}}" name="button">--}}
+{{--                            <div class="invalid-feedback">--}}
+{{--                                Please enter the button text.--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="col-lg-6">--}}
+{{--                        <div class="mb-1">--}}
+{{--                            <label>Button Link </label>--}}
+{{--                            <input type="text" class="form-control" value="{{@$map_and_description->button_link ?? null}}" name="button_link">--}}
+{{--                            <div class="invalid-feedback">--}}
+{{--                                Please enter the button link.--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                 </div>
             </div>
         </div>

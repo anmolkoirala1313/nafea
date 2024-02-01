@@ -14095,7 +14095,7 @@ h6 {
 }
 .rtl-mode .features__two-left-title p {
   margin: 0;
-  margin-left: 33px;
+  margin-left: 0px;
 }
 .rtl-mode .features__two-left-bottom {
   margin-right: 0;
