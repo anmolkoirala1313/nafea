@@ -22,7 +22,7 @@
             <div class="col-xl-6 col-lg-5">
                 <div class="features__two-right dark__image">
                     @if($setting_data && $setting_data->google_map)
-                        <iframe src="{{ $setting_data->google_map }}" style="border:0;width: 625px;height: 759px;" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe src="{{ $setting_data->google_map }}" style="border:0;width: 625px;height: 729px;" allowfullscreen="" loading="lazy"></iframe>
                     @endif
                 </div>
             </div>

@@ -5,7 +5,8 @@
 
 <style>
     .image-dimension{
-        height: 270px;
+        height: 425px;
+        width: 425px;
         object-fit: cover;
     }
 </style>

@@ -1,30 +1,31 @@
-<section class="faq-two">
-    <div class="faq-two__shape-1 float-bob-y">
-        <img src="{{ asset('assets/frontend/images/shapes/faq-two-shape-1.png') }}" alt="">
-    </div>
-    <div class="faq-two__shape-2 img-bounce">
-        <img src="{{ asset('assets/frontend/images/shapes/faq-two-shape-2.png') }}" alt="">
-    </div>
+<div class="faq__one-page section-padding">
     <div class="container">
-        <div class="faq-two__inner">
-            <h3 class="section__title-two">{{ $element->first()->title ?? '' }}</h3>
-            <div class="accrodion-grp" data-grp-name="faq-two-accrodion">
-                @foreach($element as $index=>$row)
-                    <div class="accrodion  {{$loop->first ? 'active':''}}">
-                        <div class="accrodion-title">
-                            <h4> {{ $row->list_title ?? '' }}</h4>
-                        </div>
-                        @if($row->list_description)
-                            <div class="accrodion-content">
-                                <div class="inner">
-                                    <p> {{ $row->list_description ?? '' }}</p>
-                                </div><!-- /.inner -->
-                            </div>
-                        @endif
+        <div class="row align-items-center">
 
+            <div class="col-xxl-12 col-lg-6">
+                <div class="faq__one-right">
+                    <div class="faq__one-right-title">
+                        <span class="subtitle-four">Faqs</span>
+                        <h2>{{ $element->first()->title ?? '' }}</h2>
                     </div>
-                @endforeach
+                    <div class="faq__area" id="accordionExample">
+                        @foreach($element as $index=>$row)
+                            <div class="faq__area-item">
+                                <h6 class="icon page" data-bs-toggle="collapse" data-bs-target="#collapse{{$index}}">
+                                    {{ $row->list_title ?? '' }}
+                                </h6>
+                                @if($row->list_description)
+                                    <div id="collapse{{$index}}" class="faq__area-item-body collapse {{$loop->first ? 'show':''}}" data-bs-parent="#accordionExample">
+                                        <p>
+                                            {{ $row->list_description ?? '' }}
+                                        </p>
+                                    </div>
+                                @endif
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</section>
+</div>
