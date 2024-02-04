@@ -100,8 +100,8 @@
             <div class="header__area-menubar-left">
                 <div class="header__area-menubar-left-logo two">
                     <a href="/">
-                        <img class="dark-n" src="{{ $setting_data->logo_white ?  asset(imagePath($setting_data->logo_white)) : asset(imagePath($setting_data->logo))}}" alt="">
-                        <img class="light-n" src="{{ $setting_data->logo ?  asset(imagePath($setting_data->logo)) : asset(imagePath($setting_data->logo_white))}}" alt=""></a>
+                        <img class="dark-n" style="    width: 90px;" src="{{ $setting_data->logo_white ?  asset(imagePath($setting_data->logo_white)) : asset(imagePath($setting_data->logo))}}" alt="">
+                        <img class="light-n" style="    width: 90px;" src="{{ $setting_data->logo ?  asset(imagePath($setting_data->logo)) : asset(imagePath($setting_data->logo_white))}}" alt=""></a>
                 </div>
             </div>
             <div class="header__area-menubar-center">
@@ -135,7 +135,7 @@
                                         </ul>
                                     </li>
                                 @else
-                                    <li class="menus">
+                                    <li>
                                         <a href="{{get_menu_url(@$nav->type, @$nav)}}" target="{{@$nav->target ? '_blank':''}}">
                                             {{ @$nav->name ?? @$nav->title ??''}}
                                         </a>

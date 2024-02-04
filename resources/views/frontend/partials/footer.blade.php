@@ -8,7 +8,7 @@
                     <h4>About Us</h4>
                     <div class="footer__one-widget-about">
                         <a href="/">
-                            <img class="lazy" data-src="{{ $setting_data->logo_white ?  asset(imagePath($setting_data->logo_white)) : asset(imagePath($setting_data->logo))}}" style="max-width: 305px;" alt="">
+                            <img class="lazy" data-src="{{ $setting_data->logo_white ?  asset(imagePath($setting_data->logo_white)) : asset(imagePath($setting_data->logo))}}" style="max-width: 90px;" alt="">
                         </a>
                         <p class="text-align-justify">{{ $setting_data->description ?? '' }}</p>
                         <div class="footer__one-widget-about-social">
