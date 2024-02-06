@@ -32,10 +32,10 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive  mt-3 mb-1">
-                                <table id="NormalDataTable" class="table align-middle table-nowrap table-striped">
+                                <table id="dataTable" class="table align-middle table-nowrap table-striped">
                                     <thead class="table-light">
                                     <tr>
-                                        <th width="30px">#</th>
+{{--                                        <th width="30px">#</th>--}}
                                         <th>S.N</th>
                                         <th>Permission Number</th>
                                         <th>Title</th>
@@ -45,21 +45,21 @@
                                     </tr>
                                     </thead>
                                     <tbody id="sortable_rows">
-                                    @foreach($data['row'] as $row)
-                                        <tr class="rows" data-id="{{ $row->id }}">
-                                            <td class="pl-3"><i class=" ri-drag-move-2-fill"></i></td>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $row->permission_number ?? '' }}</td>
-                                            <td>{{ $row->title }}</td>
-                                            <td>{{ $row->contact_number ?? '' }}</td>
-                                            <td>
-                                                @include($module.'includes.status_display',['status'=>$row->status])
-                                            </td>
-                                            <td>
-                                                @include($view_path.'includes.dataTable_action',['params'=>['id'=>$row->id,'base_route'=>$base_route]])
-                                            </td>
-                                        </tr>
-                                    @endforeach
+{{--                                    @foreach($data['row'] as $row)--}}
+{{--                                        <tr class="rows" data-id="{{ $row->id }}">--}}
+{{--                                            <td class="pl-3"><i class=" ri-drag-move-2-fill"></i></td>--}}
+{{--                                            <td>{{ $loop->iteration }}</td>--}}
+{{--                                            <td>{{ $row->permission_number ?? '' }}</td>--}}
+{{--                                            <td>{{ $row->title }}</td>--}}
+{{--                                            <td>{{ $row->contact_number ?? '' }}</td>--}}
+{{--                                            <td>--}}
+{{--                                                @include($module.'includes.status_display',['status'=>$row->status])--}}
+{{--                                            </td>--}}
+{{--                                            <td>--}}
+{{--                                                @include($view_path.'includes.dataTable_action',['params'=>['id'=>$row->id,'base_route'=>$base_route]])--}}
+{{--                                            </td>--}}
+{{--                                        </tr>--}}
+{{--                                    @endforeach--}}
                                     </tbody>
                                 </table>
                             </div>
@@ -81,5 +81,31 @@
     @include($module.'includes.toast_message')
     @include($module.'includes/gallery')
     @include($view_path.'includes.script')
+
+    <script type="text/javascript">
+        let dataTables = $('#dataTable').DataTable({
+            processing:true,
+            serverSide: true,
+            searching: true,
+            stateSave: true,
+            order:[[1,'asc']],
+            aaSorting: [],
+            ajax: {
+                "url": '{{ route($base_route.'data') }}',
+                "type": 'POST',
+                'data': function (d) {
+                    d._token = '{{csrf_token()}}';
+                }
+            },
+            columns :[
+                {data:'DT_RowIndex', name: 'DT_RowIndex', searchable:false, orderable: false},
+                {data:'permission_number', name: 'permission_number', orderable: true},
+                {data:'title', name: 'title', searchable:true, orderable: false},
+                {data:'contact_number', name: 'contact_number', searchable:true, orderable: true},
+                {data:'status', name: 'status', searchable:false, orderable: false},
+                {data:'action', name: 'action', searchable:false, orderable: false},
+            ]
+        })
+    </script>
 
 @endsection

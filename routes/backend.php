@@ -254,14 +254,15 @@ Route::get('/menu/{slug?}', [MenuController::class,'index'])->name('menu.index')
 Route::get('/menu/{id}/delete',[MenuController::class,'destroy'])->name('menu.delete');
 Route::resource('menu', MenuController::class)->names('menu');
 
-//client
+//page heading
 Route::get('/page-heading/trash', [PageHeadingController::class,'trash'])->name('page_heading.trash');
 Route::post('/page-heading/trash/{id}/restore', [PageHeadingController::class,'restore'])->name('page_heading.restore');
 Route::delete('/page-heading/trash/{id}/remove', [PageHeadingController::class,'removeTrash'])->name('page_heading.remove-trash');
 Route::resource('page-heading', PageHeadingController::class)->names('page_heading');
 
 
-//managing director
+//authorized agency
+Route::post('/authorized-agency/data', [AuthorizedAgencyController::class,'getDataForDataTable'])->name('authorized_agency.data');
 Route::post('/authorized-agency/order', [AuthorizedAgencyController::class,'orderUpdate'])->name('authorized_agency.order');
 Route::get('/authorized-agency/trash', [AuthorizedAgencyController::class,'trash'])->name('authorized_agency.trash');
 Route::post('/authorized-agency/trash/{id}/restore', [AuthorizedAgencyController::class,'restore'])->name('authorized_agency.restore');
