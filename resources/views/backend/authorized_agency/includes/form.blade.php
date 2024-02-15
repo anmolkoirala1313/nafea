@@ -19,6 +19,12 @@
     </div>
     <div class="col-lg-6">
         <div class="mb-3">
+            {!! Form::label('membership_number', 'Membership Number', ['class' => 'form-label']) !!}
+            {!! Form::text('membership_number', null,['class'=>'form-control','id'=>'membership_number','placeholder'=>'Enter Membership Number']) !!}
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="mb-3">
             {!! Form::label('address', 'Address', ['class' => 'form-label required']) !!}
             {!! Form::text('address', null,['class'=>'form-control','id'=>'address','placeholder'=>'Enter address']) !!}
         </div>

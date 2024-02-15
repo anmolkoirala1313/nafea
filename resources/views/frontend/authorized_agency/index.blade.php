@@ -33,6 +33,7 @@
                                 <th scope="col">S.N</th>
                                 <th scope="col">Permission No.</th>
                                 <th scope="col">Name</th>
+                                <th scope="col">Membership No.</th>
                                 <th scope="col">Address</th>
                                 <th scope="col">Contact</th>
                                 <th scope="col">Action</th>
@@ -76,6 +77,7 @@
                 {data:'DT_RowIndex', name: 'DT_RowIndex', searchable:false, orderable: false},
                 {data:'permission_number', name: 'permission_number', orderable: true},
                 {data:'title', name: 'title', searchable:true, orderable: false},
+                {data:'membership_number', name: 'permission_number', orderable: true},
                 {data:'address', name: 'address', searchable:true, orderable: true},
                 {data:'contact_number', name: 'contact_number', searchable:true, orderable: false},
                 {data:'action', name: 'action', searchable:false, orderable: false},
