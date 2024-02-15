@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="mb-3">
-            {!! Form::label('title', 'Title', ['class' => 'form-label required']) !!}
+            {!! Form::label('title', 'Title', ['class' => 'form-label']) !!}
             {!! Form::text('title', null,['class'=>'form-control','id'=>'title','placeholder'=>'Enter title']) !!}
         </div>
     </div>
