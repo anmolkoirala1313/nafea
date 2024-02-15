@@ -11,6 +11,19 @@
 
     <div class="blog__standard section-padding">
         <div class="container">
+            @if($data['heading'])
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 text-center">
+                        <div class="about__four-right-title mb-0">
+                            <span class="subtitle-four" style="margin-bottom: 0px;">{{ $data['heading']->subtitle ?? '' }}</span>
+                            <h2 style="width: 50%;margin:auto;line-height: 50px;">{{ $data['heading']->title ?? '' }}</h2>
+                        </div>
+                    </div>
+                    <div class="custom-description text-align-justify text-center mt-3">
+                        {!! $data['heading']->description ?? ''  !!}
+                    </div>
+                </div>
+            @endif
             <div class="row">
                 <div class="col-xl-12 col-lg-12 lg-mb-50">
                     <div class="row">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend\Agency;
 
 use App\Http\Controllers\Backend\BackendBaseController;
 use App\Models\Backend\AuthorizedAgency;
+use App\Models\Backend\PageHeading;
 use App\Services\Frontend\AuthorizedAgencyService;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
@@ -48,6 +49,7 @@ class AuthorizedAgencyController extends BackendBaseController
         $this->page_title       = 'All '.$this->page;
         $data                   = [];
         $data['rows']           = $this->model->active()->orderBy('order', 'asc')->paginate(9);
+        $data['heading']        = PageHeading::active()->where('type','agency')->first();
 
         if(!$data['rows']){
             abort(404);

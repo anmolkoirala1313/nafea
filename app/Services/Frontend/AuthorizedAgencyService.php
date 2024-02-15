@@ -25,7 +25,7 @@ class AuthorizedAgencyService {
 
     public function getDataForDatatable(Request $request){
 
-        $query = $this->model->query()->orderBy('order', 'asc');
+        $query = $this->model->query()->with('proprietors','laborRepresentatives')->orderBy('title', 'asc');
 
         return $this->dataTables->eloquent($query)
             ->editColumn('action',function ($item){
