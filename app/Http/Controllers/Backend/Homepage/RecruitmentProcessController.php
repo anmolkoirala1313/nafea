@@ -97,6 +97,7 @@ class RecruitmentProcessController extends BackendBaseController
     {
         $data['row']       = $this->model->find($id);
 
+
         DB::beginTransaction();
         try {
             $request->request->add(['updated_by' => auth()->user()->id ]);
@@ -106,25 +107,32 @@ class RecruitmentProcessController extends BackendBaseController
 
             $db_values = $data['row']->recruitmentProcess->pluck('id');
 
-            foreach ($request['detail_title'] as $index=>$title){
-                //adding or updating the values
-                HomePageRecruitment::updateOrCreate(
-                    [
-                        'homepage_id' => $data['row']->id,
-                        'id'          => $request['detail_id'][$index]],
-                    [
-                        'title'         => $title,
-                        'description'   => $request['detail_description'][$index] ?? null,
-                        'created_by'    => auth()->user()->id,
-                        'updated_by'    => $request['updated_by'],
-                    ]
-                );
-            }
+            if ($request['detail_title']){
+                foreach ($request['detail_title'] as $index=>$title){
+                    //adding or updating the values
+                    HomePageRecruitment::updateOrCreate(
+                        [
+                            'homepage_id' => $data['row']->id,
+                            'id'          => $request['detail_id'][$index]],
+                        [
+                            'title'         => $title,
+                            'description'   => $request['detail_description'][$index] ?? null,
+                            'created_by'    => auth()->user()->id,
+                            'updated_by'    => $request['updated_by'],
+                        ]
+                    );
+                }
 
-            //removing the values
-            foreach ($db_values as $id){
-                if (!in_array($id,$request['detail_id'])){
-                    HomePageRecruitment::find($id)->delete();
+                //removing the values
+                foreach ($db_values as $id){
+                    if (!in_array($id,$request['detail_id'])){
+                        HomePageRecruitment::find($id)->delete();
+                    }
+                }
+            }else{
+                //if all recruitment process is removed, delete all data from db
+                foreach ($db_values as $id){
+                        HomePageRecruitment::find($id)->delete();
                 }
             }
 

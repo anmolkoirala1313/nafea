@@ -73,10 +73,11 @@
     <div class="custom__container">
         <div class="row">
             <div class="col-lg-8">
-                <div class="header__area-menubar-left-logo two">
-                    <a href="/">
-                        <img class="dark-n" style="    width: 90px;" src="{{ $setting_data->logo_white ?  asset(imagePath($setting_data->logo_white)) : asset(imagePath($setting_data->logo))}}" alt="">
-                        <img class="light-n" style="    width: 90px;" src="{{ $setting_data->logo ?  asset(imagePath($setting_data->logo)) : asset(imagePath($setting_data->logo_white))}}" alt=""></a>
+                <div class="top__bar-two-left lg-t-center">
+                    <ul>
+                        <li><a href="mailto:{{ $setting_data->email ?? '' }}"><i class="fas fa-map-marker-alt"></i>Location : {{ $setting_data->address ?? '' }}</a></li>
+                        <li><a href="mailto:{{ $setting_data->email ?? '' }}"><i class="fas fa-envelope"></i>Email : {{ $setting_data->email ?? '' }}</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="col-lg-4">

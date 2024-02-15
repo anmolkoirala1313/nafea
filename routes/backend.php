@@ -61,7 +61,7 @@ Route::any('/register', function() {
 
 
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware(['auth']);
 Route::post('/setting/theme-mode',  [DashboardController::class, 'themeMode'])->name('setting.theme-mode');
 
 Route::prefix('user/')->name('user.')->middleware(['auth'])->group(function () {
@@ -180,24 +180,24 @@ Route::prefix('homepage/')->name('homepage.')->middleware(['auth'])->group(funct
 
 //documents
 Route::get('document', [DocumentController::class, 'create'])->name('document.create');
-Route::resource('document', DocumentController::class)->only(['store', 'update'])->names('document');
+Route::resource('document', DocumentController::class)->only(['store', 'update'])->names('document')->middleware(['auth']);
 
 //video gallery
 Route::get('video-gallery', [VideoGalleryController::class, 'create'])->name('video_gallery.create');
-Route::resource('video-gallery', VideoGalleryController::class)->only(['store', 'update'])->names('video_gallery');
+Route::resource('video-gallery', VideoGalleryController::class)->only(['store', 'update'])->names('video_gallery')->middleware(['auth']);
 
 //testimonials
 Route::get('/testimonial/trash', [TestimonialController::class,'trash'])->name('testimonial.trash');
 Route::post('/testimonial/trash/{id}/restore', [TestimonialController::class,'restore'])->name('testimonial.restore');
 Route::delete('/testimonial/trash/{id}/remove', [TestimonialController::class,'removeTrash'])->name('testimonial.remove-trash');
-Route::resource('testimonial', TestimonialController::class)->names('testimonial');
+Route::resource('testimonial', TestimonialController::class)->names('testimonial')->middleware(['auth']);
 
 //services
 Route::post('/service/order', [ServiceController::class,'orderUpdate'])->name('service.order');
 Route::get('/service/trash', [ServiceController::class,'trash'])->name('service.trash');
 Route::post('/service/trash/{id}/restore', [ServiceController::class,'restore'])->name('service.restore');
 Route::delete('/service/trash/{id}/remove', [ServiceController::class,'removeTrash'])->name('service.remove-trash');
-Route::resource('service', ServiceController::class)->names('service');
+Route::resource('service', ServiceController::class)->names('service')->middleware(['auth']);
 
 Route::prefix('company-personnel/')->name('company_personnel.')->middleware(['auth'])->group(function () {
     //managing director
@@ -228,7 +228,7 @@ Route::prefix('company-personnel/')->name('company_personnel.')->middleware(['au
 Route::get('/client/trash', [ClientController::class,'trash'])->name('client.trash');
 Route::post('/client/trash/{id}/restore', [ClientController::class,'restore'])->name('client.restore');
 Route::delete('/client/trash/{id}/remove', [ClientController::class,'removeTrash'])->name('client.remove-trash');
-Route::resource('client', ClientController::class)->names('client');
+Route::resource('client', ClientController::class)->names('client')->middleware(['auth']);
 
 
 //Album
@@ -239,7 +239,7 @@ Route::get('/album/gallery/{key}', [AlbumController::class,'gallery'])->name('al
 Route::get('/album/trash', [AlbumController::class,'trash'])->name('album.trash');
 Route::post('/album/trash/{id}/restore', [AlbumController::class,'restore'])->name('album.restore');
 Route::delete('/album/trash/{id}/remove', [AlbumController::class,'removeTrash'])->name('album.remove-trash');
-Route::resource('album', AlbumController::class)->names('album');
+Route::resource('album', AlbumController::class)->names('album')->middleware(['auth']);
 
 //for menu
 Route::get('/add-page-to-menu',[MenuController::class,'addPage'])->name('menu.page');
@@ -252,13 +252,13 @@ Route::get('/delete-menuitem/{id}/{key}/{in?}/{inside?}',[MenuController::class,
 Route::post('menu', [MenuController::class,'store'])->name('menu.store');
 Route::get('/menu/{slug?}', [MenuController::class,'index'])->name('menu.index');
 Route::get('/menu/{id}/delete',[MenuController::class,'destroy'])->name('menu.delete');
-Route::resource('menu', MenuController::class)->names('menu');
+Route::resource('menu', MenuController::class)->names('menu')->middleware(['auth']);
 
 //page heading
 Route::get('/page-heading/trash', [PageHeadingController::class,'trash'])->name('page_heading.trash');
 Route::post('/page-heading/trash/{id}/restore', [PageHeadingController::class,'restore'])->name('page_heading.restore');
 Route::delete('/page-heading/trash/{id}/remove', [PageHeadingController::class,'removeTrash'])->name('page_heading.remove-trash');
-Route::resource('page-heading', PageHeadingController::class)->names('page_heading');
+Route::resource('page-heading', PageHeadingController::class)->names('page_heading')->middleware(['auth']);
 
 
 //authorized agency
@@ -267,7 +267,7 @@ Route::post('/authorized-agency/order', [AuthorizedAgencyController::class,'orde
 Route::get('/authorized-agency/trash', [AuthorizedAgencyController::class,'trash'])->name('authorized_agency.trash');
 Route::post('/authorized-agency/trash/{id}/restore', [AuthorizedAgencyController::class,'restore'])->name('authorized_agency.restore');
 Route::delete('/authorized-agency/trash/{id}/remove', [AuthorizedAgencyController::class,'removeTrash'])->name('authorized_agency.remove-trash');
-Route::resource('authorized-agency', AuthorizedAgencyController::class)->names('authorized_agency');
+Route::resource('authorized-agency', AuthorizedAgencyController::class)->names('authorized_agency')->middleware(['auth']);
 
 
 Route::prefix('authorized-agency/')->name('authorized_agency.')->middleware(['auth'])->group(function () {
@@ -293,7 +293,7 @@ Route::post('/page/data', [PageController::class,'getDataForDataTable'])->name('
 Route::get('/page/trash', [PageController::class,'trash'])->name('page.trash');
 Route::post('/page/trash/{id}/restore', [PageController::class,'restore'])->name('page.restore');
 Route::delete('/page/trash/{id}/remove', [PageController::class,'removeTrash'])->name('page.remove-trash');
-Route::resource('page', PageController::class)->names('page');
+Route::resource('page', PageController::class)->names('page')->middleware(['auth']);
 
 
 //page section and element
@@ -303,14 +303,14 @@ Route::post('/section-element/data', [PageSectionElementController::class,'getDa
 Route::get('/section-element/trash', [PageSectionElementController::class,'trash'])->name('section-element.trash');
 Route::post('/section-element/trash/{id}/restore', [PageSectionElementController::class,'restore'])->name('section-element.restore');
 Route::delete('/section-element/trash/{id}/remove', [PageSectionElementController::class,'removeTrash'])->name('section-element.remove-trash');
-Route::resource('section-element', PageSectionElementController::class)->names('section-element');
+Route::resource('section-element', PageSectionElementController::class)->names('section-element')->middleware(['auth']);
 
 
-Route::put('/section-element-upload-gallery/{id}', [PageSectionElementController::class,'uploadGallery'])->name('section-element.gallery-update');
-Route::post('/section-element/image-delete', [PageSectionElementController::class,'deleteGallery'])->name('section-element.gallery-delete');
-Route::get('/section-element/gallery/{id}', [PageSectionElementController::class,'getGallery'])->name('section-element.gallery-display');
+Route::put('/section-element-upload-gallery/{id}', [PageSectionElementController::class,'uploadGallery'])->name('section-element.gallery-update')->middleware(['auth']);
+Route::post('/section-element/image-delete', [PageSectionElementController::class,'deleteGallery'])->name('section-element.gallery-delete')->middleware(['auth']);
+Route::get('/section-element/gallery/{id}', [PageSectionElementController::class,'getGallery'])->name('section-element.gallery-display')->middleware(['auth']);
 
-Route::resource('customer-inquiry', CustomerInquiryController::class)->names('customer_inquiry');
+Route::resource('customer-inquiry', CustomerInquiryController::class)->names('customer_inquiry')->middleware(['auth']);
 
 Route::get('/setting/remove-brochure', [SettingController::class,'removeBrochure'])->name('setting.remove_brochure');
 Route::resource('setting', SettingController::class)->names('setting')->middleware(['auth']);

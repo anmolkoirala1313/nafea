@@ -1,6 +1,7 @@
 <script src="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.js')}}"></script>
 <script>
-
+    let page = '{{ isset($data['row']) ? 'update':'store' }}';
+    console.log(page);
     $(document).on('click','#add_process', function (e){
         e.preventDefault();
         let count =  $('#process-table tbody tr').length;
@@ -25,7 +26,8 @@
     $(document).on('click','.remove_row', function (e){
         let count =  $('#process-table tbody tr').length;
         count --;
-        if (count < 1){
+
+        if (count < 1 && page!=='update'){
             Swal.fire({
                 title: "Action prohibited",
                 text: "Cannot remove the last process field",
@@ -35,6 +37,7 @@
             });
             return false;
         }
+
         $(this).closest('tr').remove();
     });
 
