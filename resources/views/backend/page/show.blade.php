@@ -86,6 +86,9 @@
                                         @if($value == 'document')
                                             @include($view_path.'includes.document')
                                         @endif
+                                        @if($value == 'image_and_list')
+                                            @include($view_path.'includes.image_and_list')
+                                        @endif
                                     </div>
                                 @endforeach
                             </div>

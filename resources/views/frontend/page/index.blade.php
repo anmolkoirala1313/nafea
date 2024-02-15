@@ -48,6 +48,9 @@
         @if($index == 'document' && count($element)>0)
             @include($base_route.'includes.document')
         @endif
+        @if($index == 'image_and_list' && count($element)>0)
+            @include($base_route.'includes.image_and_list')
+        @endif
     @endforeach
 @endsection
 @section('js')

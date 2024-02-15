@@ -265,7 +265,7 @@
                 <div class="col-xl-6 col-lg-6 lg-mb-30 mb-5">
                     <div class="testimonial__two-title">
                         <span class="subtitle-four">Message From Directors</span>
-                        <h2>Listen to what our directors have to say.</h2>
+                        <h2>Listen To What Our Executive Team Members Say.</h2>
                     </div>
                 </div>
                 <div class="row">

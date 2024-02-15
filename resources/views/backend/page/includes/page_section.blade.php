@@ -174,6 +174,24 @@
                     </div>
                 </div>
 
+                <div class="card shadow-none">
+                    <div class="card-header">
+                        <h5 class="card-title text-primary mb-0">Image and List Section</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 mt-2">
+                                <label class="image-checkbox {{ $page_method == 'edit' ? (in_array('image_and_list', $data['section_slug']) ? "image-checkbox-checked":"") : ''}}">
+                                    <img class="img-responsive" src="{{asset('assets/backend/images/pages/sections/image_and_list.png')}}" width="100%"/>
+                                    <input type="checkbox" name="section[]" value="image_and_list" id="image_and_list.png" {{ $page_method == 'edit' ? (in_array('image_and_list', $data['section_slug']) ? "checked":"") : ''}} />
+                                    <i class="ri ri-check-line hidden"></i>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
 {{--                <div class="card shadow-none">--}}
 {{--                    <div class="card-header">--}}
 {{--                        <h5 class="card-title text-primary mb-0">Slider List</h5>--}}

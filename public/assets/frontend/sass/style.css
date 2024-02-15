@@ -10886,6 +10886,9 @@ h6 {
 .blog__three-item:hover::before {
   height: 0;
 }
+.blog__three-item:hover p {
+  color: white;
+}
 .blog__three-item:hover h4 a {
   color: var(--text-white);
 }
