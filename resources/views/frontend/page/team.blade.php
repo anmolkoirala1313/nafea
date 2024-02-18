@@ -27,7 +27,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="team__five-item">
                             <div class="team__five-item-image">
-                                <img class="lazy" data-src="{{ asset(imagePath($row->image)) }}" alt="">
+                                <img class="lazy" data-src="{{ asset(imagePath($row->image)) }}" style="height: 469px;width: 416px;object-fit: cover;" alt="">
                                 @if(@$row->fb_link || @$row->twitter_link || @$row->instagram_link || @$row->linkedin_link)
                                     <div class="team__five-item-image-social">
                                         <ul>
