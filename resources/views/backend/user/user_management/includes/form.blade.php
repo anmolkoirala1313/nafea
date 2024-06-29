@@ -5,15 +5,27 @@
 @endif
 
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-4">
         <div class="mb-3">
-            {!! Form::label('name', 'Name', ['class' => 'form-label required']) !!}
-            {!! Form::text('name', null,['class'=>'form-control','id'=>'name','placeholder'=>'Enter name']) !!}
+            {!! Form::label('first_name', 'First Name', ['class' => 'form-label required']) !!}
+            {!! Form::text('first_name', null,['class'=>'form-control','id'=>'first_name','placeholder'=>'Enter first name']) !!}
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="mb-3">
+            {!! Form::label('middle_name', 'Middle Name', ['class' => 'form-label']) !!}
+            {!! Form::text('middle_name', null,['class'=>'form-control','id'=>'middle_name','placeholder'=>'Enter middle name']) !!}
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="mb-3">
+            {!! Form::label('last_name', 'Last Name', ['class' => 'form-label required']) !!}
+            {!! Form::text('last_name', null,['class'=>'form-control','id'=>'last_name','placeholder'=>'Enter last name']) !!}
         </div>
     </div>
     <div class="col-lg-12">
         <div class="mb-3">
-            {!! Form::label('email', 'Name', ['class' => 'form-label required']) !!}
+            {!! Form::label('email', 'Email', ['class' => 'form-label required']) !!}
             {!! Form::text('email', null,['class'=>'form-control','id'=>'email','placeholder'=>'Enter email']) !!}
         </div>
     </div>

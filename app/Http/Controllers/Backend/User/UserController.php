@@ -7,15 +7,11 @@ use App\Http\Requests\Backend\UserRequest;
 use App\Models\Backend\User;
 use App\Services\UserService;
 use App\Traits\ControllerOps;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
-
+use CountryState;
 
 class UserController extends BackendBaseController
 {
@@ -34,9 +30,14 @@ class UserController extends BackendBaseController
     {
         $this->model        = new User();
         $this->userService  = $userService;
-        $this->image_path       = public_path(DIRECTORY_SEPARATOR.'storage'.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR);
+        $this->image_path   = public_path(DIRECTORY_SEPARATOR.'storage'.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR);
     }
 
+    public function getData(): array
+    {
+        $data['country'] = CountryState::getCountries();
+        return $data;
+    }
 
     public function getDataForDataTable(Request $request)
     {
@@ -54,6 +55,9 @@ class UserController extends BackendBaseController
         DB::beginTransaction();
         try {
             $request->request->add(['password' => bcrypt($request['password_input']) ]);
+            $middleName = $request['middle_name'] ? $request['middle_name'].' ':'';
+            $fullname   = $request['first_name'] .' '. $middleName . $request['last_name'];
+            $request->request->add(['name' => $fullname ]);
 
             $request->request->add(['password',]);
             if($request->hasFile('image_input')){
@@ -66,6 +70,7 @@ class UserController extends BackendBaseController
             }
 
             $this->model->create($request->all());
+
             Session::flash('success',$this->page.' was created successfully');
             DB::commit();
         } catch (\Exception $e) {

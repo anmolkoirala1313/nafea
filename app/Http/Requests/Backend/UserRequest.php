@@ -27,7 +27,8 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'              => 'required',
+            'first_name'         => 'required',
+            'last_name'         => 'required',
             'email'             => 'required|email|unique:users,email,'.$this->user_management,
             'password_input'    => 'required_if:email,null|min:6',
             'contact'           => 'required',
@@ -37,7 +38,8 @@ class UserRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required'                 => 'Please enter a name',
+            'first_name.required'            => 'Please enter a first name',
+            'last_name.required'            => 'Please enter a last name',
             'email.required'                => 'Please enter a email',
             'password_input.required_if'    => 'Please enter a password',
             'contact.required'              => 'Please enter a contact number',

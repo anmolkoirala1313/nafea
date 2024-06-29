@@ -3,24 +3,16 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Backend\BackendBaseController;
-use App\Http\Requests\Backend\PageHeadingRequest;
-use App\Http\Requests\Frontend\BookFlightRequest;
-use App\Http\Requests\Frontend\CustomerInquiryRequest;
-use App\Mail\ContactDetail;
 use App\Models\Backend\Activity\Country;
 use App\Models\Backend\Album;
-use App\Models\Backend\Career\Job;
 use App\Models\Backend\Client;
-use App\Models\Backend\CustomerInquiry;
 use App\Models\Backend\Document;
-use App\Models\Backend\FlightInquiry;
 use App\Models\Backend\Homepage\Slider;
 use App\Models\Backend\Homepage\Welcome;
 use App\Models\Backend\ManagingDirector;
 use App\Models\Backend\News\Blog;
 use App\Models\Backend\News\Notice;
 use App\Models\Backend\News\PressRelease;
-use App\Models\Backend\Page\PageSectionGallery;
 use App\Models\Backend\PageHeading;
 use App\Models\Backend\PastPresident;
 use App\Models\Backend\Service;
@@ -28,14 +20,7 @@ use App\Models\Backend\Setting;
 use App\Models\Backend\Team;
 use App\Models\Backend\Testimonial;
 use App\Models\Backend\Activity\Package;
-use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Session;
 use function Termwind\render;
 
 class HomePageController extends BackendBaseController
