@@ -92,8 +92,8 @@
     </div>
     <div class="col-lg-6">
         <div class="mb-4">
-            {!! Form::label('image_input', 'Profile Images', ['class' => 'form-label']) !!}
-            {!! Form::file('image_input', ['class'=>'form-control']) !!}
+            {!! Form::label('candidate_input', 'Candidate Photo', ['class' => 'form-label']) !!}
+            {!! Form::file('candidate_input', ['class'=>'form-control']) !!}
         </div>
         @if($page_method=='edit' && $data['row']->candidate && $data['row']->candidate->photo)
             <div class="col-xxl-4 col-xl-4 col-sm-6">

@@ -12,8 +12,8 @@ class Candidate extends BackendBaseModel
     use HasFactory, SoftDeletes;
 
     protected $table    = 'candidates';
-    protected $fillable = ['user_id','first_name','middle_name','last_name','passport_number','passport_issue_date','passport_expiry_date','issue_place',
-        'state','district','address','number','father_name','mother_name','martial_status','wife_name','children_name','applied_country','applied_for',
+    protected $fillable = ['user_id','first_name','middle_name','last_name','initial_password','passport_number','passport_issue_date','passport_expiry_date','issue_place',
+        'state','district','address','contact','father_name','mother_name','martial_status','wife_name','children_name','applied_country','applied_for',
         'photo','passport_photo','case_id','case_file','case_file_type','status','created_by','updated_by'];
 
     public function user(){

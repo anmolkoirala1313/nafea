@@ -38,6 +38,7 @@
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Contact</th>
+                                        <th>User Type</th>
                                         <th>Status</th>
                                         <th class="text-right">Action</th>
                                     </tr>
@@ -83,6 +84,7 @@
                 {data:'name', name: 'name', orderable: true},
                 {data:'email', name: 'email', orderable: false},
                 {data:'contact', name: 'contact', orderable: true},
+                {data:'user_type', name: 'user_type', orderable: true},
                 {data:'status', name: 'status', searchable:false, orderable: false},
                 {data:'action', name: 'action', searchable:false, orderable: false},
             ]
