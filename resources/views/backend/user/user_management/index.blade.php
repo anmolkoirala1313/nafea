@@ -62,6 +62,7 @@
     <script src="{{asset('assets/common/general.js')}}"></script>
     @include($module.'includes.toast_message')
     @include($module.'includes.status_alert')
+    @include($view_path.'includes.script')
     <script type="text/javascript">
         let dataTables = $('#dataTable').DataTable({
             processing:true,

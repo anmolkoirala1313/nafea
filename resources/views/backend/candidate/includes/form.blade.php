@@ -81,7 +81,7 @@
     <div class="col-lg-6">
         <div class="mb-3">
             {!! Form::label('applied_country', 'Applied Country', ['class' => 'form-label']) !!}
-            {!! Form::select('applied_country', $data['country'], null,['class'=>'form-select mb-3 select2 width-100','id'=>'applied_country','placeholder'=>'Select country']) !!}
+            {!! Form::select('applied_country', $data['country'], null,['class'=>'form-select mb-3 select2','id'=>'applied_country','placeholder'=>'Select country']) !!}
         </div>
     </div>
     <div class="col-lg-6">
@@ -95,12 +95,12 @@
             {!! Form::label('image_input', 'Profile Images', ['class' => 'form-label']) !!}
             {!! Form::file('image_input', ['class'=>'form-control']) !!}
         </div>
-        @if($page_method=='edit' && $data['row']->candidate && $data['row']->candidate->photo)
+        @if($page_method=='edit' && $data['row']->photo)
             <div class="col-xxl-4 col-xl-4 col-sm-6">
                 <div class="gallery-box card">
                     <div class="gallery-container">
-                        <a class="image-popup" href="{{ asset(imagePath($data['row']->candidate->photo))}}" title="">
-                            <img class="gallery-img img-fluid mx-auto lazy" data-src="{{ asset(imagePath($data['row']->candidate->photo))}}" alt="" />
+                        <a class="image-popup" href="{{ asset(imagePath($data['row']->photo))}}" title="">
+                            <img class="gallery-img img-fluid mx-auto lazy" data-src="{{ asset(imagePath($data['row']->photo))}}" alt="" />
                             <div class="gallery-overlay">
                                 <h5 class="overlay-caption">Candidate Image</h5>
                             </div>
@@ -115,12 +115,12 @@
             {!! Form::label('passport_input', 'Passport Photo', ['class' => 'form-label']) !!}
             {!! Form::file('passport_input', ['class'=>'form-control']) !!}
         </div>
-        @if($page_method=='edit' && $data['row']->candidate && $data['row']->candidate->passport_photo)
+        @if($page_method=='edit' && $data['row']->passport_photo)
             <div class="col-xxl-4 col-xl-4 col-sm-6">
                 <div class="gallery-box card">
                     <div class="gallery-container">
-                        <a class="image-popup" href="{{ asset(imagePath($data['row']->candidate->passport_photo))}}" title="">
-                            <img class="gallery-img img-fluid mx-auto lazy" data-src="{{ asset(imagePath($data['row']->candidate->passport_photo))}}" alt="" />
+                        <a class="image-popup" href="{{ asset(imagePath($data['row']->cover))}}" title="">
+                            <img class="gallery-img img-fluid mx-auto lazy" data-src="{{ asset(imagePath($data['row']->cover))}}" alt="" />
                             <div class="gallery-overlay">
                                 <h5 class="overlay-caption">Passport File</h5>
                             </div>
@@ -141,12 +141,12 @@
             {!! Form::label('case_file_input', 'Case File', ['class' => 'form-label']) !!}
             {!! Form::file('case_file_input', ['class'=>'form-control']) !!}
         </div>
-        @if($page_method=='edit' && $data['row']->candidate && $data['row']->candidate->case_file && $data['row']->candidate->case_file_type == 'image')
+        @if($page_method=='edit' && $data['row']->case_file && $data['row']->case_file_type == 'image')
             <div class="col-xxl-4 col-xl-4 col-sm-6">
                 <div class="gallery-box card">
                     <div class="gallery-container">
-                        <a class="image-popup" href="{{ asset(imagePath($data['row']->candidate->case_file))}}" title="">
-                            <img class="gallery-img img-fluid mx-auto lazy" data-src="{{ asset(imagePath($data['row']->candidate->case_file))}}" alt="" />
+                        <a class="image-popup" href="{{ asset(imagePath($data['row']->cover))}}" title="">
+                            <img class="gallery-img img-fluid mx-auto lazy" data-src="{{ asset(imagePath($data['row']->cover))}}" alt="" />
                             <div class="gallery-overlay">
                                 <h5 class="overlay-caption">Passport File</h5>
                             </div>
@@ -154,7 +154,7 @@
                     </div>
                 </div>
             </div>
-        @elseif($page_method=='edit' && $data['row']->candidate && $data['row']->candidate->case_file_type == 'file' && $data['row']->candidate->case_file)
+        @else
             <div class="d-flex justify-content-sm-end gap-2 mt-1">
                 <a href="#" target="_blank" class="btn btn-outline-info waves-effect waves-light">
                     <i class="ri-eye-fill align-bottom me-1"></i>

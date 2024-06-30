@@ -112,8 +112,13 @@
     <div class="col-lg-12">
         <div class="mb-3">
             {!! Form::label('user_type', 'User Type', ['class' => 'form-label']) !!}
-            {!! Form::select('user_type', ['admin' => 'Admin', 'general' => 'General'], $page_method == 'edit' ? $data['row']->user_type:'admin',['class'=>'form-select mb-3 select2','id'=>'user_type']) !!}
+            {!! Form::select('user_type', ['admin' => 'Admin', 'general' => 'General'], $page_method == 'edit' ? $data['row']->user_type:'admin',['class'=>'form-select mb-3 select2 user_type','id'=>'user_type']) !!}
         </div>
+    </div>
+    <div class="col-lg-12 border-top mt-3 d-none" id="candidate-section">
+        <h6 class="mb-0 fw-semibold text-uppercase pt-3">Candidate Information</h6>
+        <p class="text-muted">General users will be treated as candidates, please fill necessary information.</p>
+        @include($view_path.'includes.candidate_form')
     </div>
     <div class="col-lg-12 border-top mt-3">
         <div class="hstack gap-2">

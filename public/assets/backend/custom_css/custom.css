@@ -124,3 +124,7 @@ body.dragging, body.dragging * {cursor: move !important; }
     font-size: 1rem;
     vertical-align: text-bottom;
 }
+
+.select2-container{
+    width: 100%!important;
+}

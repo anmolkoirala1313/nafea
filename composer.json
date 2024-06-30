@@ -15,7 +15,8 @@
         "yajra/laravel-datatables": "^10.0",
         "cviebrock/eloquent-sluggable": "^10.0",
         "intervention/image": "^2.7",
-        "jazmy/jaz-form-builder": "dev-master"
+        "jazmy/jaz-form-builder": "dev-master",
+        "dougsisk/laravel-country-state": "^4.3"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
