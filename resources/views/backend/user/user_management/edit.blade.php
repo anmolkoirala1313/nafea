@@ -45,7 +45,7 @@
             $(GENERAL_SECTION).addClass('d-none');
         }
 
-        if (INCOMING_IS_CANDIDATE){
+        if (INCOMING_IS_CANDIDATE == 1 && INCOMING_USER_TYPE){
             $(CANDIDATE_SECTION).removeClass('d-none');
         }else{
             $(CANDIDATE_SECTION).addClass('d-none');
