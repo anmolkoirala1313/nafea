@@ -26,5 +26,16 @@
     <script src="{{asset('assets/common/general.js')}}"></script>
     @include($module.'includes/gallery')
     @include($module.'includes.toast_message')
+    @include($view_path.'includes.script')
+
+    <script>
+    let INCOMING_MARTIAL_STATUS    = '{{ $data['row']->martial_status }}';
+
+    if (INCOMING_MARTIAL_STATUS == 1){
+        $(MARRIAGE_SECTION).removeClass('d-none');
+    }else{
+        $(MARRIAGE_SECTION).addClass('d-none');
+    }
+    </script>
 
 @endsection

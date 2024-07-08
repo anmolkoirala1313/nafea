@@ -96,22 +96,23 @@
                 {!! Form::label('martial_status', 'Martial Status', ['class' => 'form-label']) !!}
                 <div class="mb-3 mt-2">
                     <div class="form-check form-check-inline form-radio-success">
-                        {!! Form::radio('martial_status', 1, true,['class'=>'form-check-input','id'=>'martial_status1']) !!}
+                        {!! Form::radio('martial_status', 1, true,['class'=>'form-check-input martial_status','id'=>'martial_status1']) !!}
                         {!! Form::label('martial_status1', 'Yes', ['class' => 'form-check-label']) !!}
                     </div>
                     <div class="form-check form-check-inline form-radio-danger">
-                        {!! Form::radio('martial_status', 0, true,['class'=>'form-check-input','id'=>'martial_status2']) !!}
+                        {!! Form::radio('martial_status', 0, true,['class'=>'form-check-input martial_status','id'=>'martial_status2']) !!}
                         {!! Form::label('martial_status2', 'No', ['class' => 'form-check-label']) !!}
                     </div>
                 </div>
             </div>
-            <div class="col-lg-12 martial-status-result">
+
+            <div class="col-lg-12 martial-status-result d-none">
                 <div class="mb-3">
                     {!! Form::label('wife_name', 'Wife Name', ['class' => 'form-label']) !!}
                     {!! Form::text('wife_name', null,['class'=>'form-control','id'=>'wife_name','placeholder'=>'Enter Wife Name']) !!}
                 </div>
             </div>
-            <div class="col-lg-12 martial-status-result">
+            <div class="col-lg-12 martial-status-result d-none">
                 <div class="mb-3">
                     {!! Form::label('children_name', 'Children Name', ['class' => 'form-label']) !!}
                     {!! Form::textarea('children_name', null,['class'=>'form-control','id'=>'children_name','placeholder'=>'Enter Children Names']) !!}
