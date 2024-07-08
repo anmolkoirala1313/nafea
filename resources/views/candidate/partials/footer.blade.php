@@ -55,9 +55,7 @@
 <script src="{{asset('assets/backend/js/app.js')}}"></script>
 @yield('js')
 @stack('scripts')
-<script>
-        var set_id  = "{{@$setting_data->id}}";
-</script>
-<script src="{{asset('assets/backend/custom_js/theme-mode.js')}}"></script>
+
+{{--<script src="{{asset('assets/backend/custom_js/theme-mode.js')}}"></script>--}}
 </body>
 </html>
