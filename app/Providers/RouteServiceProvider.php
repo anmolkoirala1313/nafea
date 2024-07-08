@@ -17,8 +17,9 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/administration/dashboard';
-    protected $namespace = 'App\Http\Controllers';
+    public const HOME            = '/administration/dashboard';
+    public const CANDIDATE_HOME  = '/candidate/dashboard';
+    protected $namespace         = 'App\Http\Controllers';
 
 
     /**
@@ -42,6 +43,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
 
         $this->mapAdminRoutes();
+
+        $this->mapCandidateRoutes();
     }
 
 
@@ -79,8 +82,12 @@ class RouteServiceProvider extends ServiceProvider
             ->group(base_path('routes/backend.php'));
     }
 
-
-
-
+    protected function mapCandidateRoutes(){
+        Route::prefix('candidate')
+            ->name('candidate.')
+            ->namespace($this->namespace)
+            ->middleware(['web'])
+            ->group(base_path('routes/candidate.php'));
+    }
 
 }

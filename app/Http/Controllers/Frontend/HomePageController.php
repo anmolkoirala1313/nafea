@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Backend\BackendBaseController;
-use App\Models\Backend\Activity\Country;
 use App\Models\Backend\Album;
 use App\Models\Backend\Client;
 use App\Models\Backend\Document;
@@ -19,7 +18,6 @@ use App\Models\Backend\Service;
 use App\Models\Backend\Setting;
 use App\Models\Backend\Team;
 use App\Models\Backend\Testimonial;
-use App\Models\Backend\Activity\Package;
 use Illuminate\Contracts\Support\Renderable;
 use function Termwind\render;
 
@@ -147,6 +145,5 @@ class HomePageController extends BackendBaseController
 
         return view($this->loadResource($this->view_path.'page.brochure'), compact('data'));
     }
-
 
 }

@@ -13200,7 +13200,8 @@ span.flatpickr-weekday {
 
 .auth-one-bg {
     background-position: center;
-    background-size: cover
+    background-size: cover;
+    background-image: url(../images/auth-one-bg.jpg);
 }
 
 .auth-one-bg .bg-overlay {

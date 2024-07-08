@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\Candidate\Login\LoginController;
 use App\Http\Controllers\Frontend\Agency\AuthorizedAgencyController;
 use App\Http\Controllers\Frontend\Career\CompanyCareerController;
-use App\Http\Controllers\Frontend\Career\JobController;
 use App\Http\Controllers\Frontend\ContactUsController;
 use App\Http\Controllers\Frontend\HomePageController;
 use App\Http\Controllers\Frontend\News\BlogController;
@@ -30,7 +30,6 @@ Route::get('/', [HomePageController::class, 'index'])->name('home');
 Route::any('/register', function() {
     abort(404);
 });
-
 
 Route::get('/contact-us', [ContactUsController::class, 'index'])->name('contact-us');
 Route::post('/contact/message', [ContactUsController::class, 'contactStore'])->name('contact-us.store');
@@ -83,4 +82,3 @@ Route::post('/authorized-agencies/detail', [AuthorizedAgencyController::class, '
 //slider list single page
 Route::get('slider-detail/{slug}',[PageController::class, 'sliderListSingle'])->name('page.slider_single');
 Route::get('/{slug}', [PageController::class, 'index'])->name('page.index');
-

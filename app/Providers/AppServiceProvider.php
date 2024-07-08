@@ -50,6 +50,10 @@ class AppServiceProvider extends ServiceProvider
             'frontend.blog.includes.sidebar',
             'frontend.page.includes.map_and_description',
             'error.404',
+            'candidate.login.index',
+            'candidate.partials.header',
+            'candidate.partials.footer',
+            'candidate.partials.sidebar',
             'auth.login'], function ($view) {
             $view->with([
                 'setting_data' => Setting::first(),

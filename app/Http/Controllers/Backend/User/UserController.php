@@ -12,6 +12,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Carbon\Carbon;
 use CountryState;
 
 class UserController extends BackendBaseController
@@ -184,6 +185,7 @@ class UserController extends BackendBaseController
         try {
             $request->request->add(['initial_password' => $request['password_input']]);
             $request->request->add(['created_by' => auth()->user()->id ]);
+            $request->request->add(['passport_expiry_date' => Carbon::parse($request['passport_expiry_date'])->format('Y-m-d') ]);
 
             if ($request->has('candidate_id') && $request['candidate_id']){
                 $data['candidate'] = $data['row']->candidate;
