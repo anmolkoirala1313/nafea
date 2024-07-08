@@ -26,13 +26,21 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             'first_name'         => 'required',
             'last_name'         => 'required',
             'email'             => 'required|email|unique:users,email,'.$this->user_management,
-            'password_input'    => 'required_if:email,null|min:6',
+            'password_input'    => request()->method() == 'POST' ? 'required|min:6':'nullable|min:6',
             'contact'           => 'required',
         ];
+
+        if (request()->user_type == 'general' && request()->is_candidate){
+            $rules['passport_number']     = 'required';
+            $rules['passport_issue_date'] = 'required';
+        }
+
+
+        return $rules;
     }
 
     public function messages()
@@ -41,11 +49,12 @@ class UserRequest extends FormRequest
             'first_name.required'            => 'Please enter a first name',
             'last_name.required'            => 'Please enter a last name',
             'email.required'                => 'Please enter a email',
-            'password_input.required_if'    => 'Please enter a password',
+            'password_input.required'       => 'Please enter a password',
             'contact.required'              => 'Please enter a contact number',
             'email.unique'                  => 'The email is already in registered',
             'email.email'                   => 'Please enter a email in proper format',
-
+            'passport_number.required'      => 'Please enter passport number',
+            'passport_issue_date.required'  => 'Please select issue date',
         ];
     }
 }

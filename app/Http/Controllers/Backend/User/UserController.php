@@ -61,7 +61,6 @@ class UserController extends BackendBaseController
             $fullname   = $request['first_name'] .' '. $middleName . $request['last_name'];
             $request->request->add(['name' => $fullname ]);
 
-            $request->request->add(['password',]);
             if($request->hasFile('image_input')){
                 $image_name = $this->uploadImage($request->file('image_input'),'200','200');
                 $request->request->add(['image'=>$image_name]);
@@ -113,8 +112,21 @@ class UserController extends BackendBaseController
                 $image_name = $this->uploadImage($request->file('cover_image'),'2000','850');
                 $request->request->add(['cover'=>$image_name]);
             }
+            $middleName = $request['middle_name'] ? $request['middle_name'].' ':'';
+            $fullname   = $request['first_name'] .' '. $middleName . $request['last_name'];
+            $request->request->add(['name' => $fullname ]);
+
 
             $data['row']->update($request->all());
+            $request->request->add(['candidate_id'=> $data['row']->candidate ? $data['row']->candidate->id:null]);
+
+            if ($request['user_type'] == 'general' && $request['is_candidate']){
+                $request->request->add(['user_id'=> $data['row']->id]);
+                $this->candidateCreateUpdate($request);
+            }else if($request['user_type'] == 'admin' && !$request['is_candidate'] && $data['row']->candidate){
+                $this->removeCandidate($request['candidate_id']);
+            }
+
             Session::flash('success',$this->page.' was updated successfully');
             DB::commit();
         } catch (\Exception $e) {
@@ -165,25 +177,43 @@ class UserController extends BackendBaseController
      */
     public function candidateCreateUpdate(UserRequest $request)
     {
-        $data['row']       = $this->model->find($request['user_id']);
+        $data['row']           = $this->model->find($request['user_id']);
         $data['case_file_type'] = '';
+        $data['candidate']     = null;
         DB::beginTransaction();
         try {
             $request->request->add(['initial_password' => $request['password_input']]);
             $request->request->add(['created_by' => auth()->user()->id ]);
 
+            if ($request->has('candidate_id') && $request['candidate_id']){
+                $data['candidate'] = $data['row']->candidate;
+                $data['case_file_type'] = $data['row']->candidate->case_file_type;
+            }
+
             if($request->hasFile('candidate_input')){
                 $image_name = $this->uploadImage($request->file('candidate_input'));
                 $request->request->add(['photo'=>$image_name]);
+                if ($data['candidate'] &&  $data['candidate']->photo){
+                    $this->deleteImage($data['candidate']->photo);
+                }
             }
 
             if($request->hasFile('passport_input')){
                 $image_name = $this->uploadImage($request->file('passport_input'));
                 $request->request->add(['passport_photo'=>$image_name]);
+                if ($data['candidate'] &&  $data['candidate']->passport_photo){
+                    $this->deleteImage($data['candidate']->passport_photo);
+                }
             }
 
             if($request->hasFile('case_file_input')){
                 $file = $request->file('case_file_input');
+                //removing image or file based on previous data
+                if ($data['candidate'] && $data['candidate']->case_file_type == 'image'){
+                    $this->deleteImage($data['candidate']->case_file);
+                }else{
+                    $this->deleteFile($data['candidate']->case_file);
+                }
                 if(in_array($file->getClientMimeType(), ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'])) {
                     $image_name = $this->uploadImage($request->file('case_file_input'));
                     $request->request->add(['case_file'=>$image_name]);
@@ -195,24 +225,58 @@ class UserController extends BackendBaseController
                 }
             }
 
-
-
             $request->request->add(['case_file_type'=>$data['case_file_type']]);
 
             Candidate::updateOrCreate(
                 [
                     'user_id' => $request['user_id'],
-                    'id' => $request['id'],
+                    'id'      => $request['candidate_id'],
                 ],
                 $request->all());
 
             DB::commit();
         } catch (\Exception $e) {
             DB::rollback();
-            dd('here: '.$e);
+            dd($e);
             Session::flash('error','Candidate info was not created. Something went wrong.');
 
         }
     }
+
+    /**
+     * remove the specified resource in storage.
+     *
+     * @param $candidate_id
+     */
+    public function removeCandidate($candidate_id){
+        $data['row']           = Candidate::find($candidate_id);
+        DB::beginTransaction();
+        try {
+            if ($data['row']->photo){
+                $this->deleteImage($data['row']->photo);
+            }
+
+            if ($data['row']->passport_photo){
+                $this->deleteImage($data['row']->passport_photo);
+            }
+
+            if ($data['row']->case_file_type == 'image'){
+                $this->deleteImage($data['row']->case_file);
+            }else{
+                $this->deleteFile($data['row']->case_file);
+            }
+
+            $data['row']->forceDelete();
+
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            Session::flash('error','Candidate info was not removed. Something went wrong.');
+
+        }
+    }
+
+
+
 
 }

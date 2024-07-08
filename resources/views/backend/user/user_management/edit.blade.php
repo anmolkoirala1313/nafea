@@ -30,8 +30,25 @@
 @endsection
 
 @section('js')
+
     <script src="{{asset('assets/backend/js/pages/form-validation.init.js')}}"></script>
     <script src="{{asset('assets/backend/js/pages/password-addon.init.js')}}"></script>
     <script src="{{asset('assets/common/general.js')}}"></script>
     @include($module.'includes/gallery')
+    @include($view_path.'includes.script')
+    <script>
+        let INCOMING_USER_TYPE     = '{{ $data['row']->user_type == 'general' }}';
+        let INCOMING_IS_CANDIDATE  = '{{ $data['row']->is_candidate }}';
+        if (INCOMING_USER_TYPE){
+            $(GENERAL_SECTION).removeClass('d-none');
+        }else{
+            $(GENERAL_SECTION).addClass('d-none');
+        }
+
+        if (INCOMING_IS_CANDIDATE){
+            $(CANDIDATE_SECTION).removeClass('d-none');
+        }else{
+            $(CANDIDATE_SECTION).addClass('d-none');
+        }
+    </script>
 @endsection

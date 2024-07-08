@@ -22,6 +22,9 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'first_name',
+        'middle_name',
+        'last_name',
         'slug',
         'email',
         'password',
@@ -39,6 +42,7 @@ class User extends Authenticatable
         'oauth_id',
         'oauth_type',
         'user_type',
+        'is_candidate',
     ];
 
     /**
@@ -82,4 +86,5 @@ class User extends Authenticatable
     public function candidate(){
         return $this->hasOne(Candidate::class, 'user_id');
     }
+
 }
