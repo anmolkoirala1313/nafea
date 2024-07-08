@@ -35,7 +35,7 @@ class UserRequest extends FormRequest
         ];
 
         if (request()->user_type == 'general' && request()->is_candidate){
-            $rules['passport_number']     = 'required';
+            $rules['passport_number']     = 'required|max:80';
             $rules['passport_issue_date'] = 'required';
         }
 
