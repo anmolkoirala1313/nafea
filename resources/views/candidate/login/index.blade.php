@@ -41,7 +41,7 @@
                                     <div class="position-relative h-100 d-flex flex-column">
                                         <div class="mb-4">
                                             <a href="/" class="d-inline-block auth-logo">
-                                                <img class="lazy" src="{{ $setting_data->logo_white ?  asset(imagePath($setting_data->logo_white)) :asset(imagePath($setting_data->logo))}}" alt="Logo" height="80">
+                                                <img class="lazy" src="{{ $setting_data->logo ?  asset(imagePath($setting_data->logo)) :asset(imagePath($setting_data->logo_white))}}" alt="Logo" height="80">
                                             </a>
                                         </div>
                                         <div class="mt-auto">
@@ -60,14 +60,16 @@
                                                 </div>
                                                 <div class="carousel-inner text-center text-white-50 pb-5">
                                                     <div class="carousel-item active">
-                                                        <p class="fs-15 fst-italic">" Great! Clean code, clean design, easy for customization. Thanks very much! "</p>
+                                                        <p class="fs-15 fst-italic">" Nepal Association of Foreign Employment Agencies-NAFEA is the umbrella organization of 853 recruiting agencies in Nepal "</p>
                                                     </div>
                                                     <div class="carousel-item">
-                                                        <p class="fs-15 fst-italic">" The theme is really great with an amazing customer support."</p>
+                                                        <p class="fs-15 fst-italic">" Umbrella organization of recruiting agencies in Nepal
+                                                            "</p>
                                                     </div>
                                                     <div class="carousel-item">
-                                                        <p class="fs-15 fst-italic">" Great! Clean code, clean design, easy for customization. Thanks very much! "</p>
+                                                        <p class="fs-15 fst-italic">" NAFEA Candidate login allows general candidate user to handle and access data"</p>
                                                     </div>
+
                                                 </div>
                                             </div>
                                             <!-- end carousel -->
