@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Backend\Candidate;
 use App\Models\Backend\User;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
@@ -40,6 +41,37 @@ class UserService {
             ->editColumn('action',function ($item){
                 $params = [
                     'id'            => $item->id,
+                    'base_route'    => $this->base_route,
+                ];
+                return view($this->module.'.includes.dataTable_action', compact('params'));
+
+            })
+            ->rawColumns(['action','status','user_type'])
+            ->addIndexColumn()
+            ->make(true);
+    }
+
+    public function getDataForCandidateDataTable(Request $request){
+        $query = Candidate::query()->orderBy('created_at', 'desc');
+        return $this->dataTables->eloquent($query)
+            ->editColumn('first_name',function ($item){
+                return $item->user->name;
+            })
+            ->editColumn('user_type',function ($item){
+                $user_type = ucfirst($item->user->user_type);
+                return $user_type;
+            })
+            ->editColumn('status',function ($item){
+                $params = [
+                    'id'            => $item->user->id,
+                    'status'        => $item->user->status,
+                    'base_route'    => $this->base_route,
+                ];
+                return view($this->module.'includes.status', compact('params'));
+            })
+            ->editColumn('action',function ($item){
+                $params = [
+                    'id'            => $item->user->id,
                     'base_route'    => $this->base_route,
                 ];
                 return view($this->module.'.includes.dataTable_action', compact('params'));

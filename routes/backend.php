@@ -78,6 +78,7 @@ Route::prefix('user/')->name('user.')->middleware(['auth'])->group(function () {
     //end of signed-in user routes
 
     //user related routes
+    Route::post('/user-management/candidate-data', [UserController::class,'getDataForCandidateDataTable'])->name('user-management.candidate-data');
     Route::get('filemanager', [UserController::class, 'filemanager'])->name('filemanager');
     Route::post('/user-management/status-update', [UserController::class,'statusUpdate'])->name('user-management.status-update');
     Route::post('/user-management/data', [UserController::class,'getDataForDataTable'])->name('user-management.data');

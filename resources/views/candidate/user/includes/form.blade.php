@@ -97,11 +97,11 @@
                 <div class="mb-3 mt-2">
                     <div class="form-check form-check-inline form-radio-success">
                         {!! Form::radio('martial_status', 1, true,['class'=>'form-check-input martial_status','id'=>'martial_status1']) !!}
-                        {!! Form::label('martial_status1', 'Yes', ['class' => 'form-check-label']) !!}
+                        {!! Form::label('martial_status1', 'Married', ['class' => 'form-check-label']) !!}
                     </div>
                     <div class="form-check form-check-inline form-radio-danger">
                         {!! Form::radio('martial_status', 0, true,['class'=>'form-check-input martial_status','id'=>'martial_status2']) !!}
-                        {!! Form::label('martial_status2', 'No', ['class' => 'form-check-label']) !!}
+                        {!! Form::label('martial_status2', 'Unmarried', ['class' => 'form-check-label']) !!}
                     </div>
                 </div>
             </div>

@@ -47,6 +47,11 @@ class UserController extends BackendBaseController
         return $this->userService->getDataForDatatable($request);
     }
 
+    public function getDataForCandidateDataTable(Request $request)
+    {
+        return $this->userService->getDataForCandidateDataTable($request);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
