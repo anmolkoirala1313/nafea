@@ -11,6 +11,8 @@ use App\Http\Controllers\Backend\ClientController;
 use App\Http\Controllers\Backend\CompanyPersonnel\ManagingDirectorController;
 use App\Http\Controllers\Backend\CompanyPersonnel\PastPresidentController;
 use App\Http\Controllers\Backend\CompanyPersonnel\TeamController;
+use App\Http\Controllers\Backend\GeneralSetup\DistrictController;
+use App\Http\Controllers\Backend\GeneralSetup\StateController;
 use App\Http\Controllers\Backend\News\NoticeController;
 use App\Http\Controllers\Backend\News\PressReleaseController;
 use App\Http\Controllers\Backend\PageHeadingController;
@@ -88,6 +90,22 @@ Route::prefix('user/')->name('user.')->middleware(['auth'])->group(function () {
     Route::resource('user-management', UserController::class)->names('user-management');
 
 });
+
+Route::prefix('general-setup/')->name('general_setup.')->middleware(['auth'])->group(function () {
+    //state routes
+    Route::get('/state/trash', [StateController::class,'trash'])->name('state.trash');
+    Route::post('/state/trash/{id}/restore', [StateController::class,'restore'])->name('state.restore');
+    Route::delete('/state/trash/{id}/remove', [StateController::class,'removeTrash'])->name('state.remove-trash');
+    Route::resource('state', StateController::class)->names('state');
+
+    //district routes
+    Route::get('/district/trash', [DistrictController::class,'trash'])->name('district.trash');
+    Route::post('/district/trash/{id}/restore', [DistrictController::class,'restore'])->name('district.restore');
+    Route::delete('/district/trash/{id}/remove', [DistrictController::class,'removeTrash'])->name('district.remove-trash');
+    Route::resource('district', DistrictController::class)->names('district');
+
+});
+
 
 Route::prefix('career/')->name('career.')->middleware(['auth'])->group(function () {
 

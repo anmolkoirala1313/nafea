@@ -61,11 +61,6 @@
                                    class="nav-link {{request()->route()->getName() == 'backend.homepage.recruitment_process.create' ? 'active':''}}"
                                    data-key="t-multi-level-homepage">Recruitment Process</a>
                             </li>
-{{--                            <li class="nav-item">--}}
-{{--                                <a href="{{ route('backend.homepage.general_grievance.create') }}"--}}
-{{--                                   class="nav-link {{request()->route()->getName() == 'backend.homepage.general_grievance.create' ? 'active':''}}"--}}
-{{--                                   data-key="t-multi-level-homepage">General Grievance</a>--}}
-{{--                            </li>--}}
                         </ul>
                     </div>
                 </li>
@@ -76,39 +71,25 @@
                     </a>
                 </li>
 
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link menu-link collapsed" href="#sidebarTourMultilevel" data-bs-toggle="collapse" role="button" aria-controls="sidebarTourMultilevel">--}}
-{{--                        <i class="ri-links-line"></i> <span data-key="t-multi-level-career">Career</span>--}}
-{{--                    </a>--}}
-{{--                    <div class="menu-dropdown collapse" id="sidebarTourMultilevel" style="">--}}
-{{--                        <ul class="nav nav-sm flex-column">--}}
-{{--                            <li class="nav-item">--}}
-{{--                                <a href="#sidebarBasicSetupPackage" class="nav-link collapsed" data-bs-toggle="collapse" role="button" aria-controls="sidebarBasicSetupPackage"--}}
-{{--                                   data-key="t-level-basic-career"> Basic Setup--}}
-{{--                                </a>--}}
-{{--                                <div class="menu-dropdown collapse" id="sidebarBasicSetupPackage" style="">--}}
-{{--                                    <ul class="nav nav-sm flex-column">--}}
-{{--                                        <li class="nav-item">--}}
-{{--                                            <a href="{{ route('backend.career.basic_setup.category.index') }}"--}}
-{{--                                               class="nav-link {{request()->route()->getName() == 'backend.career.basic_setup.category.index' ? 'active':''}}"--}}
-{{--                                               data-key="t-level-basic-career"> Category </a>--}}
-{{--                                        </li>--}}
-{{--                                    </ul>--}}
-{{--                                </div>--}}
-{{--                            </li>--}}
-{{--                            <li class="nav-item">--}}
-{{--                                <a href="{{ route('backend.career.job.index') }}"--}}
-{{--                                   class="nav-link {{request()->route()->getName() == 'backend.career.job.index' ? 'active':''}}"--}}
-{{--                                   data-key="t-multi-level-career"> Job </a>--}}
-{{--                            </li>--}}
-{{--                            <li class="nav-item">--}}
-{{--                                <a href="{{ route('backend.career.company_career.index') }}"--}}
-{{--                                   class="nav-link {{request()->route()->getName() == 'backend.career.company_career.index' ? 'active':''}}"--}}
-{{--                                   data-key="t-multi-level-career"> Company Career </a>--}}
-{{--                            </li>--}}
-{{--                        </ul>--}}
-{{--                    </div>--}}
-{{--                </li>--}}
+                <li class="nav-item">
+                    <a class="nav-link menu-link collapsed" href="#sidebarTourMultilevel" data-bs-toggle="collapse" role="button" aria-controls="sidebarTourMultilevel">
+                        <i class="ri-pencil-ruler-2-line"></i> <span data-key="t-multi-level-career">General</span>
+                    </a>
+                    <div class="menu-dropdown collapse" id="sidebarTourMultilevel" style="">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="{{ route('backend.general_setup.state.index') }}"
+                                   class="nav-link {{request()->route()->getName() == 'backend.general-setup.state.index' ? 'active':''}}"
+                                   data-key="t-multi-level-career"> State </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('backend.general_setup.district.index') }}"
+                                   class="nav-link {{request()->route()->getName() == 'backend.general-setup.district.index' ? 'active':''}}"
+                                   data-key="t-multi-level-career"> District </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link menu-link collapsed" href="#sidebarBlogMultilevel" data-bs-toggle="collapse" role="button" aria-controls="sidebarBlogMultilevel">
