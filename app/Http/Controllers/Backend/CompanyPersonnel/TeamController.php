@@ -49,9 +49,12 @@ class TeamController extends BackendBaseController
      */
     public function store(TeamRequest $request)
     {
+        $order_last_record = $this->model->orderBy('order', 'desc')->first();
+        $order_num = $order_last_record ? $order_last_record->order + 1: 1;
         DB::beginTransaction();
         try {
             $request->request->add(['created_by' => auth()->user()->id ]);
+            $request->request->add(['order' => $order_num ]);
 
             if($request->hasFile('image_input')){
                 $image_name = $this->uploadImage($request->file('image_input'),'680','800');

@@ -44,13 +44,13 @@
 
 <body>
 <!-- Preloader Start -->
-<div class="theme-loader">
-    <div class="spinner">
-        <div class="spinner-bounce one"></div>
-        <div class="spinner-bounce two"></div>
-        <div class="spinner-bounce three"></div>
-    </div>
-</div>
+{{--<div class="theme-loader">--}}
+{{--    <div class="spinner">--}}
+{{--        <div class="spinner-bounce one"></div>--}}
+{{--        <div class="spinner-bounce two"></div>--}}
+{{--        <div class="spinner-bounce three"></div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 <!-- Preloader End -->
 <!-- Top Bar Area Start -->
 

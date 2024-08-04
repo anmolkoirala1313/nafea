@@ -54,7 +54,7 @@ class HomePageController extends BackendBaseController
         $data['press_release']          = PressRelease::active()->descending()->latest()->take(6)->get();
         $data['notices']                = Notice::active()->descending()->latest()->take(4)->get();
         $data['homepage']               = Welcome::first();
-        $data['director']               = ManagingDirector::active()->orderBy('order', 'asc')->get();
+        $data['director']               = ManagingDirector::active()->orderBy('order')->get();
         $data['setting']                = Setting::first();
         $data['clients']                = Client::active()->descending()->latest()->take(10)->get();
         $data['testimonial_heading']    = PageHeading::active()->where('type','testimonial')->first();
@@ -73,7 +73,7 @@ class HomePageController extends BackendBaseController
         $this->page_title    = 'Our Team';
         $this->page          = 'Team';
         $data                = $this->getCommonData();
-        $data['rows']        = Team::active()->orderBy('order','desc')->get();
+        $data['rows']        = Team::active()->orderBy('order')->get();
         $data['heading']     = PageHeading::active()->where('type','team')->first();
 
         return view($this->loadResource($this->view_path.'page.team'), compact('data'));
@@ -85,7 +85,7 @@ class HomePageController extends BackendBaseController
         $this->page_title    = 'Our Past Presidents';
         $this->page          = 'Past Presidents';
         $data                = $this->getCommonData();
-        $data['rows']        = PastPresident::active()->orderBy('order','desc')->get();
+        $data['rows']        = PastPresident::active()->orderBy('order')->get();
         $data['heading']     = PageHeading::active()->where('type','past_president')->first();
 
         return view($this->loadResource($this->view_path.'page.past_president'), compact('data'));

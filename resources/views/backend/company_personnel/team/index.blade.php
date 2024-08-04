@@ -32,7 +32,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive  mt-3 mb-1">
-                                <table id="NormalDataTable" class="table align-middle table-nowrap table-striped">
+                                <table id="teamDataTable" class="table align-middle table-nowrap table-striped">
                                     <thead class="table-light">
                                     <tr>
                                         <th width="30px">#</th>
@@ -88,9 +88,22 @@
     <script src="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.js')}}"></script>
     <script src="{{asset('assets/common/general.js')}}"></script>
     <script src="{{asset('assets/backend/js/jquery-ui.min.js')}}"></script>
+    <script>
+        let selector =  $('#teamDataTable');
+        if(selector.length > 0){
+            dataTable = $(selector).DataTable({
+                paging: true,
+                searching: true,
+                ordering:  true,
+                stateSave:true,
+                lengthMenu: [[50, 75, 100, 115, -1], [ 50, 75, 100, 115, "All"]],
+            });
+        }
+    </script>
 
     @include($module.'includes.toast_message')
     @include($module.'includes/gallery')
     @include($view_path.'includes.script')
+
 
 @endsection

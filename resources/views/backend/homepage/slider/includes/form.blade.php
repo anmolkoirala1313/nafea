@@ -40,7 +40,7 @@
         <div class="mb-3">
             {!! Form::label('image_input', 'Images', ['class' => 'form-label request']) !!}
             {!! Form::file('image_input', ['class'=>'form-control','id'=>'image_input']) !!}
-            <small>Size: 1920 X 300 PX </small>
+            <small>Size: 1920 X 700 PX </small>
         </div>
         @if($page_method=='edit' && $data['row']->image)
             <div class="col-xxl-4 col-xl-4 col-sm-6">

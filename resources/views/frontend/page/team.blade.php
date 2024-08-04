@@ -17,7 +17,7 @@
                             <h2 style="width: 50%;margin:auto;line-height: 50px;">{{ $data['heading']->title ?? '' }}</h2>
                         </div>
                     </div>
-                    <div class="custom-description text-align-justify text-center mt-3">
+                    <div class="custom-description text-align-justify mt-3">
                         {!! $data['heading']->description ?? ''  !!}
                     </div>
                 </div>
@@ -48,8 +48,8 @@
                                 @endif
                             </div>
                             <div class="team__five-item-content">
-                                <span>{{$row->title ?? ''}}</span>
-                                <h4><a>{{$row->designation ?? ''}}</a></h4>
+                                <span>{{$row->designation ?? ''}}</span>
+                                <h4><a>{{$row->title ?? ''}}</a></h4>
                             </div>
                         </div>
                     </div>

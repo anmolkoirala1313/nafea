@@ -5,7 +5,7 @@
 @endsection
 @section('content')
 
-    <div class="banner__one swiper banner-slider">
+    <div class="banner__one swiper banner-slider" style="height: 38rem">
         <div class="banner__two-shape">
 {{--            <img class="banner__two-shape-two left-right-animate" src="{{ asset('assets/frontend/img/shape/banner-3.png') }}" alt="banner-shape">--}}
 {{--            <img class="banner__two-shape-three" src="{{ asset('assets/frontend/img/shape/banners-2.png') }}" alt="banner-shape">--}}
@@ -20,8 +20,12 @@
                         <div class="row">
                             <div class="col-xl-12">
                                 <div class="banner__two-content">
-                                    <span data-animation="fadeInUp" data-delay=".3s">{{ $slider->subtitle ?? '' }}</span>
-                                    <h1 data-animation="fadeInUp" data-delay=".7s" style="color:#fff;width: 70%">{{ $slider->title ?? '' }}</h1>
+                                    @if ($slider->subtitle)
+                                        <span data-animation="fadeInUp" data-delay=".3s">{{ $slider->subtitle ?? '' }}</span>
+                                    @endif
+                                    @if ($slider->title)
+                                            <h1 data-animation="fadeInUp" data-delay=".7s" style="color:#fff;width: 70%">{{ $slider->title ?? '' }}</h1>
+                                    @endif
                                     @if($slider->link || $slider->video_link)
                                         <div class="banner__two-content-button" data-animation="fadeInUp" data-delay="1s">
                                             @if($slider->link)

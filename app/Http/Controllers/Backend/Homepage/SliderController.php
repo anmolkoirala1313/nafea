@@ -72,7 +72,7 @@ class SliderController extends BackendBaseController
         DB::beginTransaction();
         try {
             if($request->hasFile('image_input')){
-                $image_name = $this->updateImage($request->file('image_input'),$data['row']->image,'1920','900');
+                $image_name = $this->updateImage($request->file('image_input'),$data['row']->image,'1920','700');
                 $request->request->add(['image'=>$image_name]);
             }
 
