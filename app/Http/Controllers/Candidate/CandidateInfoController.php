@@ -21,9 +21,9 @@ class CandidateInfoController extends BackendBaseController
     use ControllerOps;
 
     protected string $module      = 'candidate.';
-    protected string $base_route  = 'candidate.user.';
-    protected string $view_path   = 'candidate.user.';
-    protected string $page        = 'Candidate Info';
+    protected string $base_route  = 'candidate.information_list.';
+    protected string $view_path   = 'candidate.information_list.';
+    protected string $page        = 'Candidate Information List';
     protected string $folder_name = 'user';
     protected string $page_title, $page_method, $image_path, $file_path;
     protected object $model;
@@ -36,6 +36,12 @@ class CandidateInfoController extends BackendBaseController
         $this->file_path     = public_path(DIRECTORY_SEPARATOR.'storage'.DIRECTORY_SEPARATOR.'files'.DIRECTORY_SEPARATOR);
     }
 
+    public function getData(): array
+    {
+        $data['country'] = CountryState::getCountries();
+        return $data;
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -44,10 +50,12 @@ class CandidateInfoController extends BackendBaseController
      */
     public function store(CandidateInfoRequest $request)
     {
+        $data['case_file_type'] = '';
         DB::beginTransaction();
         try {
             $request->request->add(['initial_password' => $request['password_input']]);
             $request->request->add(['created_by' => auth()->user()->id]);
+            $request->request->add(['user_id' => auth()->user()->id]);
             $request->request->add(['passport_expiry_date' => Carbon::parse($request['passport_expiry_date'])->format('Y-m-d') ]);
 
             $middleName = $request['middle_name'] ? $request['middle_name'].' ':'';
@@ -84,33 +92,11 @@ class CandidateInfoController extends BackendBaseController
             DB::commit();
         } catch (\Exception $e) {
             DB::rollback();
+            dd('error' . $e);
             Session::flash('error', $this->page.'  was not created. Something went wrong.');
         }
 
-        return response()->json(route($this->base_route.'edit', auth()->user()->id));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param $id
-     * @return Application|Factory|\Illuminate\Foundation\Application|View
-     */
-    public function edit($id)
-    {
-        $this->page_method = 'edit';
-        $this->page_title  = 'Edit '.$this->page;
-        $data              = $this->getData();
-
-        if ($id != auth()->user()->id){
-            Session::flash('success', 'Candidate Info mis-matched, cannot access other candidate information');
-            return redirect()->route($this->base_route.'edit', auth()->user()->id);
-        }
-
-        $data['row']       = $this->model->where('user_id',$id)->first();
-        $data['country']   = CountryState::getCountries();
-
-        return view($this->loadResource($this->view_path.'edit'), compact('data'));
+        return response()->json(route($this->base_route.'index'));
     }
 
     /**
@@ -187,7 +173,7 @@ class CandidateInfoController extends BackendBaseController
             Session::flash('error', $this->page.' was not updated. Something went wrong.');
         }
 
-        return response()->json(route($this->base_route.'edit', auth()->user()->id));
+        return response()->json(route($this->base_route.'index'));
     }
 
     /**

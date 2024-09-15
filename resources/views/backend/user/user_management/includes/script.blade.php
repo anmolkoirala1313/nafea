@@ -3,6 +3,7 @@
     const CANDIDATE_SECTION  = '#candidate-section';
     const GENERAL_USER       = 'general';
     const YEARS_TO_ADD       = 10;
+    const MARRIAGE_SECTION    = '.martial-status-result';
 
     $(document).on('change','.user_type', function (e) {
         e.preventDefault();
@@ -50,12 +51,21 @@
             var newYear = date.getFullYear();
             var newDate = newMonth + '/' + newDay + '/' + newYear;
 
-            console.log(newDate);
 
             // Display the new date
             $('#passport_expiry_date').val(newDate);
         } else {
             $('#passport_expiry_date').val('');
+        }
+    });
+
+    $(document).on('change','.martial_status', function (e) {
+        e.preventDefault();
+        let value = $(this).val();
+        if (value == 1){
+            $(MARRIAGE_SECTION).removeClass('d-none');
+        }else{
+            $(MARRIAGE_SECTION).addClass('d-none');
         }
     });
 
