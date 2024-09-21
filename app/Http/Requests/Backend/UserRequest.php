@@ -35,8 +35,7 @@ class UserRequest extends FormRequest
         ];
 
         if (request()->user_type == 'general' && request()->is_candidate){
-            $rules['passport_number']     = 'required|max:80';
-            $rules['passport_issue_date'] = 'required';
+            $rules['authorized_agency_id'] = 'required';
         }
 
 
@@ -53,8 +52,7 @@ class UserRequest extends FormRequest
             'contact.required'              => 'Please enter a contact number',
             'email.unique'                  => 'The email is already in registered',
             'email.email'                   => 'Please enter a email in proper format',
-            'passport_number.required'      => 'Please enter passport number',
-            'passport_issue_date.required'  => 'Please select issue date',
+            'authorized_agency_id.required' => 'Please select agency for general user',
         ];
     }
 }

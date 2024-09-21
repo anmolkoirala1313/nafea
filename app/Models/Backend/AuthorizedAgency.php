@@ -19,4 +19,8 @@ class AuthorizedAgency extends BackendBaseModel
     public function laborRepresentatives(){
         return $this->hasMany(LaborRepresentative::class,'authorized_agency_id','id');
     }
+
+    public function candidate(){
+        return $this->hasOne(Candidate::class, 'authorized_agency_id');
+    }
 }

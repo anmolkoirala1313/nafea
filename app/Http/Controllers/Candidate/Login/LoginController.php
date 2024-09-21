@@ -104,7 +104,7 @@ class LoginController extends Controller
     {
         $user = User::where('email', $request['email'])->first();
 
-        if ($user->user_type == 'general' && $user->is_candidate){
+        if ($user->user_type == 'general'){
             return Auth::attempt($request->only('email', 'password'), $request->boolean('remember'));
         }else{
             return null;

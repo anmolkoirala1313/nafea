@@ -42,7 +42,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" data-bs-toggle="tab" href="#candidateusers" role="tab">
-                                        Candidate List
+                                        General User List
                                     </a>
                                 </li>
                             </ul>
@@ -75,7 +75,7 @@
                                             <tr>
                                                 <th>S.N</th>
                                                 <th>Name</th>
-                                                <th>Passport Number</th>
+                                                <th>Email</th>
                                                 <th>Contact</th>
                                                 <th>User Type</th>
                                                 <th>Status</th>
@@ -149,8 +149,8 @@
             },
             columns :[
                 {data:'DT_RowIndex', name: 'DT_RowIndex', searchable:false, orderable: false},
-                {data:'first_name', name: 'first_name', orderable: true},
-                {data:'passport_number', name: 'passport_number', orderable: false},
+                {data:'name', name: 'name', orderable: true},
+                {data:'email', name: 'email', orderable: false},
                 {data:'contact', name: 'contact', orderable: true},
                 {data:'user_type', name: 'user_type', orderable: true},
                 {data:'status', name: 'status', searchable:false, orderable: false},

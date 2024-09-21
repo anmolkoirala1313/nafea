@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Candidate;
+namespace App\Http\Controllers\Backend;
 
 use App\Http\Requests\Candidate\CandidateInfoRequest;
+use App\Models\Backend\AuthorizedAgency;
 use App\Models\Backend\Candidate;
-use App\Models\Backend\User;
 use App\Traits\ControllerOps;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
@@ -13,15 +13,15 @@ use Illuminate\Support\Facades\Session;
 use CountryState;
 
 
-class CandidateInfoController extends BackendBaseController
+class CandidateController extends BackendBaseController
 {
     use ControllerOps;
 
-    protected string $module      = 'candidate.';
-    protected string $base_route  = 'candidate.information_list.';
-    protected string $view_path   = 'candidate.information_list.';
-    protected string $page        = 'Candidate Information List';
-    protected string $folder_name = 'user';
+    protected string $module      = 'backend.';
+    protected string $base_route  = 'backend.candidate.';
+    protected string $view_path   = 'backend.candidate.';
+    protected string $page        = 'Candidate List';
+    protected string $folder_name = 'candidate';
     protected string $page_title, $page_method, $image_path, $file_path;
     protected object $model;
 
@@ -36,6 +36,7 @@ class CandidateInfoController extends BackendBaseController
     public function getData(): array
     {
         $data['country'] = CountryState::getCountries();
+        $data['authorized_agencies'] = AuthorizedAgency::active()->descending()->pluck('title','id');
         return $data;
     }
 
@@ -52,15 +53,14 @@ class CandidateInfoController extends BackendBaseController
         try {
             $request->request->add(['initial_password' => $request['password_input']]);
             $request->request->add(['created_by' => auth()->user()->id]);
-            $request->request->add(['user_id' => auth()->user()->id]);
             $request->request->add(['passport_expiry_date' => Carbon::parse($request['passport_expiry_date'])->format('Y-m-d') ]);
 
             $middleName = $request['middle_name'] ? $request['middle_name'].' ':'';
             $fullname   = $request['first_name'] .' '. $middleName . $request['last_name'];
-            $request->request->add(['name' => $fullname ]);
+            $request->request->add(['fullname' => $fullname ]);
 
-            if($request->hasFile('candidate_input')){
-                $image_name = $this->uploadImage($request->file('candidate_input'));
+            if($request->hasFile('image_input')){
+                $image_name = $this->uploadImage($request->file('image_input'));
                 $request->request->add(['photo'=>$image_name]);
             }
 
@@ -89,7 +89,6 @@ class CandidateInfoController extends BackendBaseController
             DB::commit();
         } catch (\Exception $e) {
             DB::rollback();
-            dd('error' . $e);
             Session::flash('error', $this->page.'  was not created. Something went wrong.');
         }
 
@@ -119,10 +118,10 @@ class CandidateInfoController extends BackendBaseController
 
             $middleName = $request['middle_name'] ? $request['middle_name'].' ':'';
             $fullname   = $request['first_name'] .' '. $middleName . $request['last_name'];
-            $request->request->add(['name' => $fullname ]);
+            $request->request->add(['fullname' => $fullname ]);
 
-            if($request->hasFile('candidate_input')){
-                $image_name = $this->uploadImage($request->file('candidate_input'));
+            if($request->hasFile('image_input')){
+                $image_name = $this->uploadImage($request->file('image_input'));
                 $request->request->add(['photo'=>$image_name]);
                 if ($data['row']->photo){
                     $this->deleteImage($data['row']->photo);
@@ -160,36 +159,14 @@ class CandidateInfoController extends BackendBaseController
 
             $data['row']->update($request->all());
 
-            //updating general information for user
-            $this->userUpdate($request);
-
             Session::flash('success', $this->page.' was updated successfully');
             DB::commit();
         } catch (\Exception $e) {
             DB::rollback();
+            dd($e);
             Session::flash('error', $this->page.' was not updated. Something went wrong.');
         }
 
         return response()->json(route($this->base_route.'index'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param CandidateInfoRequest $request
-     */
-    public function userUpdate(CandidateInfoRequest $request){
-        $data['row']  = User::find(auth()->user()->id);
-
-        DB::beginTransaction();
-        try {
-
-            $data['row']->update(request()->all());
-
-            DB::commit();
-        } catch (\Exception $e) {
-            DB::rollback();
-            Session::flash('error','User info was not updated. Something went wrong.');
-        }
     }
 }

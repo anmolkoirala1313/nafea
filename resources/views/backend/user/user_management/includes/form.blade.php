@@ -118,29 +118,27 @@
             {!! Form::select('user_type', ['admin' => 'Admin', 'general' => 'General'], $page_method == 'edit' ? $data['row']->user_type:'admin',['class'=>'form-select mb-3 select2 user_type','id'=>'user_type']) !!}
         </div>
     </div>
-    <div class="col-lg-12 mt-3 d-none" id="general-section">
-        <div class="col-lg-12">
-            {!! Form::label('is_candidate', 'Is Candidate', ['class' => 'form-label']) !!}
-            <div class="mb-3 mt-2">
-                <div class="form-check form-check-inline form-radio-success">
-                    {!! Form::radio('is_candidate', 1, false,['class'=>'form-check-input is_candidate','id'=>'is_candidate1']) !!}
-                    {!! Form::label('is_candidate1', 'Yes', ['class' => 'form-check-label']) !!}
-                </div>
-                <div class="form-check form-check-inline form-radio-danger">
-                    {!! Form::radio('is_candidate', 0, true,['class'=>'form-check-input is_candidate','id'=>'is_candidate2']) !!}
-                    {!! Form::label('is_candidate2', 'No', ['class' => 'form-check-label']) !!}
-                </div>
-            </div>
+{{--    <div class="col-lg-12 mt-3 d-none" id="general-section">--}}
+{{--        <div class="col-lg-12">--}}
+{{--            {!! Form::label('is_candidate', 'Is Candidate', ['class' => 'form-label']) !!}--}}
+{{--            <div class="mb-3 mt-2">--}}
+{{--                <div class="form-check form-check-inline form-radio-success">--}}
+{{--                    {!! Form::radio('is_candidate', 1, false,['class'=>'form-check-input is_candidate','id'=>'is_candidate1']) !!}--}}
+{{--                    {!! Form::label('is_candidate1', 'Yes', ['class' => 'form-check-label']) !!}--}}
+{{--                </div>--}}
+{{--                <div class="form-check form-check-inline form-radio-danger">--}}
+{{--                    {!! Form::radio('is_candidate', 0, true,['class'=>'form-check-input is_candidate','id'=>'is_candidate2']) !!}--}}
+{{--                    {!! Form::label('is_candidate2', 'No', ['class' => 'form-check-label']) !!}--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+    <div class="col-lg-12 d-none" id="candidate-section">
+        <div class="mb-3">
+            {!! Form::label('authorized_agency_id', 'Agency', ['class' => 'form-label required']) !!}
+            {!! Form::select('authorized_agency_id', $data['authorized_agencies'], null,['class'=>'form-select mb-3 select2','id'=>'authorized_agency_id','placeholder'=>'Select authorized agency']) !!}
         </div>
     </div>
-
-    <div class="col-lg-12 border-top mt-3 d-none" id="candidate-section">
-        <h6 class="mb-0 fw-semibold text-uppercase pt-3">Candidate Information</h6>
-        <p class="text-muted">General users will be treated as candidates, please fill necessary information.
-            <span class="text-danger">{!! $page_method == 'edit' ? '<br/> Changing user type to admin and is candidate field to no will remove related candidate information.':'' !!}</span></p>
-        @include($view_path.'includes.candidate_form')
-    </div>
-
     <div class="col-lg-12 border-top mt-3">
         <div class="hstack gap-2">
             {!! Form::submit($button,['class'=>'btn btn-success mt-3','id'=>'user-add-button']) !!}

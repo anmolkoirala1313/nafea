@@ -180,20 +180,20 @@
                     {!! Form::label('case_file_input', 'Case File', ['class' => 'form-label']) !!}
                     {!! Form::file('case_file_input', ['class'=>'form-control']) !!}
                 </div>
-                @if( $page_method=='edit' && $data['row']->case_file_type == 'image')
+                @if($page_method =='edit' && $data['row']->case_file && $data['row']->case_file_type == 'image')
                     <div class="col-xxl-4 col-xl-4 col-sm-6">
                         <div class="gallery-box card">
                             <div class="gallery-container">
                                 <a class="image-popup" href="{{ asset(imagePath($data['row']->case_file))}}" title="">
                                     <img class="gallery-img img-fluid mx-auto lazy" data-src="{{ asset(imagePath($data['row']->case_file))}}" alt="" />
                                     <div class="gallery-overlay">
-                                        <h5 class="overlay-caption">Case File</h5>
+                                        <h5 class="overlay-caption">Passport File</h5>
                                     </div>
                                 </a>
                             </div>
                         </div>
                     </div>
-                @elseif($page_method=='edit' && $data['row']->case_file_type == 'file' && $data['row']->case_file)
+                @elseif ($page_method =='edit' && $data['row']->case_file && $data['row']->case_file_type == 'file')
                     <div class="d-flex justify-content-sm-end gap-2 mt-1">
                         <a href="{{ asset(filePath($data['row']->case_file))}}" target="_blank" title="Download Case File"
                            class="btn btn-outline-info waves-effect waves-light" download>

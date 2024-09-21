@@ -25,7 +25,7 @@ class CandidateInfoRequest extends FormRequest
      */
     public function rules()
     {
-        $candidate = Candidate::where('user_id', auth()->user()->id)->first();
+
         $rules = [
             'first_name'               => 'required',
             'last_name'               => 'required',
@@ -35,19 +35,6 @@ class CandidateInfoRequest extends FormRequest
             'applied_country'         => 'required',
             'applied_for'             => 'required',
         ];
-
-        if (!$candidate->photo){
-            $rules['candidate_input'] = 'required|image|mimes:jpeg,png,jpg';
-        }
-
-        if (!$candidate->passport_photo){
-            $rules['passport_input'] = 'required|image|mimes:jpeg,png,jpg';
-        }
-
-        if (!$candidate->case_file){
-            $rules['case_file_input'] = 'required';
-        }
-
         return $rules;
     }
 

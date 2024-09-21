@@ -4,6 +4,7 @@ use App\Http\Controllers\Backend\Agency\LaborRepresentativeController;
 use App\Http\Controllers\Backend\Agency\ProprietorController;
 use App\Http\Controllers\Backend\AlbumController;
 use App\Http\Controllers\Backend\Agency\AuthorizedAgencyController;
+use App\Http\Controllers\Backend\CandidateController;
 use App\Http\Controllers\Backend\Career\Basic_setup\JobCategoryController;
 use App\Http\Controllers\Backend\Career\CompanyCareerController;
 use App\Http\Controllers\Backend\Career\JobController;
@@ -249,6 +250,10 @@ Route::post('/client/trash/{id}/restore', [ClientController::class,'restore'])->
 Route::delete('/client/trash/{id}/remove', [ClientController::class,'removeTrash'])->name('client.remove-trash');
 Route::resource('client', ClientController::class)->names('client')->middleware(['auth']);
 
+Route::get('/candidate/trash', [CandidateController::class,'trash'])->name('candidate.trash');
+Route::post('/candidate/trash/{id}/restore', [CandidateController::class,'restore'])->name('candidate.restore');
+Route::delete('/candidate/trash/{id}/remove', [CandidateController::class,'removeTrash'])->name('candidate.remove-trash');
+Route::resource('candidate', CandidateController::class)->names('candidate');
 
 //Album
 Route::put('/album-upload-gallery/{id}', [AlbumController::class,'uploadGallery'])->name('album.gallery-update');

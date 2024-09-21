@@ -163,6 +163,12 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link menu-link {{request()->route()->getName() == 'backend.candidate.index' ? 'active':''}}" href="{{route('backend.candidate.index')}}">
+                        <i class="ri-user-3-line"></i> <span data-key="t-widgets">Candidate</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link menu-link {{request()->route()->getName() == 'backend.testimonial.index' ? 'active':''}}" href="{{route('backend.testimonial.index')}}">
                         <i class="ri-hand-heart-line"></i> <span data-key="t-widgets">Testimonial</span>
                     </a>
@@ -179,6 +185,8 @@
                         <i class="ri-shopping-bag-line"></i> <span data-key="t-widgets">Service</span>
                     </a>
                 </li>
+
+
 
                 <li class="nav-item">
                     <a class="nav-link menu-link {{request()->route()->getName() == 'backend.document.create' ? 'active':''}}" href="{{route('backend.document.create')}}">

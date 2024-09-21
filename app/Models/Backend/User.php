@@ -22,6 +22,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'authorized_agency_id',
         'first_name',
         'middle_name',
         'last_name',
@@ -82,9 +83,4 @@ class User extends Authenticatable
     {
         $query->orderBy('created_at', 'DESC');
     }
-
-    public function candidate(){
-        return $this->hasOne(Candidate::class, 'user_id');
-    }
-
 }
