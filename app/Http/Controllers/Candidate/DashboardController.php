@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Candidate;
 
+use App\Models\Backend\AuthorizedAgency;
+use App\Models\Backend\Candidate;
 use App\Models\Backend\Setting;
 use App\Models\Backend\User;
 use Illuminate\Contracts\Support\Renderable;
@@ -33,6 +35,8 @@ class DashboardController extends BackendBaseController
     {
         $data                   = [];
         $data['all_users']      = User::take(4)->get();
+        $data['your_agency']    = Candidate::active()->where('authorized_agency_id', auth()->user()->authorized_agency_id)->count();
+        $data['all_agency']     = Candidate::all()->count();
 
         return view($this->loadResource($this->view_path.'dashboard'), compact('data'));
     }

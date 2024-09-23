@@ -72,6 +72,62 @@
 
             </div>
 
+            <div class="row">
+                <div class="col-xl-6 col-md-6">
+                    <!-- card -->
+                    <div class="card card-animate">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-grow-1 overflow-hidden">
+                                    <p
+                                        class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                        Total Candidates in {{auth()->user()->authorizedAgency->title ?? ''}}</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-end justify-content-between mt-4">
+                                <div>
+                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">Total: <span
+                                            class="counter-value" data-target="{{$data['your_agency']}}">{{$data['your_agency']}}</span>
+                                    </h4>
+                                    <a href="{{route('candidate.information_list.index')}}" class="text-decoration-underline">Manage candidates</a>
+                                </div>
+                                <div class="avatar-sm flex-shrink-0">
+                                                        <span class="avatar-title bg-soft-success rounded fs-3">
+                                                            <i class="bx bx-spreadsheet text-success"></i>
+                                                        </span>
+                                </div>
+                            </div>
+                        </div><!-- end card body -->
+                    </div><!-- end card -->
+                </div>
+                <div class="col-xl-6 col-md-6">
+                    <!-- card -->
+                    <div class="card card-animate">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-grow-1 overflow-hidden">
+                                    <p
+                                        class="text-uppercase fw-medium text-muted text-truncate mb-0">
+                                        Total Candidates</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-end justify-content-between mt-4">
+                                <div>
+                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">Total: <span
+                                            class="counter-value" data-target="{{ $data['all_agency']  }}">{{ $data['all_agency']  }}</span></h4>
+                                    <a href="{{route('candidate.information_list.index')}}" class="text-decoration-underline">Manage Candidates</a>
+                                </div>
+                                <div class="avatar-sm flex-shrink-0">
+                                                        <span class="avatar-title bg-soft-info rounded fs-3">
+                                                            <i class="bx bx-receipt text-info"></i>
+                                                        </span>
+                                </div>
+                            </div>
+                        </div><!-- end card body -->
+                    </div><!-- end card -->
+                </div><!-- end col -->
+            </div>
+
         </div>
         <!-- container-fluid -->
     </div>
