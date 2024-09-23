@@ -251,7 +251,6 @@ Route::delete('/client/trash/{id}/remove', [ClientController::class,'removeTrash
 Route::resource('client', ClientController::class)->names('client')->middleware(['auth','notCandidate']);
 
 Route::post('/candidate/data', [CandidateController::class,'getDataForDataTable'])->name('candidate.data');
-//Route::get('/candidate/data', [CandidateController::class,'getDataForDataTable'])->name('candidate.data');
 Route::get('/candidate/trash', [CandidateController::class,'trash'])->name('candidate.trash');
 Route::post('/candidate/trash/{id}/restore', [CandidateController::class,'restore'])->name('candidate.restore');
 Route::delete('/candidate/trash/{id}/remove', [CandidateController::class,'removeTrash'])->name('candidate.remove-trash');

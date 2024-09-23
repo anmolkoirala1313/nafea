@@ -23,6 +23,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware(['auth']);
 
+Route::post('/information-list/data', [CandidateInfoController::class,'getDataForDataTable'])->name('information_list.data');
 Route::get('/information-list/trash', [CandidateInfoController::class,'trash'])->name('information_list.trash');
 Route::post('/information-list/trash/{id}/restore', [CandidateInfoController::class,'restore'])->name('information_list.restore');
 Route::delete('/information-list/trash/{id}/remove', [CandidateInfoController::class,'removeTrash'])->name('information_list.remove-trash');
