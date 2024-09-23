@@ -83,4 +83,8 @@ class User extends Authenticatable
     {
         $query->orderBy('created_at', 'DESC');
     }
+
+    public function authorizedAgency(){
+        return $this->belongsTo(AuthorizedAgency::class,'authorized_agency_id', 'id');
+    }
 }

@@ -128,3 +128,22 @@ body.dragging, body.dragging * {cursor: move !important; }
 .select2-container{
     width: 100%!important;
 }
+
+/* Styling disabled input fields */
+input:disabled {
+    background-color: #e9ecef !important; /* Grey background */
+    cursor: not-allowed; /* Optional: Change cursor to indicate it's not clickable */
+}
+
+/* Styling disabled select fields */
+select:disabled {
+    background-color: #e9ecef !important; /* Grey background */
+    cursor: not-allowed; /* Optional */
+}
+
+/* Styling disabled Select2 dropdown */
+.select2-container--default.select2-container--disabled > .select2-selection__rendered {
+    background-color: #e9ecef !important; /* Grey background */
+    cursor: not-allowed; /* Optional: Change cursor */
+}
+

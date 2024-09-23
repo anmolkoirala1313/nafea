@@ -52,11 +52,14 @@ class UserService {
     }
 
     public function getDataForGeneralDataTable(Request $request){
-        $query = $this->model->query()->orderBy('created_at', 'desc');
+        $query = $this->model->query()->where('user_type','=','general')->orderBy('created_at', 'desc');
         return $this->dataTables->eloquent($query)
             ->editColumn('user_type',function ($item){
                 $user_type = ucfirst($item->user_type);
                 return $user_type;
+            })
+            ->addColumn('agency',function ($item){
+                return ucfirst($item->authorizedAgency->title);
             })
             ->editColumn('status',function ($item){
                 $params = [
@@ -73,6 +76,11 @@ class UserService {
                 ];
                 return view($this->module.'.includes.dataTable_action', compact('params'));
 
+            })
+            ->filterColumn('agency', function($query, $keyword) {
+                $query->whereHas('authorizedAgency', function($country) use($keyword){
+                    $country->where('title', 'like', "%" . $keyword . "%");
+                });
             })
             ->rawColumns(['action','status','user_type'])
             ->addIndexColumn()

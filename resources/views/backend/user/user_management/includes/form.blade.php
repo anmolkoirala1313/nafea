@@ -59,6 +59,18 @@
             {!! Form::select('gender', ['male' => 'Male', 'female' => 'Female','others'=>'Others'], $page_method == 'edit' ? $data['row']->user_type:'male',['class'=>'form-select mb-3 select2','id'=>'gender']) !!}
         </div>
     </div>
+    <div class="col-lg-12">
+        <div class="mb-3">
+            {!! Form::label('user_type', 'User Type', ['class' => 'form-label']) !!}
+            {!! Form::select('user_type', ['admin' => 'Admin', 'general' => 'General'], $page_method == 'edit' ? $data['row']->user_type:'admin',['class'=>'form-select mb-3 select2 user_type','id'=>'user_type']) !!}
+        </div>
+    </div>
+    <div class="col-lg-12 d-none" id="candidate-section">
+        <div class="mb-3">
+            {!! Form::label('authorized_agency_id', 'Agency', ['class' => 'form-label required']) !!}
+            {!! Form::select('authorized_agency_id', $data['authorized_agencies'], null,['class'=>'form-select mb-3 select2','id'=>'authorized_agency_id','placeholder'=>'Select authorized agency']) !!}
+        </div>
+    </div>
     <div class="col-lg-6">
         {!! Form::label('status', 'Status', ['class' => 'form-label']) !!}
         <div class="mb-3 mt-2">
@@ -112,12 +124,7 @@
             </div>
         @endif
     </div>
-    <div class="col-lg-12">
-        <div class="mb-3">
-            {!! Form::label('user_type', 'User Type', ['class' => 'form-label']) !!}
-            {!! Form::select('user_type', ['admin' => 'Admin', 'general' => 'General'], $page_method == 'edit' ? $data['row']->user_type:'admin',['class'=>'form-select mb-3 select2 user_type','id'=>'user_type']) !!}
-        </div>
-    </div>
+
 {{--    <div class="col-lg-12 mt-3 d-none" id="general-section">--}}
 {{--        <div class="col-lg-12">--}}
 {{--            {!! Form::label('is_candidate', 'Is Candidate', ['class' => 'form-label']) !!}--}}
@@ -133,13 +140,8 @@
 {{--            </div>--}}
 {{--        </div>--}}
 {{--    </div>--}}
-    <div class="col-lg-12 d-none" id="candidate-section">
-        <div class="mb-3">
-            {!! Form::label('authorized_agency_id', 'Agency', ['class' => 'form-label required']) !!}
-            {!! Form::select('authorized_agency_id', $data['authorized_agencies'], null,['class'=>'form-select mb-3 select2','id'=>'authorized_agency_id','placeholder'=>'Select authorized agency']) !!}
-        </div>
-    </div>
-    <div class="col-lg-12 border-top mt-3">
+
+    <div class="col-lg-12 border-top mt-3 mb-3">
         <div class="hstack gap-2">
             {!! Form::submit($button,['class'=>'btn btn-success mt-3','id'=>'user-add-button']) !!}
         </div>

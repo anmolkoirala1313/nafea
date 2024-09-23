@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Requests\Candidate\CandidateInfoRequest;
 use App\Models\Backend\AuthorizedAgency;
 use App\Models\Backend\Candidate;
+use App\Services\CandidateService;
 use App\Traits\ControllerOps;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use CountryState;
@@ -24,13 +26,14 @@ class CandidateController extends BackendBaseController
     protected string $folder_name = 'candidate';
     protected string $page_title, $page_method, $image_path, $file_path;
     protected object $model;
+    private CandidateService $candidateService;
 
-
-    public function __construct()
+    public function __construct(CandidateService $candidateService)
     {
-        $this->model        = new Candidate();
-        $this->image_path   = public_path(DIRECTORY_SEPARATOR.'storage'.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR);
-        $this->file_path     = public_path(DIRECTORY_SEPARATOR.'storage'.DIRECTORY_SEPARATOR.'files'.DIRECTORY_SEPARATOR);
+        $this->model             = new Candidate();
+        $this->candidateService  = $candidateService;
+        $this->image_path        = public_path(DIRECTORY_SEPARATOR.'storage'.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR);
+        $this->file_path          = public_path(DIRECTORY_SEPARATOR.'storage'.DIRECTORY_SEPARATOR.'files'.DIRECTORY_SEPARATOR);
     }
 
     public function getData(): array
@@ -39,6 +42,12 @@ class CandidateController extends BackendBaseController
         $data['authorized_agencies'] = AuthorizedAgency::active()->descending()->pluck('title','id');
         return $data;
     }
+
+    public function getDataForDataTable(Request $request): JsonResponse
+    {
+        return $this->candidateService->getDataForDatatable($request);
+    }
+
 
     /**
      * Store a newly created resource in storage.

@@ -74,6 +74,7 @@
                                             <thead class="table-light">
                                             <tr>
                                                 <th>S.N</th>
+                                                <th>Agency</th>
                                                 <th>Name</th>
                                                 <th>Email</th>
                                                 <th>Contact</th>
@@ -149,6 +150,7 @@
             },
             columns :[
                 {data:'DT_RowIndex', name: 'DT_RowIndex', searchable:false, orderable: false},
+                {data:'agency', name: 'agency', orderable: false},
                 {data:'name', name: 'name', orderable: true},
                 {data:'email', name: 'email', orderable: false},
                 {data:'contact', name: 'contact', orderable: true},
