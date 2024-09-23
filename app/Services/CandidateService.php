@@ -26,7 +26,7 @@ class CandidateService {
 
     public function getDataForDatatable(Request $request){
 
-        $request->session()->forget(['filter_period','from_date','to_date']);
+        $request->session()->forget(['filter_period','from_date','to_date','authorized_agency_id','passport_number']);
 
         $query = $this->model->query()->orderBy('created_at', 'desc');
 
@@ -34,6 +34,9 @@ class CandidateService {
             ->filter(function ($query) use($request){
                 if ($request['authorized_agency_id']){
                     $query->where('authorized_agency_id',$request['authorized_agency_id']);
+                }
+                if ($request['passport_number']){
+                    $query->where('passport_number',$request['passport_number']);
                 }
                 $this->FilterTableData($query,'candidates');
             })

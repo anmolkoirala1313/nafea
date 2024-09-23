@@ -71,25 +71,25 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link menu-link collapsed" href="#sidebarTourMultilevel" data-bs-toggle="collapse" role="button" aria-controls="sidebarTourMultilevel">
-                        <i class="ri-pencil-ruler-2-line"></i> <span data-key="t-multi-level-career">General</span>
-                    </a>
-                    <div class="menu-dropdown collapse" id="sidebarTourMultilevel" style="">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="{{ route('backend.general_setup.state.index') }}"
-                                   class="nav-link {{request()->route()->getName() == 'backend.general-setup.state.index' ? 'active':''}}"
-                                   data-key="t-multi-level-career"> State </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('backend.general_setup.district.index') }}"
-                                   class="nav-link {{request()->route()->getName() == 'backend.general-setup.district.index' ? 'active':''}}"
-                                   data-key="t-multi-level-career"> District </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link menu-link collapsed" href="#sidebarTourMultilevel" data-bs-toggle="collapse" role="button" aria-controls="sidebarTourMultilevel">--}}
+{{--                        <i class="ri-pencil-ruler-2-line"></i> <span data-key="t-multi-level-career">General</span>--}}
+{{--                    </a>--}}
+{{--                    <div class="menu-dropdown collapse" id="sidebarTourMultilevel" style="">--}}
+{{--                        <ul class="nav nav-sm flex-column">--}}
+{{--                            <li class="nav-item">--}}
+{{--                                <a href="{{ route('backend.general_setup.state.index') }}"--}}
+{{--                                   class="nav-link {{request()->route()->getName() == 'backend.general-setup.state.index' ? 'active':''}}"--}}
+{{--                                   data-key="t-multi-level-career"> State </a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item">--}}
+{{--                                <a href="{{ route('backend.general_setup.district.index') }}"--}}
+{{--                                   class="nav-link {{request()->route()->getName() == 'backend.general-setup.district.index' ? 'active':''}}"--}}
+{{--                                   data-key="t-multi-level-career"> District </a>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </li>--}}
 
                 <li class="nav-item">
                     <a class="nav-link menu-link collapsed" href="#sidebarBlogMultilevel" data-bs-toggle="collapse" role="button" aria-controls="sidebarBlogMultilevel">

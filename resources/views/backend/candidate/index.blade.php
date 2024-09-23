@@ -105,6 +105,7 @@
                     d.from_date      = $('.from_date').val();
                     d.to_date        = $('.to_date').val();
                     d.authorized_agency_id = $('#agency_id').val();
+                    d.passport_number = $('#passport_num').val();
                 }
             },
             columns :[
@@ -119,6 +120,26 @@
 
         $(document).on('click', '#filter_data', function(){
             dataTables.draw();
+        });
+
+        $(document).on('click', '#reset_data', function(){
+            // Clear text fields
+            $('#passport_num').val('');
+            $('.from_date').flatpickr().clear();
+            $('.to_date').flatpickr().clear();
+            $('#filter_period').val(null).trigger('change');
+            $('#agency_id').val(null).trigger('change');
+            dataTables.draw();
+        });
+
+        // Re-bind the change event (if necessary)
+        $('.from_date').on('change', function() {
+            let fromDate = $(this).val();
+            if (fromDate) {
+                $('.to_date').flatpickr().set('minDate', fromDate);
+            } else {
+                $('.to_date').flatpickr().set('minDate', null); // Reset if no date
+            }
         });
     </script>
 @endsection

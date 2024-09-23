@@ -45,18 +45,19 @@
     });
 
     $(document).ready(function() {
-        // Access both date fields
-        let fromDatePicker = $('.from_date').flatpickr();
         let toDatePicker = $('.to_date').flatpickr();
-
-        // Listen to changes on the from_date field
-        $('.from_date').on('change', function() {
-            // Get the selected 'from_date' value
-            let fromDate = $(this).val();
-
-            // Update the minDate of the to_date field based on the selected 'from_date'
-            toDatePicker.set('minDate', fromDate);
+        // Initialize Flatpickr for both date fields and keep references
+        flatpickr('.from_date', {
+            onChange: function(selectedDates, dateStr) {
+                // Update the minDate of the to_date field based on the selected 'from_date'
+                if (selectedDates.length > 0) {
+                    toDatePicker.set('minDate', dateStr);
+                } else {
+                    toDatePicker.set('minDate', null); // Reset minDate if no date selected
+                }
+            }
         });
+
     });
 
 </script>
