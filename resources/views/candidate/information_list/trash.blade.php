@@ -31,9 +31,9 @@
                                     <thead class="table-light">
                                     <tr>
                                         <th>S.N</th>
-                                        <th>Name</th>
+                                        <th>Agency</th>
+                                        <th>FullName</th>
                                         <th>Email</th>
-                                        <th>Contact</th>
                                         <th class="text-right">Action</th>
                                     </tr>
                                     </thead>
@@ -41,9 +41,9 @@
                                     @foreach($data['users'] as $row)
                                        <tr>
                                            <td>{{ $loop->iteration }}</td>
-                                           <td>{{ $row->name ?? ''}} </td>
+                                           <td>{{ $row->authorizedAgency->title ?? ''}} </td>
+                                           <td>{{ $row->fullname ?? ''}} </td>
                                            <td>{{ $row->email ?? ''}}</td>
-                                           <td>{{ $row->contact ?? ''}}</td>
                                            <td>
                                                @include($module.'includes.trash_action')
                                            </td>
