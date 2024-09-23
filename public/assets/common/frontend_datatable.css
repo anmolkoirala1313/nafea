@@ -5,12 +5,12 @@
 }
 
 .table thead {
-    background-color: #59bdb2;
+    background-color: #16532c;
     color: white;
 }
 
 .table>:not(:first-child) {
-    border-top: 2px solid #59bdb2;
+    border-top: 2px solid #16532c;
 }
 
 .table tbody, .table.dataTable > tbody{
@@ -54,7 +54,7 @@ table.dataTable tbody tr{
     display: inline-block;
     margin: 5px 0 5px 0px;
     font-family: "Outfit", sans-serif;
-    border: 1px solid #59bdb2;
+    border: 1px solid #16532c;
     display: block;
     height: 40px;
     width: 40px;
@@ -89,10 +89,10 @@ table.dataTable tbody tr{
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
-    background: #59bdb2;
+    background: #16532c;
     color: #fff;
     border-color: #E6E6E6;
-    border: 1px solid #59bdb2;
+    border: 1px solid #16532c;
     color: #FFF!important;
 }
 
@@ -101,13 +101,13 @@ table.dataTable tbody tr{
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover{
-    background: #59bdb2;
+    background: #16532c;
     color: #fff;
-    border-color: #59bdb2;
+    border-color: #16532c;
 }
 
 .modal-header{
-    background: #59bdb2;
+    background: #16532c;
 }
 .modal-header h5{
     color: #fff;

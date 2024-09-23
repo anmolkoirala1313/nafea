@@ -9848,7 +9848,7 @@ h6 {
   position: relative;
 }
 .testimonial__two-item-inner-client {
-  max-width: 1050px;
+  max-width: 910px;
 }
 .testimonial__two-item-inner-client p {
   margin: 4px 0 25px 0;
@@ -9872,9 +9872,9 @@ h6 {
   padding: 6px;
 }
 .testimonial__two-item-inner-avatar img {
-  width: 100px;
-  height: 100px;
-  max-width: 100px;
+    width: 350px;
+    height: 250px;
+    max-width: 250px;
   display: block;
   -o-object-fit: cover;
      object-fit: cover;

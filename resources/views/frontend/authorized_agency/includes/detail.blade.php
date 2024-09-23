@@ -1,5 +1,17 @@
 <div class="row p-4 modal-details">
-    <div class="properitors-data mb-2">
+    <div class="news-one__img-box">
+        @if ($data['agency']->image)
+            <div class="news-one__img" style="display: flex; justify-content: center; align-items: center;">
+                <img src="{{ asset(imagePath($data['agency']->image)) }}" style="width: 30%;" alt="">
+            </div>
+        @endif
+        @if ($data['agency']->image)
+            <div class="custom-description text-align-justify mt-3">
+                {!! $data['agency']->description ?? ''  !!}
+            </div>
+        @endif
+    </div>
+    <div class="properitors-data mb-2 mt-4">
         <span class="subtitle-four">Proprietors</span>
         <table class="table">
             <thead class="thead-light">
