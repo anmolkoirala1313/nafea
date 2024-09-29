@@ -147,3 +147,11 @@ select:disabled {
     cursor: not-allowed; /* Optional: Change cursor */
 }
 
+a.disable-button, button:disabled{
+    pointer-events: none;
+    opacity: .65;
+    cursor: not-allowed;
+    color: grey!important;
+    border-color: grey!important;
+    text-decoration: none;
+}

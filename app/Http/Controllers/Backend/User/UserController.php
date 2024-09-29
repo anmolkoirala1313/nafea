@@ -65,7 +65,7 @@ class UserController extends BackendBaseController
             $fullname   = $request['first_name'] .' '. $middleName . $request['last_name'];
             $request->request->add(['name' => $fullname ]);
             if($request->has('user_type') && $request['user_type'] == 'general') {
-                $request->request->add(['is_candidate', true]);
+                $request->request->add(['is_candidate' => 1 ]);
             }
             if($request->hasFile('image_input')){
                 $image_name = $this->uploadImage($request->file('image_input'),'200','200');
@@ -103,12 +103,17 @@ class UserController extends BackendBaseController
 
         DB::beginTransaction();
         try {
-            if($request->has('password_input')) {
-                $request->request->add(['password', bcrypt($request['password_input'])]);
+
+            if($request->has('password_input') && $request['password_input']) {
+                $request->request->add(['password' => bcrypt($request['password_input']) ]);
             }
+
             if($request->has('user_type') && $request['user_type'] == 'general') {
-                $request->request->add(['is_candidate', true]);
+                $request->request->add(['is_candidate' => 1 ]);
+            }else{
+                $request->request->add(['is_candidate' => 0 ]);
             }
+
             if($request->hasFile('image_input')){
                 $image_name = $this->uploadImage($request->file('image_input'),'200','200');
                 $request->request->add(['image'=>$image_name]);

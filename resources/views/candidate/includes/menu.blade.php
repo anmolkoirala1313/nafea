@@ -15,8 +15,20 @@
                 <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Components</span></li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link " href="{{ route('candidate.information_list.index') }}">
+                    <a class="nav-link menu-link {{request()->route()->getName() == 'candidate.information_list.index' ? 'active':''}}" href="{{ route('candidate.information_list.index') }}">
                         <i class="ri-user-2-line"></i> <span data-key="t-widgets">Candidate Information</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{request()->route()->getName() == 'candidate.authorized_agency.proprietor.index' ? 'active':''}}" href="{{ route('candidate.authorized_agency.proprietor.index') }}">
+                        <i class="ri-briefcase-5-line"></i> <span data-key="t-widgets">Proprietor</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{request()->route()->getName() == 'candidate.authorized_agency.labor_representative.index' ? 'active':''}}" href="{{ route('candidate.authorized_agency.labor_representative.index') }}">
+                        <i class="ri-file-list-3-line"></i> <span data-key="t-widgets">Labor Representative</span>
                     </a>
                 </li>
 

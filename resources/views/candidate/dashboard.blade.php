@@ -125,8 +125,91 @@
                             </div>
                         </div><!-- end card body -->
                     </div><!-- end card -->
-                </div><!-- end col -->
+                </div>
             </div>
+
+            <div class="row">
+                <div class="card">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs-custom card-header-tabs border-bottom-0" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-bs-toggle="tab" href="#general-info" role="tab" aria-selected="true">
+                                    {{auth()->user()->authorizedAgency->title ?? ''}} 's Agency Information
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- end card header -->
+                    <div class="card-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="general-info" role="tabpanel">
+                                <div class="table-responsive">
+                                    <table class="table mb-0">
+                                        <tbody>
+                                        <tr>
+                                            <th scope="row">Permission Number</th>
+                                            <td>{{ $data['current_agency']->permission_number ?? ''}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Title</th>
+                                            <td>{{ $data['current_agency']->title ?? '' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Description</th>
+                                            <td>{{ $data['current_agency']->description ?? '' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Address</th>
+                                            <td>{{ $data['current_agency']->address ?? '' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Contact Number</th>
+                                            <td>{{ $data['current_agency']->contact_number ?? '' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Email</th>
+                                            <td>{{ $data['current_agency']->email ?? '' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Image</th>
+                                            <td>
+                                                @if($data['current_agency'] && $data['current_agency']->image)
+                                                    <div class="col-xxl-4 col-xl-4 col-sm-6">
+                                                        <div class="gallery-box card">
+                                                            <div class="gallery-container">
+                                                                <a class="image-popup" href="{{ asset(imagePath($data['current_agency']->image))}}" title="">
+                                                                    <img class="gallery-img img-fluid mx-auto lazy" data-src="{{ asset(imagePath($data['current_agency']->image))}}" alt="" />
+                                                                    <div class="gallery-overlay">
+                                                                        <h5 class="overlay-caption">Image</h5>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Status</th>
+                                            <td>
+                                                @include($module.'includes.status_display',['status'=>$data['current_agency']->status])
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Created By</th>
+                                            <td>{{ $data['current_agency']->createdBy->name ?? '' }}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end tab content -->
+                    </div>
+                    <!-- end card body -->
+                </div>
+            </div>
+
 
         </div>
         <!-- container-fluid -->

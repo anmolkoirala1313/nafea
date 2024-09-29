@@ -34,7 +34,7 @@ class DashboardController extends BackendBaseController
     public function index()
     {
         $data                   = [];
-        $data['all_users']      = User::take(4)->get();
+        $data['current_agency'] = auth()->user()->authorizedAgency;
         $data['your_agency']    = Candidate::active()->where('authorized_agency_id', auth()->user()->authorized_agency_id)->count();
         $data['all_agency']     = Candidate::all()->count();
 

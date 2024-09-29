@@ -8,6 +8,9 @@ use App\Models\Backend\Candidate;
 use App\Services\CandidateService;
 use App\Traits\ControllerOps;
 use Carbon\Carbon;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -177,5 +180,24 @@ class CandidateController extends BackendBaseController
         }
 
         return response()->json(route($this->base_route.'index'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param int $id
+     * @return Application|Factory|\Illuminate\Foundation\Application|View
+     */
+
+    public function show($id)
+    {
+        $this->page_method            = 'show';
+        $this->page_title             = 'Show '.$this->page;
+        $data                         = $this->getData();
+        $data['row']                  = $this->model->with(['authorizedAgency'])->find($id);
+        $data['proprietors']          = $data['row']->authorizedAgency->proprietors;
+        $data['laborRepresentatives'] = $data['row']->authorizedAgency->laborRepresentatives;
+
+        return view($this->loadResource($this->view_path.'show'), compact('data'));
     }
 }

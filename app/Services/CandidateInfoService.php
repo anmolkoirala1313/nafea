@@ -51,8 +51,9 @@ class CandidateInfoService {
                 $params = [
                     'id'            => $item->id,
                     'base_route'    => $this->base_route,
+                    'authorized_agency_id' => $item->authorized_agency_id,
                 ];
-                return view($this->module.'.includes.dataTable_action', compact('params'));
+                return view($this->view_path.'.includes.dataTable_action', compact('params'));
 
             })
             ->filterColumn('agency', function($query, $keyword) {

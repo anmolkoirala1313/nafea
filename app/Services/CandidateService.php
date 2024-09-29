@@ -52,7 +52,7 @@ class CandidateService {
                     'id'            => $item->id,
                     'base_route'    => $this->base_route,
                 ];
-                return view($this->module.'.includes.dataTable_action', compact('params'));
+                return view($this->view_path.'.includes.dataTable_action', compact('params'));
 
             })
             ->filterColumn('agency', function($query, $keyword) {

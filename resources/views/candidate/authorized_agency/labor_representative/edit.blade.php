@@ -1,8 +1,8 @@
-@extends('candidate.layouts.master')
+@extends('backend.layouts.master')
 @section('title', $page_title)
 @section('css')
     <link rel="stylesheet" href="{{asset('assets/backend/libs/glightbox/css/glightbox.min.css')}}" />
-    <link href="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
+
 @endsection
 @section('content')
     <div class="page-content">
@@ -30,21 +30,10 @@
 @endsection
 
 @section('js')
-
     <script src="{{asset('assets/backend/js/pages/form-validation.init.js')}}"></script>
+    <script src="{{asset('assets/backend/plugins/ckeditor/ckeditor.js')}}"></script>
     <script src="{{asset('assets/common/general.js')}}"></script>
     @include($module.'includes/gallery')
     @include($module.'includes.toast_message')
-    @include($view_path.'includes.script')
-    <script>
 
-        let INCOMING_IS_CANDIDATE  = '{{ $data['row']->is_candidate }}';
-        let INCOMING_MARTIAL_STATUS    = '{{ $data['row']->martial_status }}';
-
-        if (INCOMING_MARTIAL_STATUS == 1){
-            $(MARRIAGE_SECTION).removeClass('d-none');
-        }else{
-            $(MARRIAGE_SECTION).addClass('d-none');
-        }
-    </script>
 @endsection

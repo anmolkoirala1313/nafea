@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Candidate\Agency\LaborRepresentativeController;
+use App\Http\Controllers\Candidate\Agency\ProprietorController;
 use App\Http\Controllers\Candidate\CandidateInfoController;
 use App\Http\Controllers\Candidate\DashboardController;
 use App\Http\Controllers\Candidate\Login\LoginController;
@@ -29,3 +31,18 @@ Route::post('/information-list/trash/{id}/restore', [CandidateInfoController::cl
 Route::delete('/information-list/trash/{id}/remove', [CandidateInfoController::class,'removeTrash'])->name('information_list.remove-trash');
 Route::resource('information-list', CandidateInfoController::class)->names('information_list')->middleware(['auth']);
 
+Route::prefix('authorized-agency/')->name('authorized_agency.')->middleware(['auth'])->group(function () {
+    //proprietor
+    Route::get('/proprietor/trash', [ProprietorController::class,'trash'])->name('proprietor.trash');
+    Route::post('/proprietor/trash/{id}/restore', [ProprietorController::class,'restore'])->name('proprietor.restore');
+    Route::delete('/proprietor/trash/{id}/remove', [ProprietorController::class,'removeTrash'])->name('proprietor.remove-trash');
+    Route::resource('proprietor', ProprietorController::class)->names('proprietor');
+
+    //labor representative
+    Route::get('/labor-representative/trash', [LaborRepresentativeController::class,'trash'])->name('labor_representative.trash');
+    Route::post('/labor-representative/trash/{id}/restore', [LaborRepresentativeController::class,'restore'])->name('labor_representative.restore');
+    Route::delete('/labor-representative/trash/{id}/remove', [LaborRepresentativeController::class,'removeTrash'])->name('labor_representative.remove-trash');
+    Route::resource('labor-representative', LaborRepresentativeController::class)->names('labor_representative');
+
+
+});

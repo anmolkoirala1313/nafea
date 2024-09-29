@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Candidate;
 
 use App\Http\Controllers\Controller;
 use App\Traits\ImageUpload;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 
 class BackendBaseController extends Controller
@@ -46,6 +47,15 @@ class BackendBaseController extends Controller
             }
         });
         return $path;
+    }
+
+    protected function checkAuthorizedAgency($authorized_agency_id){
+        $return_boolean = false;
+        if ($authorized_agency_id != auth()->user()->authorized_agency_id){
+            Session::flash('error','Cannot edit information related to other agency.');
+            $return_boolean = true;
+        }
+        return $return_boolean;
     }
 
 

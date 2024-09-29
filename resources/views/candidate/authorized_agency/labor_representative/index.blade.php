@@ -15,14 +15,13 @@
     <div class="page-content">
         <div class="container-fluid">
             @include($module.'includes.breadcrumb')
-            @include($view_path.'includes.filter')
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
                             <div class="row g-4">
                                 <div class="col-sm-auto">
-                                    <h4 class="card-title mb-0">{{ $page_title }}</h4>
+                                    <h4 class="card-title mb-0">Labor Representative List</h4>
                                 </div>
                                 <div class="col-sm">
                                     <div class="d-flex justify-content-sm-end gap-2">
@@ -38,19 +37,34 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive  mt-3 mb-1">
-                                <table id="dataTable" class="table align-middle table-nowrap table-striped">
+                                <table id="NormalDataTable2" class="table align-middle table-nowrap table-striped">
                                     <thead class="table-light">
                                     <tr>
                                         <th>S.N</th>
-                                        <th>Authorized Agency</th>
-                                        <th>Full Name</th>
-                                        <th>Passport No.</th>
-                                        {{--                                        <th>Address</th>--}}
+                                        <th>Agency</th>
+                                        <th>Title</th>
+                                        <th>Office Number</th>
+                                        <th>Address</th>
                                         <th>Status</th>
                                         <th class="text-right">Action</th>
                                     </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="sortable_rows">
+                                    @foreach($data['row'] as $row)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $row->authorizedAgency->title ?? '' }}</td>
+                                            <td>{{ $row->title }}</td>
+                                            <td>{{ $row->office_number ?? '' }}</td>
+                                            <td>{{ $row->address ?? '' }}</td>
+                                            <td>
+                                                @include($module.'includes.status_display',['status'=>$row->status])
+                                            </td>
+                                            <td>
+                                                @include($module.'includes.dataTable_action',['params'=>['id'=>$row->id,'base_route'=>$base_route,'authorized_agency_id'=>$row->authorized_agency_id]])
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -69,61 +83,4 @@
     <script src="{{asset('assets/backend/libs/sweetalert2/sweetalert2.min.js')}}"></script>
     <script src="{{asset('assets/common/general.js')}}"></script>
     @include($module.'includes.toast_message')
-    @include($module.'includes.filter_dates')
-    @include($view_path.'includes.script')
-
-    <script type="text/javascript">
-        let dataTables = $('#dataTable').DataTable({
-            processing:true,
-            serverSide: true,
-            searching: true,
-            stateSave: true,
-            order:[[1,'asc']],
-            aaSorting: [],
-            ajax: {
-                "url": '{{ route($base_route.'data') }}',
-                "type": 'POST',
-                'data': function (d) {
-                    d._token         = '{{csrf_token()}}';
-                    d.filter_period   = $('#filter_period').val();
-                    d.from_date      = $('.from_date').val();
-                    d.to_date        = $('.to_date').val();
-                    d.authorized_agency_id = $('#agency_id').val();
-                    d.passport_number = $('#passport_num').val();
-                }
-            },
-            columns :[
-                {data:'DT_RowIndex', name: 'DT_RowIndex', searchable:false, orderable: false},
-                {data:'agency', name: 'agency', searchable:true, orderable: false},
-                {data:'fullname', name: 'fullname', orderable: true},
-                {data:'passport_number', name: 'passport_number', searchable:true, orderable: false},
-                {data:'status', name: 'status', searchable:false, orderable: false},
-                {data:'action', name: 'action', searchable:false, orderable: false},
-            ]
-        });
-
-        $(document).on('click', '#filter_data', function(){
-            dataTables.draw();
-        });
-
-        $(document).on('click', '#reset_data', function(){
-            // Clear text fields
-            $('#passport_num').val('');
-            $('.from_date').flatpickr().clear();
-            $('.to_date').flatpickr().clear();
-            $('#filter_period').val(null).trigger('change');
-            $('#agency_id').val(null).trigger('change');
-            dataTables.draw();
-        });
-
-        // Re-bind the change event (if necessary)
-        $('.from_date').on('change', function() {
-            let fromDate = $(this).val();
-            if (fromDate) {
-                $('.to_date').flatpickr().set('minDate', fromDate);
-            } else {
-                $('.to_date').flatpickr().set('minDate', null); // Reset if no date
-            }
-        });
-    </script>
 @endsection
