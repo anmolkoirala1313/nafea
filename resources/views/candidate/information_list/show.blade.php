@@ -35,7 +35,12 @@
                 <div class="card-header">
                     <ul class="nav nav-tabs-custom card-header-tabs border-bottom-0" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" data-bs-toggle="tab" href="#general-info" role="tab" aria-selected="true">
+                            <a class="nav-link active" data-bs-toggle="tab" href="#candidate-info" role="tab" aria-selected="true">
+                                Candidate Info
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="tab" href="#general-info" role="tab" aria-selected="true">
                                 Agency Info
                             </a>
                         </li>
@@ -54,7 +59,159 @@
                 <!-- end card header -->
                 <div class="card-body">
                     <div class="tab-content">
-                        <div class="tab-pane active" id="general-info" role="tabpanel">
+                        <div class="tab-pane active" id="candidate-info" role="tabpanel">
+                            <div class="table-responsive">
+                                <table class="table mb-0">
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">Candidate Name</th>
+                                        <td>{{ $data['row']->fullname ?? ''}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Email</th>
+                                        <td>{{ $data['row']->email ?? '' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Passport number</th>
+                                        <td>{{ $data['row']->passport_number ?? '' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Passport issued date</th>
+                                        <td>{{ $data['row']->passport_issue_date ?? '' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Passport expiry date</th>
+                                        <td>{{ $data['row']->passport_expiry_date ?? '' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Issued Place</th>
+                                        <td>{{ $data['row']->issue_place ?? '' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">State</th>
+                                        <td>{{ $data['row']->state ?? '' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">District</th>
+                                        <td>{{ $data['row']->district ?? '' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Address</th>
+                                        <td>{{ $data['row']->address ?? '' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Contact</th>
+                                        <td>{{ $data['row']->contact ?? '' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Father Name</th>
+                                        <td>{{ $data['row']->father_name ?? '' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Mother Name</th>
+                                        <td>{{ $data['row']->mother_name ?? '' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Martial Status</th>
+                                        <td>{{ $data['row']->martial_status ? 'Married':'Unmarried' }}</td>
+                                    </tr>
+                                    @if ($data['row']->martial_status)
+                                        <tr>
+                                            <th scope="row">Wife Name</th>
+                                            <td>{{ $data['row']->wife_name ?? '' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Wife Name</th>
+                                            <td>{{ $data['row']->children_name ?? '' }}</td>
+                                        </tr>
+                                    @endif
+                                    <tr>
+                                        <th scope="row">Applied for</th>
+                                        <td>{{ $data['row']->applied_for ?? '' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Applied country</th>
+                                        <td>{{ $data['row']->getCountryName($data['row']->applied_country) ?? '' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Photo</th>
+                                        <td>
+                                            @if($data['row']->photo)
+                                                <div class="col-xxl-4 col-xl-4 col-sm-6">
+                                                    <div class="gallery-box card">
+                                                        <div class="gallery-container">
+                                                            <a class="image-popup" href="{{ asset(imagePath($data['row']->photo))}}" title="">
+                                                                <img class="gallery-img img-fluid mx-auto lazy" data-src="{{ asset(imagePath($data['row']->photo))}}" alt="" />
+                                                                <div class="gallery-overlay">
+                                                                    <h5 class="overlay-caption">Image</h5>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Passport Photo</th>
+                                        <td>
+                                            @if($data['row']->passport_photo)
+                                                <div class="col-xxl-4 col-xl-4 col-sm-6">
+                                                    <div class="gallery-box card">
+                                                        <div class="gallery-container">
+                                                            <a class="image-popup" href="{{ asset(imagePath($data['row']->passport_photo))}}" title="">
+                                                                <img class="gallery-img img-fluid mx-auto lazy" data-src="{{ asset(imagePath($data['row']->passport_photo))}}" alt="" />
+                                                                <div class="gallery-overlay">
+                                                                    <h5 class="overlay-caption">Image</h5>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Passport Photo</th>
+                                        <td>
+                                            @if($data['row']->case_file && $data['row']->case_file_type == 'image')
+                                                <div class="col-xxl-4 col-xl-4 col-sm-6">
+                                                    <div class="gallery-box card">
+                                                        <div class="gallery-container">
+                                                            <a class="image-popup" href="{{ asset(imagePath($data['row']->case_file))}}" title="">
+                                                                <img class="gallery-img img-fluid mx-auto lazy" data-src="{{ asset(imagePath($data['row']->case_file))}}" alt="" />
+                                                                <div class="gallery-overlay">
+                                                                    <h5 class="overlay-caption">Passport File</h5>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @elseif ($data['row']->case_file && $data['row']->case_file_type == 'file')
+                                                <div class="d-flex gap-2 mt-1">
+                                                    <a href="{{ asset(filePath($data['row']->case_file))}}" target="_blank" title="Download Case File"
+                                                       class="btn btn-outline-info waves-effect waves-light" download>
+                                                        <i class="ri-download-cloud-2-line align-bottom me-1"></i>
+                                                    </a>
+                                                </div>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Grievance Message</th>
+                                        <td>{{ $data['row']->grievance ?? '' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Status</th>
+                                        <td>
+                                            @include($module.'includes.status_display',['status'=>$data['row']->authorizedAgency->status])
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="general-info" role="tabpanel">
                             <div class="table-responsive">
                                 <table class="table mb-0">
                                     <tbody>
@@ -106,10 +263,6 @@
                                         <td>
                                             @include($module.'includes.status_display',['status'=>$data['row']->authorizedAgency->status])
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Created By</th>
-                                        <td>{{ $data['row']->authorizedAgency->createdBy->name ?? '' }}</td>
                                     </tr>
                                     </tbody>
                                 </table>
