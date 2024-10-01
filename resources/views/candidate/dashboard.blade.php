@@ -156,6 +156,14 @@
                                             <td>{{ $data['current_agency']->address ?? '' }}</td>
                                         </tr>
                                         <tr>
+                                            <th scope="row">Website</th>
+                                            <td>{{ $data['current_agency']->website ?? '' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Membership number</th>
+                                            <td>{{ $data['current_agency']->membership_number ?? '' }}</td>
+                                        </tr>
+                                        <tr>
                                             <th scope="row">Contact Number</th>
                                             <td>{{ $data['current_agency']->contact_number ?? '' }}</td>
                                         </tr>

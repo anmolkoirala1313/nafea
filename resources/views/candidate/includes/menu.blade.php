@@ -15,6 +15,12 @@
                 <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-components">Components</span></li>
 
                 <li class="nav-item">
+                    <a class="nav-link menu-link {{request()->route()->getName() == 'candidate.authorized_agency.index' ? 'active':''}}" href="{{ route('candidate.authorized_agency.index') }}">
+                        <i class="ri-briefcase-5-line"></i> <span data-key="t-widgets">Agency Detail</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link menu-link {{request()->route()->getName() == 'candidate.information_list.index' ? 'active':''}}" href="{{ route('candidate.information_list.index') }}">
                         <i class="ri-user-2-line"></i> <span data-key="t-widgets">Candidate Information</span>
                     </a>

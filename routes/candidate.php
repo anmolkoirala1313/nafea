@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Candidate\Agency\AuthorizedAgencyController;
 use App\Http\Controllers\Candidate\Agency\LaborRepresentativeController;
 use App\Http\Controllers\Candidate\Agency\ProprietorController;
 use App\Http\Controllers\Candidate\CandidateInfoController;
@@ -30,6 +31,9 @@ Route::get('/information-list/trash', [CandidateInfoController::class,'trash'])-
 Route::post('/information-list/trash/{id}/restore', [CandidateInfoController::class,'restore'])->name('information_list.restore');
 Route::delete('/information-list/trash/{id}/remove', [CandidateInfoController::class,'removeTrash'])->name('information_list.remove-trash');
 Route::resource('information-list', CandidateInfoController::class)->names('information_list')->middleware(['auth']);
+
+Route::get('/authorized-agency/index', [AuthorizedAgencyController::class,'index'])->name('authorized_agency.index');
+Route::put('/authorized-agency/{id}/update/', [AuthorizedAgencyController::class,'update'])->name('authorized_agency.update');
 
 Route::prefix('authorized-agency/')->name('authorized_agency.')->middleware(['auth'])->group(function () {
     //proprietor
