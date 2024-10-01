@@ -6,6 +6,7 @@ use App\Traits\Slug;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use CountryState;
 
 class Candidate extends BackendBaseModel
 {
@@ -18,5 +19,16 @@ class Candidate extends BackendBaseModel
 
     public function authorizedAgency(){
        return $this->belongsTo(AuthorizedAgency::class);
+    }
+
+    public function getCountryName($country_key){
+        $countries = CountryState::getCountries();
+        $val = null;
+        foreach ($countries as $key=>$value){
+            if($country_key == $key){
+                $val = $value;
+            }
+        }
+        return $val;
     }
 }

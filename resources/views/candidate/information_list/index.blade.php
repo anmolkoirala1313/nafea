@@ -45,8 +45,8 @@
                                         <th>Authorized Agency</th>
                                         <th>Full Name</th>
                                         <th>Passport No.</th>
-                                        {{--                                        <th>Address</th>--}}
-                                        <th>Status</th>
+                                         <th>Applied for</th>
+                                        <th>Applied Country</th>
                                         <th class="text-right">Action</th>
                                     </tr>
                                     </thead>
@@ -97,7 +97,9 @@
                 {data:'agency', name: 'agency', searchable:true, orderable: false},
                 {data:'fullname', name: 'fullname', orderable: true},
                 {data:'passport_number', name: 'passport_number', searchable:true, orderable: false},
-                {data:'status', name: 'status', searchable:false, orderable: false},
+                {data:'applied_for', name: 'applied_for', searchable:true, orderable: false},
+                {data:'applied_country', name: 'applied_country', searchable:true, orderable: false},
+                // {data:'status', name: 'status', searchable:false, orderable: false},
                 {data:'action', name: 'action', searchable:false, orderable: false},
             ]
         });

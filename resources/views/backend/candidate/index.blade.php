@@ -45,27 +45,12 @@
                                         <th>Authorized Agency</th>
                                         <th>Full Name</th>
                                         <th>Passport No.</th>
-{{--                                        <th>Address</th>--}}
-                                        <th>Status</th>
+                                        <th>Applied for</th>
+                                        <th>Applied Country</th>
                                         <th class="text-right">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-{{--                                    @foreach($data['row'] as $row)--}}
-{{--                                        <tr>--}}
-{{--                                            <td>{{ $loop->iteration }}</td>--}}
-{{--                                            <td>{{ $row->authorizedAgency->title ?? ''}} </td>--}}
-{{--                                            <td>{{ $row->fullname ?? ''}} </td>--}}
-{{--                                            <td>{{ $row->passport_number}} </td>--}}
-{{--                                            <td>{{ $row->address }} </td>--}}
-{{--                                            <td>--}}
-{{--                                                @include($module.'includes.status_display',['status'=>$row->status])--}}
-{{--                                            </td>--}}
-{{--                                            <td>--}}
-{{--                                                @include($module.'includes.dataTable_action',['params'=>['id'=>$row->id,'base_route'=>$base_route]])--}}
-{{--                                            </td>--}}
-{{--                                        </tr>--}}
-{{--                                    @endforeach--}}
                                     </tbody>
                                 </table>
                             </div>
@@ -113,10 +98,13 @@
                 {data:'agency', name: 'agency', searchable:true, orderable: false},
                 {data:'fullname', name: 'fullname', orderable: true},
                 {data:'passport_number', name: 'passport_number', searchable:true, orderable: false},
-                {data:'status', name: 'status', searchable:false, orderable: false},
+                {data:'applied_for', name: 'applied_for', searchable:true, orderable: false},
+                {data:'applied_country', name: 'applied_country', searchable:true, orderable: false},
+                // {data:'status', name: 'status', searchable:false, orderable: false},
                 {data:'action', name: 'action', searchable:false, orderable: false},
             ]
         });
+
 
         $(document).on('click', '#filter_data', function(){
             dataTables.draw();

@@ -40,9 +40,13 @@ class CandidateService {
                 }
                 $this->FilterTableData($query,'candidates');
             })
-            ->editColumn('status',function ($item){
-                $status = $item->status;
-                return view($this->module.'includes.status_display', compact('status'));
+//            ->editColumn('status',function ($item){
+//                $status = $item->status;
+//                return view($this->module.'includes.status_display', compact('status'));
+//            })
+            ->editColumn('applied_country',function ($item){
+                $country = $this->model->getCountryName($item->applied_country);
+                return $country;
             })
             ->editColumn('agency',function ($item){
                 return $item->authorizedAgency->title;
@@ -51,6 +55,7 @@ class CandidateService {
                 $params = [
                     'id'            => $item->id,
                     'base_route'    => $this->base_route,
+                    'authorized_agency_id' => $item->authorized_agency_id,
                 ];
                 return view($this->view_path.'.includes.dataTable_action', compact('params'));
 
@@ -60,7 +65,7 @@ class CandidateService {
                     $section->where('title', 'like', "%" . $keyword . "%");
                 });
             })
-            ->rawColumns(['action','status'])
+            ->rawColumns(['applied_country','action'])
             ->addIndexColumn()
             ->make(true);
     }
