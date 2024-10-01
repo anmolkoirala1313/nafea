@@ -37,7 +37,7 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive  mt-3 mb-1">
-                                <table id="NormalDataTable2" class="table align-middle table-nowrap table-striped">
+                                <table id="NormalDataTable" class="table align-middle table-nowrap table-striped">
                                     <thead class="table-light">
                                     <tr>
                                         <th>S.N</th>

@@ -34,6 +34,16 @@ class LaborRepresentativeController extends BackendBaseController
         $this->model            = new LaborRepresentative();
     }
 
+    public function index()
+    {
+        $this->page_method = 'index';
+        $this->page_title  = 'List '.$this->page;
+        $data              = $this->getData();
+        $data['row']       = $this->model->where('authorized_agency_id', auth()->user()->authorized_agency_id)->descending()->get();
+
+        return view($this->loadResource($this->view_path.'index'), compact('data'));
+    }
+
     public function getData(): array
     {
         $data['agencies'] = AuthorizedAgency::active()->descending()->pluck('title','id');

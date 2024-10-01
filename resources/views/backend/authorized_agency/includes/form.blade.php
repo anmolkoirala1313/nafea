@@ -35,7 +35,12 @@
             {!! Form::textarea('description', null,['class'=>'form-control','id'=>'description','placeholder'=>'Enter description']) !!}
         </div>
     </div>
-
+    <div class="col-lg-12">
+        <div class="mb-3">
+            {!! Form::label('website', 'Website', ['class' => 'form-label']) !!}
+            {!! Form::text('website', null,['class'=>'form-control','id'=>'website','placeholder'=>'Enter website']) !!}
+        </div>
+    </div>
     <div class="col-lg-6">
         <div class="mb-3">
             {!! Form::label('contact_number', 'Contact Number', ['class' => 'form-label required']) !!}

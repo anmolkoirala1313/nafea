@@ -1,15 +1,35 @@
 <div class="row p-4 modal-details">
     <div class="news-one__img-box">
         @if ($data['agency']->image)
-            <div class="news-one__img" style="display: flex; justify-content: center; align-items: center;">
+            <div class="news-one__img mb-3" style="display: flex; justify-content: center; align-items: center;">
                 <img src="{{ asset(imagePath($data['agency']->image)) }}" style="width: 30%;" alt="">
             </div>
         @endif
-        @if ($data['agency']->image)
-            <div class="custom-description text-align-justify mt-3">
+            <div class="text-align-justify custom-description">
+                <ol class="mt-0">
+                    @if($data['agency']->title)
+                        <li>Company Name: {{ $data['agency']->title ?? '' }}</li>
+                    @endif
+                    @if($data['agency']->email)
+                        <li>Email: {{ $data['agency']->email ?? '' }}</li>
+                    @endif
+                    @if($data['agency']->contact_number)
+                        <li>Number: {{ $data['agency']->contact_number ?? '' }}</li>
+                    @endif
+                    @if($data['agency']->address)
+                        <li>Location: {{ $data['agency']->address ?? '' }}</li>
+                    @endif
+                    @if($data['agency']->website)
+                        <li>Website: {{ $data['agency']->website ?? '' }}</li>
+                    @endif
+                </ol>
+            </div>
+        @if ($data['agency']->description)
+            <div class="custom-description text-align-justify mt-3 mb-2" style="color: var(--text-heading-color);">
                 {!! $data['agency']->description ?? ''  !!}
             </div>
         @endif
+
     </div>
     <div class="properitors-data mb-2 mt-4">
         <span class="subtitle-four">Proprietors</span>
