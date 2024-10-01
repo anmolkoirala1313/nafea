@@ -16,7 +16,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link menu-link {{request()->route()->getName() == 'candidate.authorized_agency.index' ? 'active':''}}" href="{{ route('candidate.authorized_agency.index') }}">
-                        <i class="ri-briefcase-5-line"></i> <span data-key="t-widgets">Agency Detail</span>
+                        <i class="ri-survey-line"></i> <span data-key="t-widgets">Agency Detail</span>
                     </a>
                 </li>
 

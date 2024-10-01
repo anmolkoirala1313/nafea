@@ -49,7 +49,7 @@
                 <div class="d-flex">
                     <!-- LOGO -->
                     <div class="navbar-brand-box horizontal-logo">
-                        <a href="{{route('candidate.dashboard')}}" class="logo logo-dark">
+                        <a href="/candidate/dashboard" class="logo logo-dark">
                             <span class="logo-sm">
                                 <img src="{{ $setting_data->favicon ?  asset(imagePath($setting_data->favicon)) : ''}}" alt="" height="25">
                             </span>
@@ -58,7 +58,7 @@
                             </span>
                         </a>
 
-                        <a href="{{route('candidate.dashboard')}}" class="logo logo-light">
+                        <a href="/candidate/dashboard" class="logo logo-light">
                             <span class="logo-sm">
                                 <img src="{{ $setting_data->favicon ?  asset(imagePath($setting_data->favicon)) : ''}}" alt="" height="25">
                             </span>
